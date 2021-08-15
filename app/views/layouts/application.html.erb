@@ -20,18 +20,33 @@
     
         <div class="collapse navbar-collapse" id="navbarsExample07">
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">商品一覧</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#"><%= link_to "新規登録", new_member_registration_path %></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#"><%= link_to "ログイン", new_member_session_path %></a>
-            </li>
+            <% if member_signed_in? %>
+              <li class="nav-item">
+                <a class="nav-link">マイページ</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link">商品一覧</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link">カート</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"><%= link_to "ログアウト", destroy_member_session_path, method: :delete %></a>
+              </li>
+            <% else %>
+              <li class="nav-item">
+                <a class="nav-link">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link">商品一覧</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"><%= link_to "新規登録", new_member_registration_path %></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"><%= link_to "ログイン", new_member_session_path %></a>
+              </li>
+            <% end %>
           </ul>
           <form class="form-inline my-2 my-md-0">
             <input class="form-control" type="text" placeholder="検索" aria-label="Search">
@@ -40,7 +55,10 @@
       </div>
      </nav>
     </header>
-    <%= yield %>
+      <main>
+        <p id="notice"><%= notice %></p>
+        <%= yield %>
+      </main>
     
     <footer class="pt-5 pb-5 bg-dark">
      <div class="container"></div>  
