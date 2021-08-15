@@ -7,32 +7,84 @@ ja:
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
-  models:
-    product: 商品
-  attributes:
-    product:
-    id: ID
-    name: 名称
-    description: 詳しい説明
-    image: 画像
-    created_at: 登録日時
-    updated_at: 更新日時
-    member:
-      id: ID
-      name: 名前
-      last_name: （姓）
-      first_name: （名）
-      last_name_kana: (セイ）
-      first_name_kana: （メイ）
-      address: 住所
-      postal_code: 郵便番号（ハイフンなし）
-      phone_number: 電話番号（ハイフンなし）
-      email: メールアドレス
-      is_deleted: 会員ステータス
-      password: パスワード（6文字以上）
-      password_confirmation: パスワード（確認用）
-      created_at: 登録日時
-      updated_at: 更新日時
+    models:
+      product: 商品
+      member: 会員
+      car_item: カート内商品
+      product_category: 注文
+      order: 注文
+      order_item: 注文商品
+      shipping_address: 配送先
+      owner: 管理者
+
+    attributes:
+      product:
+        id: ID
+        product_image: 商品画像
+        title: 商品名
+        opinion: 説明
+        price: 価格
+        sell_status: 販売ステータス
+        created_at: 管理者登録日時
+        updated_at: 管理者更新日時
+      member:
+        id: ID
+        name: 名前
+        last_name: （姓）
+        first_name: （名）
+        last_name_kana: (セイ）
+        first_name_kana: （メイ）
+        address: 住所
+        postal_code: 郵便番号（ハイフンなし）
+        phone_number: 電話番号（ハイフンなし）
+        email: メールアドレス
+        is_deleted: 会員ステータス
+        password: パスワード（6文字以上）
+        password_confirmation: パスワード（確認用）
+        created_at: 会員登録日時
+        updated_at: 会員更新日時
+      car_item:
+        id: ID
+        quantity: 数量
+        created_at: 会員登録日時
+        updated_at: 会員更新日時
+      product_category:
+        id: ID
+        name: ジャンル名
+        created_at: 管理者登録日時
+        updated_at: 管理者更新日時
+      order:
+        id: ID
+        name: 届け先宛名
+        postal_code: 届け先郵便番号
+        address: 届け先住所
+        payment: 支払い方法
+        order_status: 注文ステータス
+        total_price: 商品合計
+        postage: 送料
+        amount: 請求額
+        created_at: 会員登録日時
+        updated_at: 会員更新日時
+      order_item:
+        id: ID
+        quantity: 数量
+        price: 注文時価格(税込)
+        work_status: 制作ステータス
+        created_at: 会員登録日時
+        updated_at: 会員更新日時
+      shipping_address:
+        id: ID
+        name: 宛名
+        postal_code: 郵便番号
+        address: 住所
+        created_at: 会員登録日時
+        updated_at: 会員更新日時
+      owner:
+        id: ID
+        email: メールアドレス
+        password: パスワード
+        created_at: 管理者登録日時
+        updated_at: 管理者更新日時
   date:
     abbr_day_names:
     - 日
@@ -43,7 +95,7 @@ ja:
     - 金
     - 土
     abbr_month_names:
-    - 
+    -
     - 1月
     - 2月
     - 3月
@@ -69,7 +121,7 @@ ja:
       long: "%Y年%m月%d日(%a)"
       short: "%m/%d"
     month_names:
-    - 
+    -
     - 1月
     - 2月
     - 3月
