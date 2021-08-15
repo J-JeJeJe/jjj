@@ -22,5 +22,9 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+<<<<<<< HEAD
+11111
+=======
 11111
 555
+>>>>>>> 348764c6b13627ff3f7af6478df7fcc614f09e6d

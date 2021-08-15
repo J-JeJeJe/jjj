@@ -10,6 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 2021_08_15_072615) do
+
+  create_table "members", force: :cascade do |t|
+=======
 ActiveRecord::Schema.define(version: 2021_08_15_074053) do
 
   create_table "cart_items", force: :cascade do |t|
@@ -45,11 +50,26 @@ ActiveRecord::Schema.define(version: 2021_08_15_074053) do
   end
 
   create_table "owners", force: :cascade do |t|
+>>>>>>> 63ca7e84b8bbbd9aead8e1b607a44bb1ed376d6a
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+<<<<<<< HEAD
+    t.string "last_name", null: false
+    t.string "first_name", null: false
+    t.string "last_name_kana", null: false
+    t.string "first_name_kana", null: false
+    t.string "address", null: false
+    t.string "postal_code", null: false
+    t.string "phone_number", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "is_deleted", default: false, null: false
+    t.index ["email"], name: "index_members_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_members_on_reset_password_token", unique: true
+=======
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_owners_on_email", unique: true
@@ -80,6 +100,7 @@ ActiveRecord::Schema.define(version: 2021_08_15_074053) do
     t.string "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+>>>>>>> 63ca7e84b8bbbd9aead8e1b607a44bb1ed376d6a
   end
 
 end
