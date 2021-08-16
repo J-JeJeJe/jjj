@@ -1,8 +1,15 @@
 Rails.application.routes.draw do
-  
-  devise_for :members
+
+  scope module: 'member' do
+    devise_for :members, controllers: {
+      sessions: 'member/members/sessions',
+      registrations: 'member/members/registrations',
+      passwords: 'member/members/passwords'
+    }
+  end
   devise_for :owners
   root to: 'homes#top'
+
   namespace :member do
 
   end
