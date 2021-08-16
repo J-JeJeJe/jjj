@@ -1,18 +1,15 @@
 Rails.application.routes.draw do
 
-  scope module: 'member' do
-    devise_for :members, controllers: {
+ scope module: :member do
+  devise_for :members, controllers: {
       sessions: 'member/members/sessions',
       registrations: 'member/members/registrations',
-      passwords: 'member/members/passwords'
+      passwords: 'membermembers/passwords'
     }
   end
-  devise_for :owners
   root to: 'homes#top'
 
-  namespace :member do
 
-  end
   namespace :owner do
     get 'shipping/addresses'
   end
