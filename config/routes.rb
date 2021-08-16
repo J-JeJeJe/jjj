@@ -1,14 +1,29 @@
 Rails.application.routes.draw do
-  
-  devise_for :members
+
+  scope module: 'member' do
+    devise_for :members, controllers: {
+      sessions: 'member/members/sessions',
+      registrations: 'member/members/registrations',
+      passwords: 'member/members/passwords'
+    }
+  end
   
   root to: 'homes#top'
+  
+  # member start
   namespace :member do
-
   end
+  # member finish
+  
+  
+  
+  
+  
+  # owners start
+  devise_for :owners
   namespace :owner do
     get 'shipping/addresses'
-    devise_for :owners
   end
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  # owners finish
+ 
 end
