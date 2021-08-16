@@ -7,11 +7,23 @@ Rails.application.routes.draw do
       passwords: 'membermembers/passwords'
     }
   end
+
   root to: 'homes#top'
 
+  # member start
+  namespace :member do
+  end
+  # member finish
 
+
+  # owners start
+  devise_for :owners, controllers: {
+      sessions: 'owner/owners/sessions',
+      passwords: 'owner/owners/passwords'
+    }
   namespace :owner do
     get 'shipping/addresses'
   end
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  # owners finish
+
 end
