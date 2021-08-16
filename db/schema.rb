@@ -55,8 +55,8 @@ ActiveRecord::Schema.define(version: 2021_08_15_074053) do
     t.string "name"
     t.string "postal_code"
     t.string "address"
-    t.string "payment"
-    t.integer "order_status"
+    t.string "payment_method"
+    t.integer "status"
     t.integer "total_price"
     t.integer "postage"
     t.integer "amount"
@@ -84,9 +84,9 @@ ActiveRecord::Schema.define(version: 2021_08_15_074053) do
 
   create_table "products", force: :cascade do |t|
     t.integer "product_category_id"
-    t.integer "product_image_id"
+    t.integer "image_id"
     t.string "title"
-    t.text "opinion"
+    t.text "description"
     t.integer "price"
     t.boolean "sell_status"
     t.datetime "created_at", null: false

@@ -1,0 +1,14 @@
+<h2>商品新規登録</h2>
+<% form_with model: @product, local:true do |f| %>
+  <h4>商品画像</h4>
+  <%= f.attachment_field :image_id %>
+  <h4>商品名</h4>
+  <%= f.text_field :title %>
+  <h4>商品説明</h4>
+  <%= f.text_area :description %>
+  <h4>ジャンル</h4>
+  <%= form.collection_select :product_category_id, @product_category, :id, :name,{ prompt: "--選択してください--" }  %>
+  <h4>税抜価格</h4>
+  <%= f.number_field :price %>
+  <%= f.submit '投稿' %>
+<% end %>
