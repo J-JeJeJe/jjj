@@ -22,7 +22,6 @@ Rails.application.routes.draw do
   # owners start
   devise_for :owners, controllers: {
       sessions: 'owner/owners/sessions',
-      registrations: 'owner/owners/registrations',
       passwords: 'owner/owners/passwords'
     }
   namespace :owner do
