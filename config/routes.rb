@@ -16,9 +16,6 @@ Rails.application.routes.draw do
   # member finish
 
 
-
-
-
   # owners start
   devise_for :owners, controllers: {
       sessions: 'owner/owners/sessions',
