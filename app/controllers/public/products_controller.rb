@@ -4,8 +4,12 @@ class Public::ProductsController < ApplicationController
     @products = Product.all
   end
   
-    private
-    def product_params
-      params.require(:product).permit(:title, :image, :price)
-    end
+  def show
+    @product = Product.find(params[:id])
+  end
+  
+  private
+  def product_params
+    params.require(:product).permit(:title, :image, :price)
+  end
 end
