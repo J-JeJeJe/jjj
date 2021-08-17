@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  devise_for :admins
   devise_for :customers
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   
@@ -12,7 +11,14 @@ Rails.application.routes.draw do
   
   
   # admin-start-
+  devise_for :admin, controllers: {
+      sessions: 'admin/admin/sessions',
+      passwords: 'admin/admin/passwords'
+    }
+    
+    
   namespace :admin do
+    
   end
   # admin-finish
 end
