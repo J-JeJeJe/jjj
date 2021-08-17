@@ -7,7 +7,7 @@ class Admin::ProductsController < ApplicationController
     def create
         @product = Product.new(product_params)
         @product.save
-        redirect_to owner_products_path
+        redirect_to admin_product_path(@product.id)
     end
     
     def index
@@ -16,6 +16,7 @@ class Admin::ProductsController < ApplicationController
     end
     
     def show
+        @product = Product.find(params[:id])
     end
     
     def edit
@@ -31,7 +32,7 @@ class Admin::ProductsController < ApplicationController
     private
     
     def product_params
-        params.require(:product).permit(:image_id, :title, :description, :price, :sell_status, :product_cate)
+        params.require(:product).permit(:image, :title, :description, :price, :sell_status, :product_cate)
     end
     
 end

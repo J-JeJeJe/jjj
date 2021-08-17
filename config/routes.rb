@@ -22,6 +22,7 @@ Rails.application.routes.draw do
 
   # admin-start-
   namespace :admin do
+    
     resources :products
     
   end
