@@ -34,20 +34,20 @@ ActiveRecord::Schema.define(version: 2021_08_16_161020) do
   end
 
   create_table "customers", force: :cascade do |t|
-    t.string "email"
+    t.string "email", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "last_name"
-    t.string "first_name"
-    t.string "last_name_kana"
-    t.string "first_name_kana"
-    t.string "address"
-    t.string "postal_code"
-    t.string "phone_number"
-    t.string "password"
-    t.boolean "is_deleted"
+    t.string "last_name", limit: 15, null: false
+    t.string "first_name", limit: 15, null: false
+    t.string "last_name_kana", limit: 15, null: false
+    t.string "first_name_kana", limit: 15, null: false
+    t.string "address", limit: 100, null: false
+    t.string "postal_code", null: false
+    t.string "phone_number", null: false
+    t.string "password", null: false
+    t.boolean "is_deleted", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_customers_on_email", unique: true
