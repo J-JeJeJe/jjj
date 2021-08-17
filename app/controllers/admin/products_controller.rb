@@ -1,6 +1,4 @@
 class Admin::ProductsController < ApplicationController
-<<<<<<< HEAD
-    class Owner::ProductsController < ApplicationController
     
     def new
         @product = Product.new
@@ -14,6 +12,7 @@ class Admin::ProductsController < ApplicationController
     
     def index
         @products = Product.all
+        @products = Product.page(params[:page]).per(10)
     end
     
     def show
@@ -35,6 +34,4 @@ class Admin::ProductsController < ApplicationController
         params.require(:product).permit(:image_id, :title, :description, :price, :sell_status, :product_cate)
     end
     
-=======
->>>>>>> d48029b19a4ce7bdd9aa779c15a65950f31bf8e0
 end
