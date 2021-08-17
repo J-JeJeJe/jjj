@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    if member_signed_in?
+    if customer_signed_in?
       root_path
     else
       root_path
