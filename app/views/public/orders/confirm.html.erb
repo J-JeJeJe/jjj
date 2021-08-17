@@ -1,0 +1,59 @@
+<h2>注文情報確認</h2>
+<table>
+  <thead>
+    <tr>
+      <th>商品名</th>
+      <th>単価(税込)</th>
+      <th>数量</th>
+      <th>小計</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%# @cart_items.each do |cart_item| %>
+      <tr>
+        <th>
+          <%# attachment_image_tag cart_item.product, :product_image, size: "40x40", format: 'jpeg', fallback: "no_image.jpg" %>
+          <%# cart_item.product_name %>
+        </th>
+        <th>
+          <%# cart_item.product.add_tax.to_s(:delimited) %>
+        </th>
+        <th>
+          <%# cart_item.quantity %>
+        </th>
+        <th>
+          <%# cart_item.sub_total.to_s(:delimited) %>
+        </th>
+      </tr>
+    <%# end %>
+  </tbody>
+</table>
+<table>
+  <tr>
+    <th>送料</th>
+    <th><%#= @order.postage %></th>
+  </tr>
+  <tr>
+    <th>商品合計</th>
+    <th><%#= Cart_item.all.sum(:price) %></th>
+  </tr>
+  <tr>
+    <th>請求金額</th>
+    <th><%#= total_price %></th>
+  </tr>
+</table>
+<h3 class="box-title">支払方法</h3>
+  <% if @order.payment_method == true %>
+    <p>クレジットカード</p>
+  <% elsif @order.payment_method == false %>
+    <p>銀行支払</p>
+  <% end %>
+<h3 class="box-title">お届け先</h3>
+  <%= form_with model: @order, local:true do |f| %>
+		<%= f.hidden_field :menber_id, value: current_customer %>
+		<%= f.hidden_field :name, value: @order.name %>
+		
+
+
+  
+  
