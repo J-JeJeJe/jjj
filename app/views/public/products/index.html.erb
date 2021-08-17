@@ -1,28 +1,62 @@
 <div class="container">
-	 <h1>商品一覧</h1>
-		<div class="card-deck">
-			<div class="row ">
-	
-				<div class="col-sm-3">
-					<div class="card h-100">
-						<%= image_tag 'cake.jpg', :size => '320x240', class:"card-img-top p-2" %>
-						<div class="card-body">
-							<h5 class="card-title">商品名</h5>
-							<h5 class="card-price">2,000,000,000</h5>
-						</div>
-					</div>
+  <div class="card-deck">
+	<div class="row">
+
+		<div class="col-sm-3">
+			<div class="card h-70">
+				<%= image_tag 'chees.jpg', class:"card-img-top img-thumbnail" %>
+				<div class="card-body">
+					<h2 class="card-title">タイトル1</h2>
+					<p class="card-text">ダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキスト</p>
+					<p class="card-text bu"><a href="#">リンクテキスト</a></p>
 				</div>
-				<% @products.each do |product| %>
-				<div class="col-sm-3">
-					<div class="card h-100">
-						z<%= attachment_image_tag product, :image, :size => '320x240', class:"card-img-top p-2" %>
-					</div>
-					<div class="card-body">
-						<h5 class="card-title"><%= product.title %></h5>
-						<h5 class="card-price"><%= product.price %></h5>
-					</div>
-				</div>
-				<% end %>
 			</div>
 		</div>
+
+		<div class="col-sm-3">
+			<div class="card h-70">
+				<%= image_tag 'chees.jpg', class:"card-img-top img-thumbnail" %>
+				<div class="card-body">
+					<h2 class="card-title">タイトル2</h2>
+					<p class="card-text">ダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキスト</p>
+					<p class="card-text bu"><a href="#">リンクテキスト</a></p>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-sm-3">
+			<div class="card h-70">
+				<%= image_tag 'chees.jpg', class:"card-img-top img-thumbnail" %>
+				<div class="card-body">
+					<h2 class="card-title">タイトル3</h2>
+					<p class="card-text">ダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキスト</p>
+					<p class="card-text bu"><a href="#">リンクテキスト</a></p>
+				</div>
+			</div>
+		</div>
+		
+		<div class="col-sm-3">
+			<div class="card h-70">
+				<%= image_tag 'chees.jpg', class:"card-img-top img-thumbnail" %>
+				<div class="card-body">
+					<h2 class="card-title">タイトル3</h2>
+					<p class="card-text">ダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキスト</p>
+					<p class="card-text bu"><a href="#">リンクテキスト</a></p>
+				</div>
+			</div>
+		</div>
+		
+		<div class="col-sm-3">
+			<div class="card h-70">
+				<%= image_tag 'chees.jpg', class:"card-img-top img-thumbnail" %>
+				<div class="card-body">
+					<h2 class="card-title">タイトル3</h2>
+					<p class="card-text">ダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキスト</p>
+					<p class="card-text bu"><a href="#">リンクテキスト</a></p>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
 </div>
