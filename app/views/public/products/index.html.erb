@@ -1,23 +1,19 @@
-<div class="card-list-containar py-5">
-  <% post_images.each do |post_image| %>
-  <div class="card w-50 mx-auto mt-4 shadow-lg">
-    <%= link_to products_path do %>
-      <%= image_tag 'cake.jpg', class:"card-img-top"; %>
-    <% end %>
-    <div class="card-body">
-      <div class="row">
+<div class="container">
+    <div class="row">
+        <!--ジャンル-->
+        <div class="col-2"></div>
+        <!--ジャンル-->
+        
         <div class="col-10">
-          <p class="card-title">
-            <%= link_to(post_image_path(post_image.id), class:"text-dark") do %>
-              <strong><i class="far fa-flag"></i><span> <%= post_image.shop_name %></span></strong>
-            <% end %>
-          </p>
-          <p class="card-text">説明：<%= post_image.caption %></p>
-          <span><i class="fas fa-user"></i> By <%= post_image.user.name %> ｜ </span>
-          <span><%= link_to "#{post_image.post_comments.count} コメント", post_image_path(post_image.id), class:"text-dark" %></span>
+            <div class="card" style="width:15rem;">
+              <%= image_tag 'cake.jpg', class:"card-img-top" %>
+              <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <h6 class="card-subtitle text-muted">Subtitle</h6>
+                 <p class="card-text">A card is a flexible and extensible content container. It includes ...</p>
+                <a href="#" class="card-link">Card link</a>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
-  <% end %>
 </div>
