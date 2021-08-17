@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Product.create(image_id: File.open('./app/assets/images/cake.jpg') , title: 'ショートケーキ', description: '美味しい', price: '20000000')
+Product.create(image_id: File.open('./app/assets/images/cake.jpg') , title: 'チョコケーキ', description: '美味しい', price: '20000000')
+Product.create(image_id: File.open('./app/assets/images/cake.jpg') , title: 'チーズケーキ', description: '美味しい', price: '20000000')
+Product.create(image_id: File.open('./app/assets/images/cake.jpg') , title: 'ケーキ', description: '美味しい', price: '20000000')
+Product.create(image_id: File.open('./app/assets/images/cake.jpg') , title: 'パンケーキ', description: '美味しい', price: '20000000')
