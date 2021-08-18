@@ -26,14 +26,18 @@ class Public::OrdersController < ApplicationController
       @order.postal_code = params[:order][:postal_code]
       @order.address = params[:order][:address]
       @address_status = "2"
+      #バリデーションエラーがある場合
+      if @order.valid? == false
+        @shipping_addresses = ShippingAddress.where(customer_id: current_customer)
+        render :new
+      end
     end
+
   end
 
   def create
     @order = Order.new(order_params)
     @order.save
-    redirect_to thanx_orders_path
-
     #新規配送先の場合配送先を保存する
     if params[:order][:address_status] ==  "2"
       @shipping_address = ShippingAddress.new(shipping_params)
@@ -57,10 +61,11 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
-    @orders =Order.where(customer_id: current_customer)
+    @orders = Order.where(customer_id: current_customer)
   end
 
   def show
+    @order = Order.find(params[:id])
   end
 
   private

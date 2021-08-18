@@ -1,4 +1,4 @@
 <% @orders.each do |order| %>
 <%= order.id %>
-<%= order.name %>
+<%= link_to order.name, order_path(order.id) %>
 <% end %>
