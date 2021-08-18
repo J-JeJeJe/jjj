@@ -20,11 +20,11 @@
       <div class="col-md-3" style="float:left">
         <div class="card mb-3">
         	<%= link_to product_path(product) do %>
-          	<%= attachment_image_tag product, :image %>
+          	<%= attachment_image_tag product, :image, :fill, 400, 400, class:"img-fluid"  %>
           <% end %>
           <div class="card-body">
             <h5 class="card-title"><%= product.title %></h5>
-            <p class="card-text"><%= product.description %></p>
+            <p class="card-text">¥<%= product.price %></p>
           </div>
         </div>
       </div>
