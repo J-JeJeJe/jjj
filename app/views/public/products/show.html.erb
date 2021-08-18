@@ -1,32 +1,35 @@
-<div class="container">
-  <div class="row">
-    <div class="col-2"></div>
-    <div class="card mb-3", style="max-width: 450px;">
-      <div class="row no-gutters">
-        <div class="col-md-3 my-auto">
-          <%= image_tag 'chees.jpg', class:"card-img-top img-thumbnail"%>
-        </div>
-        <div class="col-md-7">
-          <div class="card-body">
-            <h5 class="card-title">チーズケーキ</h5>
-            <p class="card-text">北海道産チーズ使用</p>
-            <h5 class="card-price">20000000円</h5>
-            <a class="btn btn-primary" href="#">個数選択</a>
-            <a class="btn btn-primary" href="#">カート</a>
+<dev calss='container'>
+  <div class='row'>
+    <div class="col-md-3 mx-auto">
+      <div class="card">
+        <article>
+          <div class="card-header">
+            ジャンル
           </div>
-        </div>
+          <ul class="list-group list-group-flush">
+          <li class="list-group-item">ケーキ</li>
+          <li class="list-group-item">焼き菓子</li>
+          <li class="list-group-item">プリン</li>
+        </ul>
+
+      </div>
+    </div>
+    <div class="col-md-8 mx-auto">
+      <div class="card mb-3">
+        <div class="row no-gutters">
+          <div class="col-md-4 my-auto">
+            <%= attachment_image_tag @product, :image,:fill, 300, 300 %>
+          </div>
+          <div class=class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title"><%= @product.title %></h5>
+              <p class="card-text"><%= @product.description %></p>
+              <h5 class="card-price"><%= @product.price %></h5>
+              <a class="btn btn-primary" href="#">Details</a>
+              <a class="btn btn-primary" href="#">Details</a>
+            </div>
+          </div>
       </div>
     </div>
   </div>
 </div>
-
-<div class="col-sm-3">
-			<div class="card h-70">
-				<%= image_tag 'chees.jpg', class:"card-img-top img-thumbnail" %>
-				<div class="card-body">
-					<h2 class="card-title">タイトル3</h2>
-					<p class="card-text">ダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキスト</p>
-					<p class="card-text bu"><a href="#">リンクテキスト</a></p>
-				</div>
-			</div>
-		</div>
