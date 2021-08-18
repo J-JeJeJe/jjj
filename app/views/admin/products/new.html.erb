@@ -9,16 +9,15 @@
   <label for="description">商品説明</label>
   <%= f.text_area :description %></br>
   <label for="product_category_name">ジャンル</label>
-  <%= f.collection_select :product_category_name, ProductCategory.all, :id, :name, prompt: "--選択してください--" %></br>
+  <%= f.collection_select :product_category_, ProductCategory.all, :id, :name, prompt: "--選択してください--" %></br>
   <label for="price">税抜価格</label>
-  <%= f.number_field :price %>円</br>
+  <%= f.text_field :price %>円</br>
   <label for="sell_status">販売ステータス</label>
   
-   <!--%= f.radio_button :sell_status, :'1' %>-->
-   <!--%= f.label :sell_status, "販売中", value: true, {style: "display: inline-block;"} %>-->
-   <!--%= f.radio_button :sell_status, :'2' %>-->
-   <!--%= f.label :sell_status, "販売停止中", value: false, {style: "display: inline-block;"} %>-->
-
+   <%= f.radio_button :sell_status, :true, checked:true %>
+   <span>販売中</span>
+   <%= f.radio_button :sell_status, :false %>
+   <span>販売停止中</span>
   <%= f.submit '新規登録' %>
 <% end %>
 </div>

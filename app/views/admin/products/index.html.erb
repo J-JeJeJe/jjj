@@ -1,8 +1,10 @@
-<!--<div class="mx-auto" style="width: 70%;">-->
+<div class="index">
 <h4>商品一覧</h4>
+<div class="icon">
 <%= link_to new_admin_product_path, class:"text-secondary"  do %>
 　<i class="fas fa-plus"></i>
 <% end %>
+</div>
 
 
  <table class="table">
@@ -29,7 +31,13 @@
           </td>
           <td><%= product.price %></td>
           <td><%= product.product_category.name %></td>
-          <td><%= product.sell_status %></td>
+          <td>
+           <% if product.sell_status == true %>
+            <%= product.sell_status = "販売中" %>
+           <% else %>
+            <%= product.sell_status = "販売停止中" %>
+           <% end %>
+          </td>
          </tr>
      </tbody>
      <% end %>
@@ -37,4 +45,4 @@
 
 
 <%= paginate @products %>
-<!--</div>-->
+</div>
