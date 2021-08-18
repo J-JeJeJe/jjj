@@ -8,7 +8,6 @@ class Public::OrdersController < ApplicationController
   def confirm
     @order = Order.new(order_params)
     @cart_items = CartItem.where(customer_id: current_customer)
-
     #address_statusで場合分け
     #0の時customerの住所
     if params[:order][:address_status] == "0"
@@ -32,7 +31,6 @@ class Public::OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
     @order.save
-    logger.debug @order.errors.inspect
     redirect_to thanx_orders_path
   end
 

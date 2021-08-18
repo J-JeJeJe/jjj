@@ -12,20 +12,16 @@
     <% @cart_items.each do |cart_item| %>
       <tr>
         <th>
-          商品名と画像が出ます。
           <%# attachment_image_tag cart_item.product, :product_image, size: "40x40", format: 'jpeg', fallback: "no_image.jpg" %>
           <%# cart_item.product_name %>
         </th>
         <th>
-          金額
           <%#= cart_item.add_tax_price.to_s(:delimited) %>
         </th>
         <th>
-          商品の数量が出ます
           <%# cart_item.quantity %>
         </th>
         <th>
-          商品の小計が出ます。
           <%#= cart_item.sub_total.to_s(:delimited) %>
         </th>
       </tr>
@@ -39,13 +35,17 @@
   </tr>
   <tr>
     <th>商品合計</th>
-    商品の合計金額が出ます
-    <th><%#= Cart_item.all.sum(:price) %></th>
+    <th>
+      商品の合計金額が出ます
+      <%#= Cart_item.all.sum(:price) %>
+      </th>
   </tr>
   <tr>
     <th>請求金額</th>
-    請求金額が出ます
-    <th><%#= total_price %></th>
+    <th>
+      請求金額が出ます
+      <%#= total_price %>
+    </th>
   </tr>
 </table>
 <h3 class="box-title">支払方法</h3>
@@ -55,7 +55,7 @@
     <p>銀行支払</p>
   <% end %>
 <h3 class="box-title">お届け先</h3>
-  〒<%= @order.postal_code %><%= @order.address %></br>
+  〒<%= @order.postal_code %> <%= @order.address %></br>
   <%= @order.name %>
 
   <%= form_with model: @order, url: orders_path, method: :post, local:true do |f| %>

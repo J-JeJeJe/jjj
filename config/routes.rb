@@ -26,7 +26,7 @@ Rails.application.routes.draw do
       end
     end
     #-order
-
+    resources :products, only:[:index]
   end
   # public-finish-
 
