@@ -28,13 +28,7 @@ Rails.application.routes.draw do
 
 
   namespace :admin do
-<<<<<<< HEAD
-    
     resources :products, only:[:new, :create, :index, :show, :edit, :update]
-    
-=======
-
->>>>>>> 4df9e673739209ad55942fcc23bdda742d393d54
   end
   # admin-finish
   
