@@ -13,7 +13,7 @@
     <h3 class="box-title">お届け先</h3>
     <div class="order-address">
       <div class="current-meaddress">
-        <%= f.radio_button :address, :'0', checked: true %>
+        <%= f.radio_button :address, :"0", checked: true %>
           <span>ご自身の住所</span></br>
           <div class="address-info">
             〒<%= current_customer.postal_code %><%= current_customer.address %></br>

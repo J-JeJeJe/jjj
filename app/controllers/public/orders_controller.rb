@@ -2,12 +2,12 @@ class Public::OrdersController < ApplicationController
 
   def new
     @order = Order.new
-    @shipping_addresses = ShippingAddress.where(member_id: current_customer)
+    @shipping_addresses = ShippingAddress.where(customer_id: current_customer)
   end
 
   def confirm
     @order = Order.new(params[:address])
-    @cart_items = CartItem.where(menber_id: current_customer)
+    @cart_items = CartItem.where(customer_id: current_customer)
     #addressで場合分け
     if @order.address == "0"
       @order.name = current_customer.last_name + current_customer.first_name
@@ -27,7 +27,7 @@ class Public::OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
-    @order.menber_id = current_customer
+    @order.customer_id = current_customer
     @order.save
     redirect_to orders_thanx_path
   end
@@ -48,6 +48,6 @@ class Public::OrdersController < ApplicationController
   end
 
   def shipping_params
-    params.require(:shipping_address).permit(:menber_id, :name, :postal_code, :address)
+    params.require(:shipping_address).permit(:customer_id, :name, :postal_code, :address)
   end
 end
