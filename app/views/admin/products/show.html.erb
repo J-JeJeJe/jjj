@@ -8,11 +8,17 @@
   <p>商品説明</p>
   <p><%= @product.description %></p>
   <p>ジャンル</p>
-  <p><%= @product.product_category.name %></p>
+  <p><%= @product.product_category_id %></p>
   <p>税込価格</br>(税抜き価格)</p>
-  <p><%= @product.add_tax_price.to_s(:delimited) %> (<%=@product.price %>)円</p>
+  <p><%= @product.add_tax_price.to_s(:delimited) %> (<%= @product.price %>)円</p>
   <p>販売ステータス</p>
-  <p><%= @product.sell_status %></p>
+  <p>           
+   <% if @product.sell_status == true %>
+    <%= @product.sell_status = "販売中" %>
+   <% else %>
+    <%= @product.sell_status = "販売停止中" %>
+   <% end %>
+  </p>
   <p>
     <%= link_to "編集する", edit_admin_product_path(@product.id) %>
   </p>
