@@ -1,15 +1,22 @@
 <dev calss='container'>
-  <div class='row'>
+  <div class='row justify-content-center'>
     <div class="col-md-3 mx-auto">
-      <div class="card">
-        <article>
-          <div class="card-header">
+      <div class="list-group">
+          <sapn class="list-group-item active">
             ジャンル
+          </sapn>
+          <div class="list-group-item">
+            <i class="fas fa-birthday-cake"></i>
+             ケーキ
           </div>
-          <ul class="list-group list-group-flush">
-          <li class="list-group-item">ケーキ</li>
-          <li class="list-group-item">焼き菓子</li>
-          <li class="list-group-item">プリン</li>
+          <div class="list-group-item">
+            <i class="fas fa-cookie-bite"></i>
+             焼き菓子
+          </div>
+          <div class="list-group-item">
+            <i class="fas fa-stroopwafel"></i>
+             ワッフル
+          </div>
         </ul>
 
       </div>
@@ -27,7 +34,9 @@
         </div>
       </div>
 
-
+<div class="container">
+    <h1 class="pb-3 mb-4" style="font-family: 'STIX Two Text', serif;">New Arrival</h1>
+</div>
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -41,7 +50,7 @@
 
           <div class="col-md-4" style="float:left">
             <div class="card mb-3">
-              <img src="assets/cake3.jpg" class="card-img-top">
+              <%= image_tag 'cake3.jpg', class: 'card-img-top' %>
               <div class="card-body">
                 <h5 class="card-title">ケーキ</h5>
                 <p class="card-text">詳細</p>
@@ -52,7 +61,7 @@
 
           <div class="col-md-4" style="float:left">
             <div class="card mb-3">
-              <img src="assets/cake3.jpg" class="card-img-top">
+              <%= image_tag 'cake3.jpg', class: 'card-img-top' %>
               <div class="card-body">
                 <h5 class="card-title">ケーキ</h5>
                 <p class="card-text">詳細</p>
@@ -63,7 +72,7 @@
 
           <div class="col-md-4" style="float:left">
             <div class="card mb-3">
-              <img src="assets/cake3.jpg" class="card-img-top">
+              <%= image_tag 'cake3.jpg', class: 'card-img-top' %>
               <div class="card-body">
                 <h5 class="card-title">ケーキ</h5>
                 <p class="card-text">詳細</p>
@@ -78,7 +87,7 @@
 
         <div class="col-md-4" style="float:left">
             <div class="card mb-3">
-              <img src="assets/cake3.jpg" class="card-img-top">
+              <%= image_tag 'cake3.jpg', class: 'card-img-top' %>
               <div class="card-body">
                 <h5 class="card-title">ケーキ</h5>
                 <p class="card-text">詳細</p>
@@ -89,7 +98,7 @@
 
           <div class="col-md-4" style="float:left">
             <div class="card mb-3">
-              <img src="assets/cake3.jpg" class="card-img-top">
+              <%= image_tag 'cake3.jpg', class: 'card-img-top' %>
               <div class="card-body">
                 <h5 class="card-title">ケーキ</h5>
                 <p class="card-text">詳細</p>
@@ -100,7 +109,7 @@
 
           <div class="col-md-4" style="float:left">
             <div class="card mb-3">
-              <img src="assets/cake3.jpg" class="card-img-top">
+              <%= image_tag 'cake3.jpg', class: 'card-img-top' %>
               <div class="card-body">
                 <h5 class="card-title">ケーキ</h5>
                 <p class="card-text">詳細</p>
