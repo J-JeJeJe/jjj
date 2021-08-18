@@ -1,3 +1,47 @@
-<% @orders.each do |order| %>
-<%= order.id %>
-<% end %>
+<div class="container">
+  <div class="d-flex align-items-center p-3 my-3 rounded shadow">
+    <h1 class="mb-0 text-dark">注文履歴</h1>
+  </div>
+</div>
+<div class="container">
+    <table class="table table-hover">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">
+            <strong class="text-white">no</strong>
+          </th>
+          <th scope="col">
+            <strong class="text-white">date</strong>
+          </th>
+          <th scope="col">
+            <strong class="text-white">address</strong>
+          </th>
+          <th scope="col">
+            <strong class="text-white">product</strong>
+          </th>
+          <th scope="col">
+            <strong class="text-white">price</strong>
+          </th>
+          <th scope="col">
+            <strong class="text-white">status</strong>
+          </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <% @orders.each do |order| %>
+          <tbody>
+            <th scope="row">
+              <%= order.id %>
+            </th>
+            <td><%= order.created_at %></td>
+            <td><%= order.address %></td>
+            <td><%= order.name %></td>
+            <td><%= order.name %></td>
+            <td><%= order.status %></td>
+            <th>
+              <%= link_to "注文内容を表示", order_path(order), class: "btn btn-primary mr-1" %>
+            </th>
+          </tbody>
+        <% end %>
+      </table>
+  </div>
