@@ -21,7 +21,7 @@ Rails.application.routes.draw do
         get 'thanx' => 'orders#thanx'
       end
     end
-    -order
+    #-order
     resources :products, only:[:index]
   end
   # public-finish-
