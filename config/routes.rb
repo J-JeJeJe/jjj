@@ -14,8 +14,20 @@ Rails.application.routes.draw do
 
   # public-start-
   scope module: :public do
+
     resources :products, only:[:index, :show]
-    resources :cart_items, only:[:create, :destroy, :update, :show]
+
+    resources :cart_items, only:[:create]
+
+    #order-
+    resources :orders, only: [:new, :create, :index ,:show] do
+      collection do
+        post 'confirm' => 'orders#confirm'
+        get 'thanx' => 'orders#thanx'
+      end
+    end
+    #-order
+    resources :products, only:[:index]
   end
   # public-finish-
 
