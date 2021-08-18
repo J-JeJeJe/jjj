@@ -8,6 +8,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://kit.fontawesome.com/8f0be0a856.js" crossorigin="anonymous"></script>
   </head>
 
   <body class="d-flex flex-column j-100">
@@ -75,7 +76,7 @@
       </div>
      </nav>
     </header>
-      <main>
+      <main class="main main-raised">
         <p id="notice"><%= notice %></p>
         <%= yield %>
       </main>
