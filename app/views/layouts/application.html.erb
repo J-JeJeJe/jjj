@@ -5,7 +5,9 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:wght@600&display=swap" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src="https://kit.fontawesome.com/8f0be0a856.js" crossorigin="anonymous"></script>
@@ -13,27 +15,28 @@
 
   <body class="d-flex flex-column j-100">
     <header class="sticky-top shadow-sm">
-     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="container">
-        <a class="navbar-brand mr-auto mr-lg-0" href="#">コンテナ</a>
-        <button class="navbar-toggler p-0" type="button" data-toggle="collapse" data-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
+     <nav class="navbar navbar-expand-lg bg-white navbar-light">
+        <a class="navbar-brand" href="/">
+          <%= image_tag 'logo.jpg', style: "height: 50px;" %>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarsExample07">
-          <ul class="navbar-nav">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
             <% if customer_signed_in? %>
-              <li class="nav-item">
-                <a class="nav-link active">マイページ</a>
+              <li class="nav-item active">
+                <a class="nav-link">マイページ</a>
               </li>
               <li class="nav-item">
-                <%= link_to "商品一覧", products_path, class:"nav-link" %>
+                <%= link_to "商品一覧", products_path, class:"nav-link　text-dark" %>
               </li>
               <li class="nav-item">
-                <a class="nav-link">カート</a>
+                <a class="nav-link text-dark">カート</a>
               </li>
               <li class="nav-item">
-                <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "nav-link" %>
+                <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "nav-link text-dark" %>
               </li>
             <!--adminsの定義 start-->
             <% elsif admin_signed_in? %>
@@ -41,13 +44,13 @@
                 <%= link_to "商品一覧", admin_products_path, class:"nav-link" %>
               </li>
               <li class="nav-item">
-                <%= link_to "会員一覧", root_path, class: "nav-link" %>
+                <%= link_to "会員一覧", root_path, class: "nav-link text-dark" %>
               </li>
               <li class="nav-item">
-                <%= link_to "注文履歴一覧", root_path, class: "nav-link" %>
+                <%= link_to "注文履歴一覧", root_path, class: "nav-link text-dark" %>
               </li>
               <li class="nav-item">
-                <%= link_to "ジャンル一覧", root_path, class: "nav-link" %>
+                <%= link_to "ジャンル一覧", root_path, class: "nav-link text-dark" %>
               </li>
               <li class="nav-item">
                 <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "nav-link" %>
@@ -58,13 +61,13 @@
                   <%= link_to "About", public_home_about_path, class: "nav-link active" %>
               </li>
               <li class="nav-item">
-                <%= link_to "商品一覧", products_path, class: "nav-link" %>
+                <%= link_to "商品一覧", products_path, class: "nav-link text-dark" %>
               </li>
               <li class="nav-item">
-                <%= link_to "新規登録", new_customer_registration_path, class: "nav-link" %>
+                <%= link_to "新規登録", new_customer_registration_path, class: "nav-link text-dark" %>
               </li>
               <li class="nav-item">
-                <%= link_to "ログイン", new_customer_session_path, class: "nav-link" %>
+                <%= link_to "ログイン", new_customer_session_path, class: "nav-link text-dark" %>
               </li>
             <% end %>
           </ul>
@@ -72,11 +75,10 @@
             <input class="form-control mr-sm-2" type="text" placeholder="検索" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0">検索</button>
           </form>
-        </div>
       </div>
      </nav>
     </header>
-      <main class="main main-raised">
+      <main class="bg-light">
         <p id="notice"><%= notice %></p>
         <%= yield %>
       </main>
