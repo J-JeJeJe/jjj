@@ -14,9 +14,12 @@ Rails.application.routes.draw do
 
   # public-start-
   scope module: :public do
-    resource :orders, only: [:new, :create, :index ,:show]
-    post 'orders/confirm' => 'orders#confirm'
-    get 'orders/thanx' => 'orders#thanx'
+    resources :orders, only: [:new, :create, :index ,:show] do
+      collection do
+        post 'confirm' => 'orders#confirm'
+        get 'thanx' => 'orders#thanx'
+      end
+    end
     resources :products, only:[:index]
   end
   # public-finish-
@@ -31,13 +34,9 @@ Rails.application.routes.draw do
 
 
   namespace :admin do
-<<<<<<< HEAD
-    
-    resources :products, only:[:new, :create, :index, :show, :edit, :update]
-    
-=======
 
->>>>>>> 4df9e673739209ad55942fcc23bdda742d393d54
+    resources :products, only:[:new, :create, :index, :show, :edit, :update]
+
   end
   # admin-finish
 end

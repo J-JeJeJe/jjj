@@ -6,36 +6,41 @@ class Public::OrdersController < ApplicationController
   end
 
   def confirm
-    @order = Order.new(params[:address])
+    @order = Order.new(order_params)
     @cart_items = CartItem.where(customer_id: current_customer)
-    #addressで場合分け
-    if @order.address == "0"
+
+    #address_statusで場合分け
+    #0の時customerの住所
+    if params[:order][:address_status] == "0"
       @order.name = current_customer.last_name + current_customer.first_name
       @order.postal_code = current_customer.postal_code
       @order.address = current_customer.address
-    elsif @order.address == "1"
-      @shipping_address = ShippingAddress.where(order_id)
+    #1の時登録先の住所
+    elsif params[:order][:address_status] == "1"
+      @shipping_address = ShippingAddress.find(params[:order][:shipping_address_id])
       @order.name = @shipping_address.name
-      @order.postal_code = @shipping_address.name.postal_code
+      @order.postal_code = @shipping_address.postal_code
       @order.address = @shipping_address.address
-    elsif @order.address == "2"
+    #2の時新規住所
+    elsif params[:order][:address_status] ==  "2"
       @order.name = params[:order][:name]
       @order.postal_code = params[:order][:postal_code]
-      @order.address = params[:address][:address]
+      @order.address = params[:order][:address]
     end
   end
 
   def create
     @order = Order.new(order_params)
-    @order.customer_id = current_customer
     @order.save
-    redirect_to orders_thanx_path
+    logger.debug @order.errors.inspect
+    redirect_to thanx_orders_path
   end
 
   def thanx
   end
 
   def index
+    @orders =Order.all
   end
 
   def show
@@ -44,7 +49,7 @@ class Public::OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:name, :postal_code, :address, :payment_method, :total_price)
+    params.require(:order).permit(:customer_id, :name, :postal_code, :address, :payment_method, :total_price)
   end
 
   def shipping_params
