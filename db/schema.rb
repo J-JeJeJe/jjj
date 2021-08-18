@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2021_08_16_161020) do
   end
 
   create_table "cart_items", force: :cascade do |t|
-    t.integer "menber_id"
+    t.integer "customer_id"
     t.integer "product_id"
     t.integer "quantity"
     t.datetime "created_at", null: false
@@ -64,14 +64,14 @@ ActiveRecord::Schema.define(version: 2021_08_16_161020) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.integer "menber_id"
+    t.integer "customer_id"
     t.string "name"
     t.string "postal_code"
     t.string "address"
-    t.boolean "payment_method"
+    t.boolean "payment_method", default: true, null: false
     t.integer "status"
     t.integer "total_price"
-    t.integer "postage"
+    t.integer "postage", default: 800
     t.integer "amount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -85,17 +85,17 @@ ActiveRecord::Schema.define(version: 2021_08_16_161020) do
 
   create_table "products", force: :cascade do |t|
     t.integer "product_category_id"
-    t.string "image_id"
-    t.string "title"
-    t.text "description"
-    t.integer "price"
-    t.boolean "sell_status"
+    t.string "image_id", null: false
+    t.string "title", null: false
+    t.text "description", null: false
+    t.integer "price", null: false
+    t.boolean "sell_status", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "shipping_addresses", force: :cascade do |t|
-    t.integer "member_id"
+    t.integer "customer_id"
     t.string "name"
     t.string "postal_code"
     t.string "address"
