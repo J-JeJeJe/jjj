@@ -14,12 +14,14 @@ Rails.application.routes.draw do
 
   # public-start-
   scope module: :public do
+    #order-
     resources :orders, only: [:new, :create, :index ,:show] do
       collection do
         post 'confirm' => 'orders#confirm'
         get 'thanx' => 'orders#thanx'
       end
     end
+    -order
     resources :products, only:[:index]
   end
   # public-finish-
