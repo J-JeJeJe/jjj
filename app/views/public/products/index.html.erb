@@ -1,0 +1,35 @@
+<dev calss='container'>
+  <div class='row'>
+    <div class="col-md-3 mx-auto">
+      <div class="card">
+        <article>
+          <div class="card-header">
+            ジャンル
+          </div>
+          <ul class="list-group list-group-flush">
+          <li class="list-group-item">ケーキ</li>
+          <li class="list-group-item">焼き菓子</li>
+          <li class="list-group-item">プリン</li>
+        </ul>
+
+      </div>
+    </div>
+    <div class="col-md-8 mx-auto">
+    	<h1>商品一覧</h1>
+			<% @products.each do |product| %>
+      <div class="col-md-3" style="float:left">
+        <div class="card mb-3">
+        	<%= link_to product_path(product) do %>
+          	<%= attachment_image_tag product, :image, :fill, 400, 400, class:"img-fluid"  %>
+          <% end %>
+          <div class="card-body">
+            <h5 class="card-title"><%= product.title %></h5>
+            <p class="card-text">¥<%= product.price %></p>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+    <%= paginate @products%>
+  </div>
+</div>
