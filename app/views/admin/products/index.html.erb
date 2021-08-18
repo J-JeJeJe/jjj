@@ -25,17 +25,21 @@
            <%= product.id %>
           </td>
           <td>
-           <%= link_to admin_product_path(product.id) do %>
+           <%= link_to admin_product_path(product.id), class:"text-dark", style:"border-bottom: solid 1px #212529;" do %>
             <%= product.title %>
             <% end %>
           </td>
           <td><%= product.price %></td>
-          <td><%= product.product_category.name %></td>
+          <td><%= product.product_category_id %></td>
           <td>
            <% if product.sell_status == true %>
+           <p class="text-success">
             <%= product.sell_status = "販売中" %>
+           </p>
            <% else %>
+           <p class="text-secondary">
             <%= product.sell_status = "販売停止中" %>
+            </p>
            <% end %>
           </td>
          </tr>
