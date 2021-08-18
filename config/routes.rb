@@ -13,9 +13,9 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   # public-start-
   scope module: :public do
-    resources :orders, only: [:new, :create, :index ,:show]
-    post 'order/confirm' => 'orders#confirm'
-    get 'order/thanx' => 'orders#thanx'
+    resource :orders, only: [:new, :create, :index ,:show]
+    post 'orders/confirm' => 'orders#confirm'
+    get 'orders/thanx' => 'orders#thanx'
     resources :products, only:[:index]
   end
   # public-finish-
