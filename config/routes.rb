@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   # admin-start-
   namespace :admin do
     
-    resources :products
+    resources :products, only:[:new, :create, :index, :show, :edit, :update]
     
   end
   # admin-finish

@@ -1,12 +1,13 @@
-<h2>商品一覧</h2>
-
-<% link_to new_admin_product_path do %>
-　　<!--新規登録-->
+<!--<div class="mx-auto" style="width: 70%;">-->
+<h4>商品一覧</h4>
+<%= link_to new_admin_product_path, class:"text-secondary"  do %>
+　<i class="fas fa-plus"></i>
 <% end %>
 
-<% @products.each do |produst| %>
- <table>
-     <thead>
+
+ <table class="table">
+  
+     <thead class="thead-light">
          <tr>
          <th>商品ID</th>
          <th>商品名</th>
@@ -15,20 +16,25 @@
          <th>ステータス</th>
          </tr>
      </thead>
+     <% @products.each do |product| %>
      <tbody>
          <tr>
-          <td><%= product.id %></td>
           <td>
-           <% link_to admin_product_path(product.id) do %>
+           <%= product.id %>
+          </td>
+          <td>
+           <%= link_to admin_product_path(product.id) do %>
             <%= product.title %>
             <% end %>
           </td>
           <td><%= product.price %></td>
           <td><%= product.product_category.name %></td>
-          <td><%= product.status %></td>
+          <td><%= product.sell_status %></td>
          </tr>
      </tbody>
+     <% end %>
  </table>
-<% end %>
+
 
 <%= paginate @products %>
+<!--</div>-->
