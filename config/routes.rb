@@ -14,6 +14,10 @@ Rails.application.routes.draw do
 
   # public-start-
   scope module: :public do
+
+    resources :products, only:[:index, :show]
+    resources :cart_items, only:[:create]
+
     #order-
     resources :orders, only: [:new, :create, :index ,:show] do
       collection do
@@ -36,9 +40,11 @@ Rails.application.routes.draw do
 
 
   namespace :admin do
-
     resources :products, only:[:new, :create, :index, :show, :edit, :update]
-
   end
   # admin-finish
+
+
+
+
 end
