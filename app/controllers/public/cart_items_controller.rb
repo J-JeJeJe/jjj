@@ -1,5 +1,6 @@
 class Public::CartItemsController < ApplicationController
   
+  
   def create
     cart_item = CartItem.new(cart_item_params)
     cart_item.save
