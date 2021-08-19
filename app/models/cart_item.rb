@@ -1,9 +1,11 @@
 class CartItem < ApplicationRecord
 
-  belongs_to :coustomer
   belongs_to :product
   belongs_to :customer
-  
+
+  validates :product_id, :quantity, presence: true
+  validates :quantity, numericality:{ only_integer: true }
+
 
   #消費税を加えた金額
   def add_tax_price
