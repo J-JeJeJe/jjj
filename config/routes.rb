@@ -6,7 +6,6 @@ Rails.application.routes.draw do
       passwords: 'customers/passwords'
   }
 
-
   root to: 'public/homes#top'
   get "public/home/about" => "public/homes#about"
 
@@ -15,8 +14,15 @@ Rails.application.routes.draw do
   # public-start-
   scope module: :public do
 
+
+    resource :customers, only: [:show] do
+      collection do
+        get 'unsubscribe'
+        patch 'withdraw'
+      end
+    end
     resources :products, only:[:index, :show]
-    
+
     # cart_item
     resources :cart_items, only:[:create, :index, :update, :destroy] do
       collection do
@@ -46,7 +52,14 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :products, only:[:new, :create, :index, :show, :edit, :update]
+    resources :customers, only:[:index, :show, :edit, :update]
+    
+    
   end
+  
+  #customer-edit
+  
+  
   # admin-finish
 
 

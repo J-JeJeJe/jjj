@@ -20,29 +20,51 @@ class Public::OrdersController < ApplicationController
       @order.name = @shipping_address.name
       @order.postal_code = @shipping_address.postal_code
       @order.address = @shipping_address.address
-    #2の時新規住所
+    #2の時新規配送先
     elsif params[:order][:address_status] ==  "2"
       @order.name = params[:order][:name]
       @order.postal_code = params[:order][:postal_code]
       @order.address = params[:order][:address]
+      @address_status = "2"
+      #バリデーションエラーがある場合
+      if @order.valid? == false
+        @shipping_addresses = ShippingAddress.where(customer_id: current_customer)
+        render :new
+      end
     end
+
   end
 
   def create
     @order = Order.new(order_params)
     @order.save
+    #新規配送先の場合配送先を保存する
+    if params[:order][:address_status] ==  "2"
+      @shipping_address = ShippingAddress.new(shipping_params)
+      @shipping_address.save
+    end
     redirect_to thanx_orders_path
+    #注文商品データを作る
+    #@cart_items = current_customer.cart_items.all
+    #@cart_items.each do |cart_item|
+      #@order_items = @order.order_items.new
+      #@order_items.product_id = cart_item.product.id
+      #@order_items.quantity = cart_item.quantity
+      #@order_items.save
+    #end
+
+    #注文後カート内を空にする
+    #current_customer.cart_items.destroy_all
   end
 
   def thanx
   end
 
   def index
-    @orders = Order.all
+    @orders = Order.where(customer_id: current_customer)
   end
 
   def show
-    @order = Order.find(params[:id])
     @order_items = @order.order_items.all
   end
 
@@ -50,5 +72,9 @@ class Public::OrdersController < ApplicationController
 
   def order_params
     params.require(:order).permit(:customer_id, :name, :postal_code, :address, :payment_method, :total_price)
+  end
+
+  def shipping_params
+    params.require(:order).permit(:customer_id, :name, :postal_code, :address)
   end
 end

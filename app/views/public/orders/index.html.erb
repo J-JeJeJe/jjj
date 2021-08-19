@@ -1,4 +1,3 @@
-
 <div class="container">
   <div class="d-flex align-items-center p-3 my-3 rounded shadow">
     <h1 class="mb-0 text-dark">注文履歴</h1>
@@ -6,7 +5,7 @@
 </div>
 <div class="container">
   <div class="row d-flex align-items-center">
-    <table class="table table-hover rounded shadow p-3 bg-w">
+    <table class="table table-hover rounded shadow p-3 my-3 bg-white">
       <thead class="thead-dark">
         <tr>
           <th scope="col">
@@ -32,9 +31,7 @@
         </thead>
         <% @orders.each do |order| %>
           <tbody>
-            <th scope="row">
-              <%= order.id %>
-            </th>
+            <th scope="row"><%= order.id %></th>
             <td><%= order.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分") %></td>
             <td><%= order.address %></td>
             <% order.order_items.each do |order_item| %>
@@ -42,9 +39,7 @@
             <% end %>
             <td><%= order.total_price %></td>
             <td><%= order.status %></td>
-            <th>
-              <%= link_to "注文内容を表示", order_path(order), class: "btn btn-primary mr-1" %>
-            </th>
+            <th><%= link_to "注文内容を表示", order_path(order), class: "btn btn-primary mr-1" %></th>
           </tbody>
         <% end %>
       </table>
