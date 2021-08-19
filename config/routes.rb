@@ -15,8 +15,15 @@ Rails.application.routes.draw do
   # public-start-
   scope module: :public do
 
+
+    resource :customers, only: [:show, :edit, :update] do
+      collection do
+        get 'unsubscribe'
+        patch 'withdraw'
+      end
+    end
     resources :products, only:[:index, :show]
-    
+
     # cart_item
     resources :cart_items, only:[:create, :index, :update, :destroy] do
       collection do
