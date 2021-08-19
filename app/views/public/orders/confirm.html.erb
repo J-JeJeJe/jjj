@@ -67,7 +67,7 @@
 		<%#= f.hidden_field :total_price, value: @order.total_price %>
 		<%= f.hidden_field :postage, value: @order.postage %>
 		<%#= f.hidden_field :amount, value: @order.amount(current_customer) %>
-
+		<%= f.hidden_field :address_status, value: @address_status %>
 		<%= f.submit "注文を確定する", class: "btn btn-success" %>
 	<% end %>
 

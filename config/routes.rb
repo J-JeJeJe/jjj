@@ -6,7 +6,6 @@ Rails.application.routes.draw do
       passwords: 'customers/passwords'
   }
 
-
   root to: 'public/homes#top'
   get "public/home/about" => "public/homes#about"
 
@@ -47,7 +46,12 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :products, only:[:new, :create, :index, :show, :edit, :update]
     resources :orders, only:[:index, :show, :update]
+    resources :customers, only:[:index, :show, :edit, :update]
   end
+  
+  #customer-edit
+  
+  
   # admin-finish
 
 
