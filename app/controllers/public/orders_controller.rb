@@ -65,7 +65,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def show
-    @order = Order.find(params[:id])
+    @order_items = @order.order_items.all
   end
 
   private
@@ -77,5 +77,4 @@ class Public::OrdersController < ApplicationController
   def shipping_params
     params.require(:order).permit(:customer_id, :name, :postal_code, :address)
   end
-
 end
