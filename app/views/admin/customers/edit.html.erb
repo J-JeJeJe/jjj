@@ -1,0 +1,79 @@
+<div class="container">
+  <div class="d-flex align-items-center p-3 my-3 rounded shadow">
+    <h1 class="mb-0 text-dark"><%= @customer.full_name %>さんの会員詳細</h1>
+  </div>
+</div>
+<div class="container">
+  <div class="row d-flex align-items-center">
+    <div class="col-md-8 mx-auto rounded shadow my-3 bg-white">
+      <%= form_for(@customer) do |f| %>
+      <table class="table table-borderless">
+        <tbody>
+          <tr>
+            <th scope="col"><strong><%= f.label :customer.id %></strong></th>
+            <td scope="col"><%= customer.id %></th>
+          </tr>
+        </tbody>
+
+        <tbody>
+          <tr>
+            <th scope="col"><strong>氏名</strong></th>
+            <td scope="col"><%= f.text_field :customer.first_name, class: "form-control" %></th>
+            <td scope="col"><%= f.text_field :customer.last_name, class: "form-control" %></th>
+          </tr>
+        </tbody>
+
+        <tbody>
+          <tr>
+            <th scope="col"><strong>フリガナ</strong></th>
+            <td scope="col"><%= f.text_field :customer.first_name_kana, class: "form-control" %></th>
+            <td scope="col"><%= f.text_field :customer.last_name_kana, class: "form-control" %></th>
+          </tr>
+        </tbody>
+
+        <tbody>
+          <tr>
+            <th scope="col"><strong><%= f.label :customer.postal_code %></strong></th>
+            <td scope="col"><%= f.text_field :customer.postal_code, class: "form-control" %></th>
+          </tr>
+        </tbody>
+
+        <tbody>
+          <tr>
+            <th scope="col"><strong><%= f.label :customer.address %></strong></th>
+            <td scope="col"><%= f.text_field :customer.address, class: "form-control" %></th>
+          </tr>
+        </tbody>
+
+        <tbody>
+          <tr>
+            <th scope="col"><strong><%= f.label :customer.phone_number %></strong></th>
+            <td scope="col"><%= f.text_field :customer.phone_number, class: "form-control" %></th>
+          </tr>
+        </tbody>
+
+        <tbody>
+          <tr>
+            <th scope="col"><strong><%= f.label :customer.email %></strong></th>
+            <td scope="col"><%= f.text_field :customer.email, class: "form-control" %></th>
+          </tr>
+        </tbody>
+        
+        <tbody>
+          <tr>
+            <th scope="col"><strong><%= f.label :customer.is_deleted %></strong></th>
+            <td scope="col"><%#= f.text_field :customer.is_deleted, class: "form-control" %></th>
+          </tr>
+        </tbody>
+        
+        <tbody>
+          <tr>
+            <th scope="col" class="text-center mb-3"><%= link_to "変更", admin_customer_path(@customer), class: "btn btn-success btn-lg mr-1" %></th>
+          </tr>
+        </tbody>
+
+      </table>
+      <% end %>
+      </div>
+    </div>
+  </div>
