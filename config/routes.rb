@@ -16,9 +16,13 @@ Rails.application.routes.draw do
   scope module: :public do
 
     resources :products, only:[:index, :show]
-
-    resources :cart_items, only:[:create, :destroy, :update, :index]
-
+    
+    # cart_item
+    resources :cart_items, only:[:create, :index, :update, :destroy] do
+      collection do
+        delete 'all_destroy' => 'cart_items#all_destroy'
+      end
+    end
     #order-
     resources :orders, only: [:new, :create, :index ,:show] do
       collection do
