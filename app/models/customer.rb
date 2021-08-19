@@ -6,4 +6,7 @@ class Customer < ApplicationRecord
     
     #注文機能
     has_many :orders, dependent: :destroy
+    
+    #カート機能
+    has_many :cart_items, dependent: :destroy
 end

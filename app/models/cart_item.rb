@@ -1,7 +1,11 @@
 class CartItem < ApplicationRecord
-  
 
   belongs_to :product
+  belongs_to :customer
+
+  validates :product_id, :quantity, presence: true
+  validates :quantity, numericality:{ only_integer: true }
+
 
   #消費税を加えた金額
   def add_tax_price
@@ -11,6 +15,6 @@ class CartItem < ApplicationRecord
   def sub_tatal
     self.add_tax_price * self.quantity
   end
-  
+
 
 end

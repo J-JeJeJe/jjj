@@ -14,7 +14,7 @@
   </head>
 
   <body class="d-flex flex-column j-100">
-    <header class="sticky-top shadow-sm">
+    <header class="sticky-top shadow">
      <nav class="navbar navbar-expand-lg bg-white navbar-light">
         <a class="navbar-brand" href="/">
           <%= image_tag 'logo.jpg', style: "height: 50px;" %>
@@ -30,7 +30,7 @@
                 <a class="nav-link">マイページ</a>
               </li>
               <li class="nav-item">
-                <%= link_to "商品一覧", products_path, class:"nav-link　text-dark" %>
+                <%= link_to "商品一覧", products_path, class:"nav-link text-dark" %>
               </li>
               <li class="nav-item">
                 <a class="nav-link text-dark">カート</a>
@@ -41,7 +41,7 @@
             <!--adminsの定義 start-->
             <% elsif admin_signed_in? %>
               <li class="nav-item">
-                <%= link_to "商品一覧", admin_products_path, class:"nav-link" %>
+                <%= link_to "商品一覧", admin_products_path, class:"nav-link text-dark" %>
               </li>
               <li class="nav-item">
                 <%= link_to "会員一覧", root_path, class: "nav-link text-dark" %>
@@ -78,7 +78,7 @@
       </div>
      </nav>
     </header>
-      <main class="bg-light">
+      <main class="bg-light backsize">
         <p id="notice"><%= notice %></p>
         <%= yield %>
       </main>
