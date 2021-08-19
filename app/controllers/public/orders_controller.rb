@@ -43,7 +43,7 @@ class Public::OrdersController < ApplicationController
       @shipping_address = ShippingAddress.new(shipping_params)
       @shipping_address.save
     end
-
+    redirect_to thanx_orders_path
     #注文商品データを作る
     #@cart_items = current_customer.cart_items.all
     #@cart_items.each do |cart_item|
