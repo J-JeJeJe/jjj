@@ -1,0 +1,41 @@
+<% if @cart_item.blank? %>
+  <h1 class="text-center">カートに商品はありません</h1>
+<% else %>
+
+<table>
+  <theder>
+    <tr>
+      <th>商品名</th>
+      <th>単価（税込）</th>
+      <th>数量</th>
+      <th>小計</th>
+      <th></th>
+    </tr>
+  </theder>
+  <% @cart_items.each do |cart_item| %>
+  <tbody>
+    <tr>
+      <td><%= attachment_image_tag cart_item.product.image, :image,class:"img-fluid" %><%= cart_item.product.title %></td>
+      <td><%= cart_item.price %></td>
+      <!--数量変更-->
+      <%= form_with model: cart_item, url: cart_item_path(cart_item), local: true do |f| %>
+      <td>
+        <%= f.number_field :quantity, min: 1, class: "btn btn-outline-dark"%>
+        <%= hidden_field_tag :product_id, @product.id %>
+        <%= f.submit "変更", class: "btn btn-primary" %>
+      </td>
+      <td><%= cart_item.sub_tatal.to_s %></td>
+      <% end %>
+
+      <!--商品削除-->
+      <%= form_with model: cart_item, url: destroy_carts_item_path, local: true do |f| %>
+      <td>
+        <%= hidden_field_tag :product_id, @product.id %>
+        <%= f.submit "削除する", class: "btn btn-danger" %>
+      </td>
+      <% end %>
+    </tr>
+  </tbody>
+  <% end %>
+</table>
+<% end %>
