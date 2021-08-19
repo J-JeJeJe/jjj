@@ -20,7 +20,7 @@
             <%= current_customer.last_name %><%= current_customer.first_name %>
         </div>
       </div>
-      <% if @shipping_addresses.nil? %>
+      <% if @shipping_address.nil? %>
       <div class="customer-shipping-address">
         <%= f.radio_button :address_status, 1 %>
           <span>登録済住所から選択</span></br>
