@@ -1,4 +1,4 @@
-<% if @cart_item.blank? %>
+<% if @cart_items.blank? %>
   <h1 class="text-center">カートに商品はありません</h1>
 <% else %>
 
@@ -15,22 +15,22 @@
   <% @cart_items.each do |cart_item| %>
   <tbody>
     <tr>
-      <td><%= attachment_image_tag cart_item.product.image, :image,class:"img-fluid" %><%= cart_item.product.title %></td>
-      <td><%= cart_item.price %></td>
+      <td><%#= attachment_image_tag cart_item.product.image, :image,class:"img-fluid" %><%= cart_item.product.title %></td>
+      <td><%= cart_item.add_tax_price %></td>
       <!--数量変更-->
-      <%= form_with model: cart_item, url: cart_item_path(cart_item), local: true do |f| %>
+      <%= form_with model: cart_item, url: cart_item_path(cart_item.id), local: true do |f| %>
       <td>
         <%= f.number_field :quantity, min: 1, class: "btn btn-outline-dark"%>
-        <%= hidden_field_tag :product_id, @product.id %>
+        <%= f.hidden_field :product_id, value: cart_item.product.id %>
         <%= f.submit "変更", class: "btn btn-primary" %>
       </td>
       <td><%= cart_item.sub_tatal.to_s %></td>
       <% end %>
 
       <!--商品削除-->
-      <%= form_with model: cart_item, url: destroy_carts_item_path, local: true do |f| %>
+      <%= form_with model: cart_item, url: cart_item_path(cart_item.id), local: true do |f| %>
       <td>
-        <%= hidden_field_tag :product_id, @product.id %>
+        <%= hidden_field_tag :product_id, cart_item.product.id %>
         <%= f.submit "削除する", class: "btn btn-danger" %>
       </td>
       <% end %>
