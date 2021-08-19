@@ -1,43 +1,71 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "customers/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<div class="container">
+  <div class="d-flex align-items-center p-3 my-3 rounded shadow">
+    <h1 class="mb-0 text-dark"><%= @customer.full_name %>さんの会員詳細</h1>
   </div>
+</div>
+<div class="container">
+  <div class="row d-flex align-items-center">
+    <div class="col-md-8 mx-auto rounded shadow my-3 bg-white">
+      <%= form_with model: @customer, url: customer_registration_path do |f| %>
+      <table class="table table-borderless">
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+        <tbody>
+          <tr>
+            <th scope="col"><strong>氏名</strong></th>
+            <td scope="col"><%= f.text_field :last_name, class: "form-control" %></th>
+            <td scope="col"><%= f.text_field :first_name, class: "form-control" %></th>
+          </tr>
+        </tbody>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
+        <tbody>
+          <tr>
+            <th scope="col"><strong>フリガナ</strong></th>
+            <td scope="col"><%= f.text_field :last_name_kana, class: "form-control" %></th>
+            <td scope="col"><%= f.text_field :first_name_kana, class: "form-control" %></th>
+          </tr>
+        </tbody>
+
+        <tbody>
+          <tr>
+            <th scope="col"><strong><%= f.label :postal_code %></strong></th>
+            <td scope="col"><%= f.text_field :postal_code, class: "form-control" %></th>
+          </tr>
+        </tbody>
+
+        <tbody>
+          <tr>
+            <th scope="col"><strong><%= f.label :address %></strong></th>
+            <td scope="col"><%= f.text_field :address, class: "form-control" %></th>
+          </tr>
+        </tbody>
+
+        <tbody>
+          <tr>
+            <th scope="col"><strong><%= f.label :phone_number %></strong></th>
+            <td scope="col"><%= f.text_field :phone_number, class: "form-control" %></th>
+          </tr>
+        </tbody>
+
+        <tbody>
+          <tr>
+            <th scope="col"><strong><%= f.label :email %></strong></th>
+            <td scope="col"><%= f.text_field :email, class: "form-control" %></th>
+          </tr>
+        </tbody>
+
+        <tbody>
+          <tr>
+            <th scope="col" class="text-center mb-3"><%= f.submit "変更", class: "btn btn-success btn-lg mr-1" %></th>
+          </tr>
+        </tbody>
+         <tbody>
+          <tr>
+            <th scope="col" class="text-center mb-3"><%= link_to "退会", unsubscribe_customers_path, class: "btn btn-danger btn-lg mr-1" %></th>
+          </tr>
+        </tbody>
+
+      </table>
+      <% end %>
+      </div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>

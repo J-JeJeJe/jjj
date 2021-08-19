@@ -26,20 +26,24 @@ class Public::OrdersController < ApplicationController
       @order.postal_code = params[:order][:postal_code]
       @order.address = params[:order][:address]
       @address_status = "2"
+      #バリデーションエラーがある場合
+      if @order.valid? == false
+        @shipping_addresses = ShippingAddress.where(customer_id: current_customer)
+        render :new
+      end
     end
+
   end
 
   def create
     @order = Order.new(order_params)
     @order.save
-    redirect_to thanx_orders_path
-
     #新規配送先の場合配送先を保存する
     if params[:order][:address_status] ==  "2"
       @shipping_address = ShippingAddress.new(shipping_params)
       @shipping_address.save
     end
-
+    redirect_to thanx_orders_path
     #注文商品データを作る
     #@cart_items = current_customer.cart_items.all
     #@cart_items.each do |cart_item|
@@ -61,7 +65,6 @@ class Public::OrdersController < ApplicationController
   end
 
   def show
-    @order = Order.find(params[:id])
     @order_items = @order.order_items.all
   end
 
