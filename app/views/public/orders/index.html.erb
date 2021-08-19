@@ -4,26 +4,27 @@
   </div>
 </div>
 <div class="container">
-    <table class="table table-hover">
+  <div class="row d-flex align-items-center">
+    <table class="table table-hover rounded shadow p-3 bg-w">
       <thead class="thead-dark">
         <tr>
           <th scope="col">
-            <strong class="text-white">no</strong>
+            <strong class="text-white">注文番号</strong>
           </th>
           <th scope="col">
-            <strong class="text-white">date</strong>
+            <strong class="text-white">注文日</strong>
           </th>
           <th scope="col">
-            <strong class="text-white">address</strong>
+            <strong class="text-white">配送先</strong>
           </th>
           <th scope="col">
-            <strong class="text-white">product</strong>
+            <strong class="text-white">注文商品</strong>
           </th>
           <th scope="col">
-            <strong class="text-white">price</strong>
+            <strong class="text-white">支払金額</strong>
           </th>
           <th scope="col">
-            <strong class="text-white">status</strong>
+            <strong class="text-white">ステータス</strong>
           </th>
             <th scope="col"></th>
           </tr>
@@ -33,10 +34,12 @@
             <th scope="row">
               <%= order.id %>
             </th>
-            <td><%= order.created_at %></td>
+            <td><%= order.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分") %></td>
             <td><%= order.address %></td>
-            <td><%= order.name %></td>
-            <td><%= order.name %></td>
+            <% order.order_items.each do |order_item| %>
+              <td><%= order_items.product.name %></td>
+            <% end %>
+            <td><%= order.total_price %></td>
             <td><%= order.status %></td>
             <th>
               <%= link_to "注文内容を表示", order_path(order), class: "btn btn-primary mr-1" %>
@@ -44,4 +47,5 @@
           </tbody>
         <% end %>
       </table>
+      </div>
   </div>
