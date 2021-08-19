@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   scope module: :public do
 
 
-    resource :customers, only: [:show, :edit, :update] do
+    resource :customers, only: [:show] do
       collection do
         get 'unsubscribe'
         patch 'withdraw'
