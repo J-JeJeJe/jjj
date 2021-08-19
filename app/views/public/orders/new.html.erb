@@ -16,7 +16,7 @@
         <%= f.radio_button :address_status, 0, checked: true %>
           <span>ご自身の住所</span></br>
           <div class="address-info">
-            〒<%= current_customer.postal_code %><%= current_customer.address %></br>
+            〒<%= current_customer.postal_code %> <%= current_customer.address %></br>
             <%= current_customer.last_name %><%= current_customer.first_name %>
         </div>
       </div>
