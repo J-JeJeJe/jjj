@@ -1,6 +1,6 @@
 <h4>配送先編集</h4>
 
-<%= form_with model: @shipping_address, url: shipping_addresspath, local:true do |f| %>
+<%= form_with model: @shipping_address, url: shipping_address_path, local:true do |f| %>
  <label for="postal_code">郵便番号（ハイフンなし）</label>
  <%= f.text_field :postal_code %><br/>
  <label for="address">住所</label>
