@@ -8,7 +8,7 @@ validates :name, presence: true,
 validates :postal_code, presence: true, numericality: {only_integer: true},
                         length: { minimum: 7, maximum: 7 }
 validates :address, presence: true,
-　　　　　　　　　　length: { maxmum: 100 }
+                    length: { maximum: 100 }
 
 #注文情報で使用
   def full_address

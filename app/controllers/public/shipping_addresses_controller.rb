@@ -9,9 +9,12 @@ class Public::ShippingAddressesController < ApplicationController
         @shipping_address =ShippingAddress.new(shipping_address_params)
         @shipping_address.customer_id = current_customer.id
         if @shipping_address.save
-        redirect_back(fallback_location: shipping_addresses_path)
+           redirect_to shipping_addresses_path, notice: "配送先を追加しました"
         else
-         redirect_back(fallback_location: shipping_addresses_path)
+          @shipping_address = ShippingAddress.new
+          @shipping_addresses = current_customer.shipping_addresses
+          flash[:error] = "配送先の登録に失敗しました"
+          render :index
         end
     end
     
