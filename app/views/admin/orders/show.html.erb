@@ -18,7 +18,7 @@
       <ul class="list-group list-group-flush">
         <li class="list-group-item"><%= @order.name %></li>
         <li class="list-group-item"><%= @order.created_at.strftime("%Y/%-m/%-d")%></li>
-        <li class="list-group-item"><%= @order.postal_code %></li>
+        <li class="list-group-item">〒<%= @order.postal_code %><%= @order.address %></li>
         <li class="list-group-item">
           <% if @order.payment_method == true %>
             <p>クレジットカード</p>
@@ -54,13 +54,14 @@
           </th>
           <th></th>
         </thead>
-        <% @orders.each do |order| %>
+        <% @order_items.each do |order_item| %>
           <tbody>
             <tr>
-              <td><%= order.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分") %></td>
-              <td><%= order.name %></td>
-              <td><%#= order.quantity %></td>
-              <td><%= order.status %></td>
+              <td><%= order_item.product.title %></td>
+              <td><%= order_item.add_tax_price %></td>
+              <td><%= order_item.quantity %></td>
+              <td><%= order_item.sub_total %></td>
+              <td><%= order_item.work_status %></td>
             </tr>
           </tbody>
         <% end %>
@@ -68,9 +69,9 @@
     </div>
     <div class="col-md-4 mx-auto">
       <ul class="list-group list-group-flush">
-        <li class="list-group-item">商品合計<%= @order.total_price %></li>
+        <li class="list-group-item">商品合計<%= @order.total_price %> </li>
         <li class="list-group-item">送料<%= @order.postage %></li>
-        <li class="list-group-item">請求金額合計</li>
+        <li class="list-group-item">請求金額合計<%= @order.amount %></li>
       </ul>
     </div>
   </div>
