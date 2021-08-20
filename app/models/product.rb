@@ -2,7 +2,7 @@ class Product < ApplicationRecord
 
      has_many :product_categorys
     #  カート機能
-     has_many :cart_items, dependent: :destroy
+     has_many :cart_items
      attachment :image
 
     # 税込価格
