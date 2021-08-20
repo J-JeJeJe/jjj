@@ -13,8 +13,11 @@ class Public::CartItemsController < ApplicationController
       end
      end
     
-      @cart_item.save
-    redirect_to cart_items_path,notice:"カートに商品が入りました"
+     if @cart_item.save
+      redirect_to cart_items_path,notice:"カートに商品が入りました"
+     else
+              
+     end
   end
   
   def index

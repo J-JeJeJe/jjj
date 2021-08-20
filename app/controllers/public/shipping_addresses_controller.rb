@@ -8,8 +8,11 @@ class Public::ShippingAddressesController < ApplicationController
     def create
         @shipping_address =ShippingAddress.new(shipping_address_params)
         @shipping_address.customer_id = current_customer.id
-        @shipping_address.save
+        if @shipping_address.save
         redirect_back(fallback_location: shipping_addresses_path)
+        else
+         redirect_back(fallback_location: shipping_addresses_path)
+        end
     end
     
     def destroy
