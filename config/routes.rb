@@ -22,7 +22,7 @@ Rails.application.routes.draw do
       end
     end
     resources :products, only:[:index, :show]
-    
+
     # shipping_address
     resources :shipping_addresses, except:[:new, :show]
 
@@ -58,10 +58,10 @@ Rails.application.routes.draw do
     resources :products, except:[:destroy]
     resources :customers, only:[:index, :show, :edit, :update]
   end
-  
+
   #customer-edit
-  
-  
+
+
   # admin-finish
 
 
