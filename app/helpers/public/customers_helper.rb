@@ -1,3 +1,0 @@
-module Public::CustomersHelper
-  
-end

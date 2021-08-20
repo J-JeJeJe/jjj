@@ -13,28 +13,3 @@
  *= require_tree .
  *= require_self
  */
-@import "bootstrap";
-@import 'font-awesome-sprockets';
-@import 'font-awesome';
-
-
-.form-signin {
-  width: 100%;
-  max-width: 330px;
-  padding: 15px;
-  margin: auto;
-}
-
-.jumbotron {
-  background:url(top.jpg) center no-repeat;
-  background-size: cover;
-}
-
-.backsize {
-  width: 100vw;
-  height: 100vh;
-}
-
-th,td {
-  white-space: pre-line;
-}
