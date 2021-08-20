@@ -14,16 +14,21 @@ Rails.application.routes.draw do
   # public-start-
   scope module: :public do
 
+
+    resource :customers, only: [:show] do
+      collection do
+        get 'unsubscribe'
+        patch 'withdraw'
+      end
+    end
     resources :products, only:[:index, :show]
-    
+
     # cart_item
     resources :cart_items, only:[:create, :index, :update, :destroy] do
       collection do
         delete 'all_destroy' => 'cart_items#all_destroy'
       end
     end
-     
-
     #order-
     resources :orders, only: [:new, :create, :index ,:show] do
       collection do
