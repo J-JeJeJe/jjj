@@ -3,7 +3,6 @@
   
 <% else %>
 <h4>ショッピングカート</h4>
- <%= flash[:notice] %>
   <%= link_to all_destroy_cart_items_path, method: :delete do %>
     <button class="btn-danger">カートを空にする</button>
   <% end %>
