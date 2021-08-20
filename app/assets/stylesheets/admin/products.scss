@@ -1,0 +1,31 @@
+// Place all the styles related to the admin/products controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.index{
+    width: 70%;
+    margin: 0 auto;
+}
+
+h4{
+    background-color: #e9ecef;
+    padding-right: 20px;
+    padding-left: 20px;
+    display: inline-block;
+}
+
+.title{
+    color: #212529;
+}
+
+.icon{
+    position: relative;
+    left: 900px;
+    font-size: 30px;
+    
+}
