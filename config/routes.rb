@@ -54,10 +54,9 @@ Rails.application.routes.draw do
 
 
   namespace :admin do
+    resources :orders, only:[:index, :show, :update]
     resources :products, except:[:destroy]
     resources :customers, only:[:index, :show, :edit, :update]
-    
-    
   end
   
   #customer-edit
