@@ -82,14 +82,13 @@ ActiveRecord::Schema.define(version: 2021_08_19_061636) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
   create_table "products", force: :cascade do |t|
     t.integer "product_category_id"
-    t.string "image_id", null: false
-    t.string "title", null: false
-    t.text "description", null: false
-    t.integer "price", null: false
-    t.boolean "sell_status", default: true, null: false
+    t.string "image_id"
+    t.string "title"
+    t.text "description"
+    t.integer "price"
+    t.boolean "sell_status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
