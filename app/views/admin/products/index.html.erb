@@ -8,7 +8,7 @@
 
 
  <table class="table">
-  
+
      <thead class="thead-light">
          <tr>
          <th>商品ID</th>
@@ -27,10 +27,10 @@
           <td>
            <%= link_to admin_product_path(product.id), class:"text-dark", style:"border-bottom: solid 1px #212529;" do %>
             <%= product.title %>
-            <% end %>
+           <% end %>
           </td>
           <td><%= product.price %></td>
-          <td><%= product.product_category_id %></td>
+          <td><%= product.product_category.name %></td>
           <td>
            <% if product.sell_status == true %>
            <p class="text-success">
