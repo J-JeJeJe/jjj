@@ -1,6 +1,6 @@
 class Product < ApplicationRecord
 
-     has_many :product_categorys
+    belongs_to :product_category
     #  カート機能
      has_many :cart_items
      attachment :image
