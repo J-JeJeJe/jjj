@@ -53,10 +53,12 @@
               <tbody>
                 <tr>
                   <th scope="row"><strong>注文ステータス</strong></th>
+                  <%= form_with model: @order, url: admin_order_path, method: :patch, local:true do |f| %>
                   <td scope="row">
-                    <%= @order.status %>
+                  <%= f.select :status, Order.statuses.keys %>
                   </td>
-                  <td><%= link_to "更新", root_path, class: "btn btn-outline-success" %></td>
+                  <td><%= f.submit "更新" , class: "btn btn-outline-success" %></td>
+                  <% end %>
                 </tr>
               </tbody>
 
@@ -88,18 +90,20 @@
                 </th>
                 <th></th>
               </thead>
-              <%# @order_items.each do |order| %>
+              <% @order_items.each do |order_item| %>
                 <tbody>
                   <tr>
-                    <td><%#= order_item.product.title %></td>
-                    <td><%#= order_item.product.price %></td>
-                    <td><%#= order_item.quantity %></td>
-                    <td><%#= order_item.sub_total %></td>
-                    <td><%#= order_item.work_status %></td>
-                    <td><%= link_to "更新", root_path, class: "btn btn-outline-success" %></td>
+                    <td><%= order_item.product.title %></td>
+                    <td><%= order_item.product.price %></td>
+                    <td><%= order_item.quantity %></td>
+                    <td><%= order_item.sub_total %></td>
+                    <%= form_with model: order_item, url: admin_order_item_path(order_item), method: :patch, local:true do |f| %>
+                    <td><%= f.select :work_status, OrderItem.work_statuses.keys %></td>
+                    <td><%= f.submit "更新" , class: "btn btn-outline-success" %></td>
+                    <% end %>
                   </tr>
                 </tbody>
-              <%# end %>
+              <% end %>
             </table>
           </div>
           <div class="col-md-3 mx-auto shadow-sm rounded">
