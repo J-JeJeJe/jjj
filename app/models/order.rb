@@ -11,6 +11,6 @@ class Order < ApplicationRecord
 
   #合計金額（＋送料）
   #def amount(customer)
-	#	 self.sub_tatal(customer) + self.postage
+	#	 self.sub_total(customer) + self.postage
   #end
 end

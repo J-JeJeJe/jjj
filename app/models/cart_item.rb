@@ -13,9 +13,12 @@ class CartItem < ApplicationRecord
     (self.product.price * 1.10).round
   end
   # 小計
-  def sub_tatal
+  def sub_total
     self.add_tax_price * self.quantity
   end
-
+  # 小計の合計
+  # def  total_price
+  #   line_items.to_a.sum { |item| self.sub_total }
+  # end
 
 end

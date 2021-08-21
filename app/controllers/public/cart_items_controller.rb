@@ -21,7 +21,7 @@ class Public::CartItemsController < ApplicationController
   def index
     @cart_items= current_customer.cart_items
     # カート内商品の合計額
-    @total = @cart_items.inject(0) { |sum, product| sum + product.sub_tatal }
+    @total = @cart_items.inject(0) { |sum, product| sum + product.sub_total }
   end
   
   def update
