@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   # public-start-
   scope module: :public do
 
+    get 'customer/edit' => 'customers#edit'
+    patch 'customer' => 'customers#update'
 
     resource :customers, only: [:show] do
       collection do
