@@ -51,6 +51,7 @@ class Public::OrdersController < ApplicationController
       @order_items = @order.order_items.new
       @order_items.product_id = cart_item.product.id
       @order_items.quantity = cart_item.quantity
+      @order_items.price = cart_item.add_tax_price
       @order_items.save
     end
 
