@@ -53,7 +53,13 @@
         <tbody>
           <tr>
             <th scope="col"><strong>会員ステータス</strong></th>
-            <td scope="col"><%= @customer.is_deleted %></th>
+            <td scope="col">
+              <% if @customer.is_deleted == true %>
+                <p class="text-muted">退会</p>
+              <% elsif @customer.is_deleted == false %>
+                <p class="text-success">有効</p>
+              <% end %>
+            </td>
           </tr>
         </tbody>
 
