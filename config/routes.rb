@@ -41,6 +41,7 @@ Rails.application.routes.draw do
     end
     #-order
     resources :products, only:[:index]
+    get 'search' => 'searches#search'
   end
   # public-finish-
 
