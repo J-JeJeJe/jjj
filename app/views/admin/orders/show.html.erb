@@ -1,0 +1,135 @@
+<div class="container">
+  <div class="row d-flex align-items-center mx-auto my-auto justify-content-center">
+    <div class="col-md-12 shadow p-3 mb-5 bg-white rounded">
+
+      <div class="container">
+        <div class="d-flex align-items-center p-3 my-3 rounded shadow">
+          <h1 class="mb-0 text-dark">注文履歴詳細</h1>
+        </div>
+      </div>
+
+      <div calss='container'>
+        <div class='row'>
+          <div class="col-md-8 ml-5 shadow-sm p-2 mb-5 bg-white rounded">
+            <table class="table">
+
+              <tbody>
+                <tr>
+                  <th scope="col"><strong>購入者</strong></th>
+                  <td scope="col" colspan="2">
+                    <%= @order.name %>
+                    </td>
+                </tr>
+              </tbody>
+
+              <tbody>
+                <tr>
+                  <th scope="row"><strong>注文日</strong></th>
+                  <td colspan="2">
+                    <%= @order.created_at.strftime("%Y/%-m/%-d")%>
+                  </td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <th scope="row"><strong>配送先</strong></th>
+                  <td colspan="2">
+                    <%= @order.postal_code %></br>
+                    <%= @order.address %>
+                  </td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <th scope="row"><strong>支払い方法</strong></th>
+                  <td colspan="2">
+                    <% if @order.payment_method == true %>
+                      <p>クレジットカード</p>
+                    <% elsif @order.payment_method == false %>
+                      <p>銀行支払</p>
+                    <% end %>
+                  </td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <th scope="row"><strong>注文ステータス</strong></th>
+                  <td scope="row">
+                    <%= @order.status %>
+                  </td>
+                  <td><%= link_to "更新", root_path, class: "btn btn-outline-success" %></td>
+                </tr>
+              </tbody>
+
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div calss='container'>
+        <div class='row d-flex align-items-center'>
+          <div class="col-md-8 mx-auto">
+            <table class="table rounded shadow-sm p-3 bg-w">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col">
+                  <strong>商品名</strong>
+                </th>
+                <th scope="col">
+                  <strong>単価（税込）</strong>
+                </th>
+                <th scope="col">
+                  <strong>数量</strong>
+                </th>
+                <th scope="col">
+                  <strong>小計</strong>
+                </th>
+                <th scope="col">
+                  <strong>制作ステータス</strong>
+                </th>
+                <th></th>
+              </thead>
+              <%# @order_items.each do |order| %>
+                <tbody>
+                  <tr>
+                    <td><%#= order_item.product.title %></td>
+                    <td><%#= order_item.product.price %></td>
+                    <td><%#= order_item.quantity %></td>
+                    <td><%#= order_item.sub_total %></td>
+                    <td><%#= order_item.work_status %></td>
+                    <td><%= link_to "更新", root_path, class: "btn btn-outline-success" %></td>
+                  </tr>
+                </tbody>
+              <%# end %>
+            </table>
+          </div>
+          <div class="col-md-3 mx-auto shadow-sm rounded">
+            <table class="table table-borderless">
+              <tbody>
+                <th class="col"><strong>商品合計</strong></th>
+                <td class="col"><%= @order.total_price %></td>
+              </tbody>
+              <tbody>
+                <th><strong>送料</strong></th>
+                <td><%= @order.postage %></td>
+              </tbody>
+              <tbody>
+                <th>請求金額合計</th>
+                <td><%= @order.amount %></td>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
