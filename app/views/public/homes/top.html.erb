@@ -2,25 +2,22 @@
   <div class='row justify-content-center mx-auto'>
     <div class="col-md-3">
       <div class="list-group">
-          <sapn class="list-group-item active">
-            ジャンル
-          </sapn>
-          <div class="list-group-item">
-            <i class="fas fa-birthday-cake"></i>
-             ケーキ
-          </div>
-          <div class="list-group-item">
-            <i class="fas fa-cookie-bite"></i>
-             焼き菓子
-          </div>
-          <div class="list-group-item">
-            <i class="fas fa-stroopwafel"></i>
-             ワッフル
-          </div>
-          
-          <div><a class="twitter-timeline" data-height="450" href="https://twitter.com/dmmwebcamp_?ref_src=twsrc%5Etfw">Tweets by dmmwebcamp_</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></div>
-        </ul>
-
+          <table class="table table-bordered genre-table">
+            <thead>
+              <tr>
+                <th>ジャンル検索</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @product_categories.each do |product_category| %>
+                <tr>
+                  <td>
+                    <%= link_to product_category.name, search_path('search[value]': product_category, 'search[how]': "match")%>
+                  </td>
+                </tr>
+                <% end %>
+            </tbody>
+          </table>
       </div>
     </div>
     <div class="col-md-8">
