@@ -9,6 +9,9 @@ class Customer < ApplicationRecord
 
     #カート機能
     has_many :cart_items, dependent: :destroy
+    
+    # 配送先
+    has_many :shipping_addresses, dependent: :destroy
  
     def full_name
       "#{last_name} #{first_name}"

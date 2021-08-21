@@ -12,10 +12,42 @@
 //
 
 //= require jquery3
+//= require rails-ujs
 //= require popper
 //= require bootstrap-sprockets
 
-//= require rails-ujs
 //= require activestorage
-//= require turbolinks
 //= require_tree .
+
+
+
+$(document).ready(function(){
+  $('.slider').slick({
+    autoplay: true,
+    infinite: true,
+    dots: true,
+    centerMode: true,
+    centerPadding: '60px',
+    slidesToShow: 3,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          arrows: false,
+          centerMode: true,
+          centerPadding: '40px',
+          slidesToShow: 3
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          arrows: false,
+          centerMode: true,
+          centerPadding: '40px',
+          slidesToShow: 1
+        }
+      }
+    ]
+  });
+});

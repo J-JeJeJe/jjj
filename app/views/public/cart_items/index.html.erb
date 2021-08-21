@@ -55,7 +55,8 @@
        </td>
        <% end %>
       <!--小計-->
-       <td class="align-middle"><%= cart_item.sub_tatal.to_s %></td>
+       <td class="align-middle"><
+      <td><%= cart_item.sub_total.to_s %></td>
       <!--商品削除-->
        <td class="align-middle">
         <%= link_to "削除", cart_item_path(cart_item.id), class: "btn btn-danger", method: :delete %>

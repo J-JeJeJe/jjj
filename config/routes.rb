@@ -23,6 +23,9 @@ Rails.application.routes.draw do
     end
     resources :products, only:[:index, :show]
 
+    # shipping_address
+    resources :shipping_addresses, except:[:new, :show]
+
     # cart_item
     resources :cart_items, only:[:create, :index, :update, :destroy] do
       collection do
@@ -51,15 +54,16 @@ Rails.application.routes.draw do
 
 
   namespace :admin do
-    resources :products, only:[:new, :create, :index, :show, :edit, :update]
+    resources :orders, only:[:index, :show, :update]
+    resources :products, except:[:destroy]
     resources :customers, only:[:index, :show, :edit, :update]
-    
-    
+    resources :product_categories, only:[:index, :create, :edit, :update]
+    resources :order_items, only: [:update]
   end
-  
+
   #customer-edit
-  
-  
+
+
   # admin-finish
 
 

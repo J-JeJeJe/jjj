@@ -17,6 +17,12 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
+#home {
+  background-image:url(background1.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
 
 .form-signin {
   width: 100%;
@@ -35,6 +41,9 @@
   height: 100vh;
 }
 
-th,td {
-  white-space: pre-line;
-}
+.slider { padding: 0;}
+.slider img { width: 100%;}
+.slider div { margin: 0 5px;}
+.slider .slick-next { right: 17px;　z-index: 100;}
+.slider .slick-prev { left: 23px; z-index: 100;}
+
