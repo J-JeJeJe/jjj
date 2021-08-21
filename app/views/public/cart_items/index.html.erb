@@ -1,10 +1,12 @@
-<div class="container mx-auto my-auto">
-  <div class="row">
-    <div class="col-md-4">
-     <h2 class="text-center order-title mx-auto">ショッピングカート</h2>
+<div class="container">
+ <div class="row d-flex align-items-center mx-auto my-auto justify-content-center">
+  <div class="col-md-12 shadow p-3 mb-5 bg-white rounded">
+   <div class="text-success"><%= flash[:notice] %></div>
+   <div class="container">
+    <div class="d-flex align-items-center p-3 my-3 rounded shadow">
+     <h1 class="mb-0 text-dark">ショッピングカート</h1>
     </div>
-  </div>
-</div>
+   </div>
 <div class="container mx-auto my-auto">
  <% if @cart_items.blank? %>
   <div class="row">
@@ -15,13 +17,13 @@
  <% else %>
   <div class="row mx-auto">
    <div class="col mx-auto  py-auto">
-    <div class="text-right">
+    <div class="text-right mb-3">
      <%= link_to "カートを空にする", all_destroy_cart_items_path, class: "btn btn-danger", method: :delete %>
     </div>
    </div>
   </div>
   <div class="row">
-   <div class="col-md-9 mx-auto">
+   <div class="col-md-9 mx-auto mt-1">
     <table class="table">
      <theder>
       <tr>
