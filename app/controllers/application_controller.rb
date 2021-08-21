@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::Base
-    before_action :authenticate_customer!,except: [:top, :about]
     before_action :configure_permitted_parameters, if: :devise_controller?
     
 
@@ -13,7 +12,7 @@ class ApplicationController < ActionController::Base
     if customer_signed_in?
       root_path
     else
-      root_path
+      admin_orders_path
     end
   end
 
