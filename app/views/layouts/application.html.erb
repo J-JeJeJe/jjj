@@ -52,10 +52,10 @@
                 <%= link_to "会員一覧", admin_customers_path, class: "nav-link text-dark" %>
               </li>
               <li class="nav-item">
-                <%= link_to "注文履歴一覧", root_path, class: "nav-link text-dark" %>
+                <%= link_to "注文履歴一覧", admin_orders_path, class: "nav-link text-dark" %>
               </li>
               <li class="nav-item">
-                <%= link_to "ジャンル一覧", root_path, class: "nav-link text-dark" %>
+                <%= link_to "ジャンル一覧", admin_product_categories_path, class: "nav-link text-dark" %>
               </li>
               <li class="nav-item">
                 <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "nav-link" %>
@@ -76,10 +76,11 @@
               </li>
             <% end %>
           </ul>
-          <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="検索" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0">検索</button>
-          </form>
+            <%= form_with url: search_path, method: :get, class: "form-inline my-2 my-lg-0", local:true do |f| %>
+              <%= f.text_field 'search[value]', placeholder: "検索", class: "form-control mr-sm-2"%>
+              <%= f.hidden_field 'search[how]', value: "partical" %>
+              <%= f.submit "商品検索", class: "btn btn-outline-success my-2 my-sm-0" %>
+            <% end %>
       </div>
      </nav>
     </header>
