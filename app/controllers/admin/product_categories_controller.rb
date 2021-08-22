@@ -19,7 +19,8 @@ class Admin::ProductCategoriesController < ApplicationController
 
   def update
     @product_category = ProductCategory.find(params[:id])
-    @product_category.update
+    @product_category.update(category_params)
+    redirect_to admin_product_categories_path
   end
 
   private
