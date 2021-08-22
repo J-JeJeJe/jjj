@@ -51,10 +51,10 @@
         <th><strong>販売ステータス</strong></th>
         <td>
          <% if @product.sell_status == true %>
-   　　  　　<%= @product.sell_status = "販売中" %>
-  　　  　　<% else %>
    　　  　　<%= @product.sell_status = "販売停止中" %>
-  　　  　　<% end %>
+   　　 　<% else %>
+  　　  　　　<%= @product.sell_status = "販売中" %>
+  　　  　<% end %>
         </td>
        </tr>
       </tbody>
