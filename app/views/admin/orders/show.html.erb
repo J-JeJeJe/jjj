@@ -54,6 +54,10 @@
               <tbody>
                 <tr>
                   <th scope="row"><strong>注文ステータス</strong></th>
+<<<<<<< HEAD
+                  <td scope="row">
+=======
+>>>>>>> 1657aa2092b9a35d850f3dd26c500b5f524fb3d9
                   <%= form_with model: @order, url: admin_order_path, method: :patch, local:true do |f| %>
                   <td scope="row">
                   <%= f.select :status, Order.statuses.keys %>
@@ -91,6 +95,10 @@
                 </th>
                 <th></th>
               </thead>
+<<<<<<< HEAD
+            
+=======
+>>>>>>> 1657aa2092b9a35d850f3dd26c500b5f524fb3d9
               <% @order_items.each do |order_item| %>
                 <tbody>
                   <tr>
