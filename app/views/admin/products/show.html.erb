@@ -4,11 +4,7 @@
 
 <div>
  <p>
-<<<<<<< HEAD
-  <%= attachment_image_tag @product, :image, :fill, 100, 100,  fallback: "no_image.jpg" %>
-=======
   <%= attachment_image_tag @product, :image, size:"100x100",  fallback: "no_image.jpg" %>
->>>>>>> 1657aa2092b9a35d850f3dd26c500b5f524fb3d9
 </p>
   <p>商品名</p>
   <p><%= @product.title %></p>
@@ -20,11 +16,11 @@
   <p><%= @product.add_tax_price.to_s(:delimited) %> (<%= @product.price %>)円</p>
   <p>販売ステータス</p>
   <p>
-   <% if @product.sell_status == true %>
-    <%= @product.sell_status = "販売停止中" %>
-   <% else %>
-    <%= @product.sell_status = "販売中" %>
-   <% end %>
+    <% if @product.sell_status == true %>
+      <%= @product.sell_status = "販売停止中" %>
+    <% else %>
+      <%= @product.sell_status = "販売中" %>
+    <% end %>
   </p>
   <p>
     <%= link_to "編集する", edit_admin_product_path(@product.id) %>

@@ -42,25 +42,14 @@
         <td><%= product.product_category.name %></td>
         <td>
         <% if product.sell_status == true %>
-<<<<<<< HEAD
-         <p class="text-success">
-          <%= product.sell_status = "販売中" %>
-         </p>
-        <% else %>
-         <p class="text-secondary">
-          <%= product.sell_status = "販売停止中" %>
-         </p>
-        <% end %>
-=======
           <p class="text-secondary">
             <%= product.sell_status = "販売停止中" %>
           </p>
-         <% else %>
+        <% elsif product.sell_status == false %>
           <p class="text-success">
             <%= product.sell_status = "販売中" %>
-           </p>
+          </p>
          <% end %>
->>>>>>> 1657aa2092b9a35d850f3dd26c500b5f524fb3d9
         </td>
        </tr>
       </tbody>

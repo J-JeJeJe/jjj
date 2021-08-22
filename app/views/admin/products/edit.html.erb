@@ -13,9 +13,9 @@
   <%= f.text_field :price %>円</br>
   <label for="sell_status">販売ステータス</label>
 
-   <%= f.radio_button :sell_status, :true, checked:true %>
-   <span>販売中</span>
-   <%= f.radio_button :sell_status, :false %>
-   <span>販売停止中</span></br>
+  <%= f.radio_button :sell_status, :false, checked:true %>
+  <span>販売中</span>
+  <%= f.radio_button :sell_status, :true %>
+  <span>販売停止中</span></br>
   <%= f.submit '変更を保存' %>
 <% end %>
