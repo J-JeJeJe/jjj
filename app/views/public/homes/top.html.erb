@@ -1,6 +1,7 @@
 <div calss='container'>
   <div class='row justify-content-center mx-auto'>
     <div class="col-md-3">
+<<<<<<< HEAD
       <div class="list-group mb-5">
           <sapn class="list-group-item active">
             ジャンル
@@ -17,6 +18,25 @@
             <i class="fas fa-stroopwafel"></i>
              ワッフル
           </div>
+=======
+      <div class="list-group">
+          <table class="table table-bordered genre-table">
+            <thead>
+              <tr>
+                <th>ジャンル検索</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @product_categories.each do |product_category| %>
+                <tr>
+                  <td>
+                    <%= link_to product_category.name, search_path('search[value]': product_category, 'search[how]': "match")%>
+                  </td>
+                </tr>
+                <% end %>
+            </tbody>
+          </table>
+>>>>>>> 3f9d10affb7925e346b90c3cb1268b64df7c1c06
       </div>
           <div class="">
             <a class="twitter-timeline" data-height="450" href="https://twitter.com/dmmwebcamp_?ref_src=twsrc%5Etfw">Tweets by dmmwebcamp_</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
@@ -47,7 +67,11 @@
             <div class="card mb-3 shadow-sm">
               <div class="card-img-top">
               <%= link_to product_path(product) do %>
+<<<<<<< HEAD
           	    <%= attachment_image_tag product, :image, style: "object-fit: cover; width: 100%;" %>
+=======
+          	    <%= attachment_image_tag product, :image, size: "400x400", class:"img-fluid"  %>
+>>>>>>> 3f9d10affb7925e346b90c3cb1268b64df7c1c06
               <% end %>
               </div>
               <div class="card-body">
@@ -64,3 +88,7 @@
   </div>
   </div>
   </div>
+<<<<<<< HEAD
+=======
+</div>
+>>>>>>> 3f9d10affb7925e346b90c3cb1268b64df7c1c06

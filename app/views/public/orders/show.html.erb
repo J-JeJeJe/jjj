@@ -28,7 +28,11 @@
                 <tr>
                   <th scope="row">支払方法</th>
                   <td>
-                      <%= @order.payment_method %>
+                    <% if @order.payment_method == true %>
+                      <p>クレジットカード</p>
+                    <% elsif @order.payment_method == false %>
+                      <p>銀行支払</p>
+                    <% end %>
                   </td>
                 </tr>
                 <tr>

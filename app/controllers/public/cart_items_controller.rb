@@ -1,5 +1,10 @@
 class Public::CartItemsController < ApplicationController
+<<<<<<< HEAD
   
+=======
+  before_action :authenticate_customer!
+
+>>>>>>> 3f9d10affb7925e346b90c3cb1268b64df7c1c06
   def create
      @cart_item = CartItem.new(cart_item_params)
      @cart_item.customer_id = current_customer.id
@@ -14,7 +19,7 @@ class Public::CartItemsController < ApplicationController
      end
     
       @cart_item.save
-    redirect_to cart_items_path,notice:"カートに商品が入りました"
+      redirect_to cart_items_path, notice: "カートに商品が入りました"
   end
   
   def index
