@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 <div class="container">
-=======
->>>>>>> f24a5e23571ce16bf5442c994aceced7267fbcd9
   <div class="row d-flex align-items-center mx-auto my-auto justify-content-center">
     <div class="col-md-12 shadow p-3 mb-5 bg-white rounded">
 
@@ -57,19 +54,12 @@
               <tbody>
                 <tr>
                   <th scope="row"><strong>注文ステータス</strong></th>
-<<<<<<< HEAD
-                  <td scope="row">
-                    <%= @order.status %>
-                  </td>
-                  <td><%= link_to "更新", root_path, class: "btn btn-outline-success" %></td>
-=======
                   <%= form_with model: @order, url: admin_order_path, method: :patch, local:true do |f| %>
                   <td scope="row">
                   <%= f.select :status, Order.statuses.keys %>
                   </td>
                   <td><%= f.submit "更新" , class: "btn btn-outline-success" %></td>
                   <% end %>
->>>>>>> f24a5e23571ce16bf5442c994aceced7267fbcd9
                 </tr>
               </tbody>
 
@@ -101,20 +91,6 @@
                 </th>
                 <th></th>
               </thead>
-<<<<<<< HEAD
-              <%# @order_items.each do |order| %>
-                <tbody>
-                  <tr>
-                    <td><%#= order_item.product.title %></td>
-                    <td><%#= order_item.product.price %></td>
-                    <td><%#= order_item.quantity %></td>
-                    <td><%#= order_item.sub_total %></td>
-                    <td><%#= order_item.work_status %></td>
-                    <td><%= link_to "更新", root_path, class: "btn btn-outline-success" %></td>
-                  </tr>
-                </tbody>
-              <%# end %>
-=======
               <% @order_items.each do |order_item| %>
                 <tbody>
                   <tr>
@@ -129,7 +105,6 @@
                   </tr>
                 </tbody>
               <% end %>
->>>>>>> f24a5e23571ce16bf5442c994aceced7267fbcd9
             </table>
           </div>
           <div class="col-md-3 mx-auto shadow-sm rounded">
@@ -151,10 +126,8 @@
 
         </div>
       </div>
-<<<<<<< HEAD
 
-=======
->>>>>>> f24a5e23571ce16bf5442c994aceced7267fbcd9
+
     </div>
   </div>
 </div>
