@@ -23,11 +23,14 @@
 
 $(document).ready(function(){
   $('.slider').slick({
+  autoplay: true,
+  infinite: true,
+  autoplaySpeed: 3000,
+  loop: true,
     dots: true,
-  infinite: false,
-  speed: 300,
+  speed: 500,
   slidesToShow: 3,
-  slidesToScroll: 3,
+  slidesToScroll: 1,
   responsive: [
     {
       breakpoint: 1024,
@@ -54,4 +57,15 @@ $(document).ready(function(){
     }
     ]
   });
+});
+
+$(function(){
+	$('.repeat').click(function(){
+    	var classes =  $(this).parent().attr('class');
+        $(this).parent().attr('class', 'animate');
+        var indicator = $(this);
+        setTimeout(function(){
+        	$(indicator).parent().addClass(classes);
+        }, 20);
+    });
 });

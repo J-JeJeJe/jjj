@@ -1,10 +1,7 @@
 class Public::CartItemsController < ApplicationController
-<<<<<<< HEAD
-  
-=======
+
   before_action :authenticate_customer!
 
->>>>>>> 3f9d10affb7925e346b90c3cb1268b64df7c1c06
   def create
      @cart_item = CartItem.new(cart_item_params)
      @cart_item.customer_id = current_customer.id

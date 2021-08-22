@@ -17,12 +17,7 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
-#home {
-  background-image:url(background1.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 100vh;
-}
+
 
 .form-signin {
   width: 100%;
@@ -43,7 +38,6 @@
 
 .slider { padding: 0;}
 .slider img { width: 100%;}
-.slider div { margin: 0 5px;}
 .slider .slick-next { right: 17px;　z-index: 100;}
 .slider .slick-prev { left: 23px; z-index: 100;}
 
@@ -106,4 +100,58 @@
       }
     }
   }
+}
+
+h1 {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 26px;
+	text-align: center;
+	text-shadow: 1px 1px 2px yellow;
+}
+
+h1::before,
+h1::after {
+	content: '';
+	width: 3px;
+	height: 40px;
+	background-color: #3fc1c9;
+}
+
+h1::before {
+	margin-right: 30px;
+	transform: rotate(-35deg)
+}
+h1::after {
+	margin-left: 30px;
+	transform: rotate(35deg)
+}
+
+.animate {
+	font-size: 50px;
+	margin: 100px 0 0;
+	border-bottom: 2px solid #ccc;
+}
+
+.animate span {
+	display: inline-block;
+}
+
+.six span {
+	color: #000;
+	opacity: 0;
+	transform: rotate(-180deg) translate(150px, 0);
+	animation: twister .5s forwards;
+}
+
+
+@keyframes twister {
+	10% {
+		opacity: 1;
+	}
+	100% {
+		transform: rotate(0deg) translate(0);
+		opacity: 1;
+	}
 }
