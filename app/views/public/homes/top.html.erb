@@ -41,7 +41,7 @@
       <div class="col-md-4" style="float:left">
             <div class="card mb-3">
               <%= link_to product_path(product) do %>
-          	    <%= attachment_image_tag product, :image, :fill, 400, 400, class:"img-fluid"  %>
+          	    <%= attachment_image_tag product, :image, size: "400x400", class:"img-fluid"  %>
               <% end %>
               <div class="card-body">
                 <h5 class="card-title"><%= product.title %></h5>

@@ -92,11 +92,11 @@
   <p><%= @product.add_tax_price.to_s(:delimited) %> (<%= @product.price %>)円</p>
   <p>販売ステータス</p>
   <p>
-   <% if @product.sell_status == true %>
-    <%= @product.sell_status = "販売停止中" %>
-   <% else %>
-    <%= @product.sell_status = "販売中" %>
-   <% end %>
+    <% if @product.sell_status == true %>
+      <%= @product.sell_status = "販売停止中" %>
+    <% else %>
+      <%= @product.sell_status = "販売中" %>
+    <% end %>
   </p>
   <p>
     <%= link_to "編集する", edit_admin_product_path(@product.id) %>
