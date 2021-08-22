@@ -2,20 +2,26 @@
 <dev calss='container'>
   <div class='row'>
     <div class="col-md-3 mx-auto">
-      <div class="card">
-        <article>
-          <div class="card-header">
-            ジャンル
-          </div>
-          <ul class="list-group list-group-flush">
-          <li class="list-group-item">ケーキ</li>
-          <li class="list-group-item">焼き菓子</li>
-          <li class="list-group-item">プリン</li>
-        </ul>
-
+      <div class="list-group">
+          <table class="table table-bordered genre-table bg-white rounded shadow">
+            <thead>
+              <tr>
+                <th>ジャンル検索</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @product_categories.each do |product_category| %>
+                <tr>
+                  <td>
+                    <%= link_to product_category.name, search_path('search[value]': product_category, 'search[how]': "match")%>
+                  </td>
+                </tr>
+                <% end %>
+            </tbody>
+          </table>
       </div>
     </div>
-    <div class="col-md-8 mx-auto">
+    <div class="col-md-8 mx-auto my-5">
       <div class="card mb-3">
         <div class="row no-gutters">
           <div class="col-md-4 my-auto">
