@@ -1,6 +1,23 @@
-<h2>ジャンル編集</h2>
+<div class="container">
+  <div class="text-danger"><%= flash[:error] %></div>
+  <div class="d-flex align-items-center p-3 my-3 rounded shadow bg-white">
+ <h1 class="mb-0 text-dark">ジャンル編集</h1>
+   </div>
+</div>
+<div class="container">
+ <div class="row d-flex align-items-center">
+  <div class="col-md-8 mx-auto rounded shadow my-3 py-3 bg-white">
 <%= form_with model: @product_category, url: admin_product_category_path(@product_category), local:true do |f| %>
-<label for="product_category_name">ジャンル名</label>
-<%= f.text_field :name, placeholder: "ジャンル名" %>
-<%= f.submit "変更を保存", class: "btn btn-outline-success" %>
+<table class="table table-borderless">
+     <tbody>
+      <tr>
+       <th scope="col"><strong>ジャンル名</strong></th>
+       <td scope="col"><%= f.text_field :name, placeholder: "ジャンル名" %></th>
+       <td scope="col"><%= f.submit "変更を保存", class: "btn btn-outline-success" %></th>
+      </tr>
+     </tbody>
+</table>
 <% end %>
+</div>
+</div>
+</div>
