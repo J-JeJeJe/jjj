@@ -10,7 +10,7 @@
    <div calss='container'>
     <div class='row'>
      <div class="col-3 ml-5 p-2 my-5 rounded">
-      <%= attachment_image_tag @product, :image, :fill, 200, 160,  fallback: "no_image.jpg" %>
+      <%= attachment_image_tag @product, :image, size: "200x160",  fallback: "no_image.jpg" %>
      </div>
      <div class="col-7 ml-2 shadow-sm p-2 mb-5 bg-white rounded">
       <table class="table">
@@ -51,10 +51,10 @@
         <th><strong>販売ステータス</strong></th>
         <td>
          <% if @product.sell_status == true %>
-   　　  　　<%= @product.sell_status = "販売中" %>
-  　　  　　<% else %>
    　　  　　<%= @product.sell_status = "販売停止中" %>
-  　　  　　<% end %>
+   　　 　<% else %>
+  　　  　　　<%= @product.sell_status = "販売中" %>
+  　　  　<% end %>
         </td>
        </tr>
       </tbody>
@@ -62,7 +62,7 @@
        <tr>
         <th>
          <%= link_to "編集する", edit_admin_product_path(@product.id), class: "btn btn-success btn-lg mr-1" %>
-        </th>     
+        </th>
        </tr>
        </tbody>
       </table>

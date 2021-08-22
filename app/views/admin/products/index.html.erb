@@ -45,10 +45,10 @@
           <p class="text-secondary">
             <%= product.sell_status = "販売停止中" %>
           </p>
-         <% else %>
+        <% elsif product.sell_status == false %>
           <p class="text-success">
             <%= product.sell_status = "販売中" %>
-           </p>
+          </p>
          <% end %>
         </td>
        </tr>
