@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="container">
  <div class="row d-flex align-items-center mx-auto my-auto justify-content-center">
   <div class="col-md-12 shadow p-3 mb-5 bg-white rounded">
@@ -72,3 +73,34 @@
   </div>
  </div>
 </div>
+=======
+<h2>商品詳細</h2></br>
+
+<%= flash[:notice] %>
+
+<div>
+ <p>
+  <%= attachment_image_tag @product, :image, size:"100x100",  fallback: "no_image.jpg" %>
+</p>
+  <p>商品名</p>
+  <p><%= @product.title %></p>
+  <p>商品説明</p>
+  <p><%= @product.description %></p>
+  <p>ジャンル</p>
+  <p><%= @product.product_category.name %></p>
+  <p>税込価格</br>(税抜き価格)</p>
+  <p><%= @product.add_tax_price.to_s(:delimited) %> (<%= @product.price %>)円</p>
+  <p>販売ステータス</p>
+  <p>
+   <% if @product.sell_status == true %>
+    <%= @product.sell_status = "販売停止中" %>
+   <% else %>
+    <%= @product.sell_status = "販売中" %>
+   <% end %>
+  </p>
+  <p>
+    <%= link_to "編集する", edit_admin_product_path(@product.id) %>
+  </p>
+
+</div>
+>>>>>>> 1657aa2092b9a35d850f3dd26c500b5f524fb3d9
