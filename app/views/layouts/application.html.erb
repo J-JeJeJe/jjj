@@ -8,7 +8,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:wght@600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all' %>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
     <%= javascript_include_tag 'application' %>
     <script src="https://kit.fontawesome.com/8f0be0a856.js" crossorigin="anonymous"></script>
   </head>
@@ -47,10 +52,10 @@
                 <%= link_to "会員一覧", admin_customers_path, class: "nav-link text-dark" %>
               </li>
               <li class="nav-item">
-                <%= link_to "注文履歴一覧", root_path, class: "nav-link text-dark" %>
+                <%= link_to "注文履歴一覧", admin_orders_path, class: "nav-link text-dark" %>
               </li>
               <li class="nav-item">
-                <%= link_to "ジャンル一覧", root_path, class: "nav-link text-dark" %>
+                <%= link_to "ジャンル一覧", admin_product_categories_path, class: "nav-link text-dark" %>
               </li>
               <li class="nav-item">
                 <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "nav-link" %>
@@ -71,19 +76,20 @@
               </li>
             <% end %>
           </ul>
-          <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="検索" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0">検索</button>
-          </form>
+            <%= form_with url: search_path, method: :get, class: "form-inline my-2 my-lg-0", local:true do |f| %>
+              <%= f.text_field 'search[value]', placeholder: "検索", class: "form-control mr-sm-2"%>
+              <%= f.hidden_field 'search[how]', value: "partical" %>
+              <%= f.submit "商品検索", class: "btn btn-outline-success my-2 my-sm-0" %>
+            <% end %>
       </div>
      </nav>
     </header>
-      <main class="bg-light backsize">
+      <main class="backsize" id="home">
         <p id="notice"><%= notice %></p>
         <%= yield %>
       </main>
 
-    <footer class="fixed-bottom footer mt-auto py-3 ">
+    <footer class="fixed-bottom footer mt-auto py-3 bg-white shadow">
      <div class="container">
        <span class="text-muted">@Nagano cake</span>
      </div>

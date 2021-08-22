@@ -1,0 +1,71 @@
+<div class="container">
+  <div class="d-flex align-items-center p-3 my-3  bg-white rounded shadow">
+    <h1 class="mb-0 text-dark"><%= @customer.full_name %>さんの会員詳細</h1>
+  </div>
+</div>
+<div class="container">
+  <div class="row d-flex align-items-center">
+    <div class="col-md-8 mx-auto rounded shadow my-3 bg-white">
+      <%= form_with model: @customer, url: customers_path, local: true do |f| %>
+      <table class="table table-borderless">
+
+        <tbody>
+          <tr>
+            <th scope="col"><strong>氏名</strong></th>
+            <td scope="col"><%= f.text_field :last_name, class: "form-control" %></td>
+            <td scope="col"><%= f.text_field :first_name, class: "form-control" %></td>
+          </tr>
+        </tbody>
+
+        <tbody>
+          <tr>
+            <th scope="col"><strong>フリガナ</strong></th>
+            <td scope="col"><%= f.text_field :last_name_kana, class: "form-control" %></td>
+            <td scope="col"><%= f.text_field :first_name_kana, class: "form-control" %></td>
+          </tr>
+        </tbody>
+
+        <tbody>
+          <tr>
+            <th scope="col"><strong><%= f.label :postal_code %></strong></th>
+            <td scope="col"><%= f.text_field :postal_code, class: "form-control" %></td>
+          </tr>
+        </tbody>
+
+        <tbody>
+          <tr>
+            <th scope="col"><strong><%= f.label :address %></strong></th>
+            <td scope="col"><%= f.text_field :address, class: "form-control" %></td>
+          </tr>
+        </tbody>
+
+        <tbody>
+          <tr>
+            <th scope="col"><strong><%= f.label :phone_number %></strong></th>
+            <td scope="col"><%= f.text_field :phone_number, class: "form-control" %></td>
+          </tr>
+        </tbody>
+
+        <tbody>
+          <tr>
+            <th scope="col"><strong><%= f.label :email %></strong></th>
+            <td scope="col"><%= f.text_field :email, class: "form-control" %></td>
+          </tr>
+        </tbody>
+
+        <tbody>
+          <tr>
+            <th scope="col" class="text-center mb-3"><%= f.submit "変更", class: "btn btn-success btn-lg mr-1" %></th>
+          </tr>
+        </tbody>
+         <tbody>
+          <tr>
+            <th scope="col" class="text-center mb-3"><%= link_to "退会", unsubscribe_customers_path, class: "btn btn-danger btn-lg mr-1" %></th>
+          </tr>
+        </tbody>
+
+      </table>
+      <% end %>
+      </div>
+    </div>
+  </div>

@@ -14,25 +14,24 @@ class Customers::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-   def edit
-     @current_customer = current_customer
-   end
+  # def edit
+  # @current_customer = current_customer
+  # end
 
-
-   def update
-     @customer = current_customer
-    if @customer.update(customer_params)
-      redirect_to customers_path, notice: '会員情報を変更しました。'
-    else
-      render :edit
-    end
-   end
-
+  # def update
+  #   @customer = current_customer
+  #   if @customer.update(customer_params)
+  #     redirect_to customers_path, notice: '会員情報を変更しました。'
+  #   else
+  #     render :edit
+  #   end
+  # end
+  
   # DELETE /resource
   # def destroy
   #   super
   # end
-
+  
   # GET /resource/cancel
   # Forces the session data which is usually expired after sign
   # in to be expired now. This is useful if the user wants to
@@ -41,33 +40,33 @@ class Customers::RegistrationsController < Devise::RegistrationsController
   # def cancel
   #   super
   # end
-
+  
   # protected
-
+  
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
   #   devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
   # end
-
+  
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_account_update_params
   #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
   # end
-
+  
   # The path used after sign up.
   # def after_sign_up_path_for(resource)
   #   super(resource)
   # end
-
+  
   # The path used after sign up for inactive accounts.
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
-
-   private
-
-  def customer_params
-    params.require(:customer).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :postal_code, :address, :phone_number, :email)
-  end
+  
+  # private
+  
+  # def customer_params
+  #   params.require(:customer).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :postal_code, :address, :phone_number, :email)
+  # end
 
 end

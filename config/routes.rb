@@ -1,11 +1,5 @@
 Rails.application.routes.draw do
 
-  devise_for :customers, :controllers => {
-      sessions: 'customers/sessions',
-      registrations: 'customers/registrations',
-      passwords: 'customers/passwords'
-  }
-
   root to: 'public/homes#top'
   get "public/home/about" => "public/homes#about"
 
@@ -14,6 +8,8 @@ Rails.application.routes.draw do
   # public-start-
   scope module: :public do
 
+    get 'customers/edit' => 'customers#edit'
+    patch 'customers' => 'customers#update'
 
     resource :customers, only: [:show] do
       collection do
@@ -41,9 +37,14 @@ Rails.application.routes.draw do
     end
     #-order
     resources :products, only:[:index]
+    get 'search' => 'searches#search'
   end
   # public-finish-
-
+  devise_for :customers, :controllers => {
+    sessions: 'customers/sessions',
+    registrations: 'customers/registrations',
+    passwords: 'customers/passwords'
+  }
 
 
   # admin-start-
@@ -58,6 +59,7 @@ Rails.application.routes.draw do
     resources :products, except:[:destroy]
     resources :customers, only:[:index, :show, :edit, :update]
     resources :product_categories, only:[:index, :create, :edit, :update]
+    resources :order_items, only: [:update]
   end
 
   #customer-edit
