@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="d-flex align-items-center p-3 my-3 rounded shadow">
+  <div class="d-flex align-items-center p-3 my-3  bg-white rounded shadow">
     <h1 class="mb-0 text-dark"><%= @customer.full_name %>さんの会員詳細</h1>
   </div>
 </div>
@@ -12,44 +12,44 @@
         <tbody>
           <tr>
             <th scope="col"><strong>氏名</strong></th>
-            <td scope="col"><%= f.text_field :last_name, class: "form-control" %></th>
-            <td scope="col"><%= f.text_field :first_name, class: "form-control" %></th>
+            <td scope="col"><%= f.text_field :last_name, class: "form-control" %></td>
+            <td scope="col"><%= f.text_field :first_name, class: "form-control" %></td>
           </tr>
         </tbody>
 
         <tbody>
           <tr>
             <th scope="col"><strong>フリガナ</strong></th>
-            <td scope="col"><%= f.text_field :last_name_kana, class: "form-control" %></th>
-            <td scope="col"><%= f.text_field :first_name_kana, class: "form-control" %></th>
+            <td scope="col"><%= f.text_field :last_name_kana, class: "form-control" %></td>
+            <td scope="col"><%= f.text_field :first_name_kana, class: "form-control" %></td>
           </tr>
         </tbody>
 
         <tbody>
           <tr>
             <th scope="col"><strong><%= f.label :postal_code %></strong></th>
-            <td scope="col"><%= f.text_field :postal_code, class: "form-control" %></th>
+            <td scope="col"><%= f.text_field :postal_code, class: "form-control" %></td>
           </tr>
         </tbody>
 
         <tbody>
           <tr>
             <th scope="col"><strong><%= f.label :address %></strong></th>
-            <td scope="col"><%= f.text_field :address, class: "form-control" %></th>
+            <td scope="col"><%= f.text_field :address, class: "form-control" %></td>
           </tr>
         </tbody>
 
         <tbody>
           <tr>
             <th scope="col"><strong><%= f.label :phone_number %></strong></th>
-            <td scope="col"><%= f.text_field :phone_number, class: "form-control" %></th>
+            <td scope="col"><%= f.text_field :phone_number, class: "form-control" %></td>
           </tr>
         </tbody>
 
         <tbody>
           <tr>
             <th scope="col"><strong><%= f.label :email %></strong></th>
-            <td scope="col"><%= f.text_field :email, class: "form-control" %></th>
+            <td scope="col"><%= f.text_field :email, class: "form-control" %></td>
           </tr>
         </tbody>
 
