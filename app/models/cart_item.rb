@@ -2,11 +2,7 @@ class CartItem < ApplicationRecord
 
   belongs_to :product
   belongs_to :customer
-<<<<<<< HEAD
 
-=======
-  
->>>>>>> 862cf762a8cb254edab95ff9c3a6ca23389d9e0f
   validates :customer_id, presence: true
   validates :product_id, presence: true
   validates :quantity, presence: true, numericality:{ only_integer: true },

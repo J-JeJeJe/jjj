@@ -55,11 +55,20 @@
                 <tr>
                   <th scope="row"><strong>注文ステータス</strong></th>
                   <%= form_with model: @order, url: admin_order_path, method: :patch, local:true do |f| %>
-                  <td scope="row">
-                  <%= f.select :status, Order.statuses.keys %>
-                  </td>
-                  <td><%= f.submit "更新" , class: "btn btn-outline-success" %></td>
-                  <% end %>
+
+                    <% if f.order_items.制作完了? %>
+                    <% f.発送準備中! %>
+                    <td scope="row">
+                      <%= f.select :status, Order.statuses.keys %>
+                    </td>
+                    <% else %>
+                    <td scope="row">
+                      <%= f.select :status, Order.statuses.keys %>
+                    </td>
+                    <% end %>
+
+                    <td><%= f.submit "更新" , class: "btn btn-outline-success" %></td>
+                    <%end %>
                 </tr>
               </tbody>
             </table>
@@ -98,7 +107,18 @@
                     <td><%= order_item.quantity %></td>
                     <td><%= order_item.sub_total %></td>
                     <%= form_with model: order_item, url: admin_order_item_path(order_item), method: :patch, local:true do |f| %>
-                    <td><%= f.select :work_status, OrderItem.work_statuses.keys %></td>
+
+                     <% if order_item.order.入金確認? %>
+                    <td>
+                      <% order_item.制作待ち! %>
+                      <%= f.select :work_status, OrderItem.work_statuses.keys  %>
+                    </td>
+                     <% else %>
+                    <td>
+                      <%= f.select :work_status, OrderItem.work_statuses.keys  %>
+                    </td>
+                      <% end %>
+
                     <td><%= f.submit "更新" , class: "btn btn-outline-success" %></td>
                     <% end %>
                   </tr>
