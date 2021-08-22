@@ -53,9 +53,9 @@ Rails.application.routes.draw do
       passwords: 'admin/admin/passwords'
     }
 
-
+ get '/admin' => 'admin/homes#top'
   namespace :admin do
-    resources :orders, only:[:index, :show, :update]
+    resources :orders, only:[:show, :update]
     resources :products, except:[:destroy]
     resources :customers, only:[:index, :show, :edit, :update]
     resources :product_categories, only:[:index, :create, :edit, :update]
