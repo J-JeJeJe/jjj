@@ -1,26 +1,74 @@
-<h2>商品詳細</h2>
-<div>
-  <p>
-  <%= attachment_image_tag @product, :image, :fill, 100, 100,  fallback: "no_image.jpg" %>
-</p>
-  <p>商品名</p>
-  <p><%= @product.title %></p>
-  <p>商品説明</p>
-  <p><%= @product.description %></p>
-  <p>ジャンル</p>
-  <p><%= @product.product_category.name %></p>
-  <p>税込価格</br>(税抜き価格)</p>
-  <p><%= @product.add_tax_price.to_s(:delimited) %> (<%= @product.price %>)円</p>
-  <p>販売ステータス</p>
-  <p>
-   <% if @product.sell_status == true %>
-    <%= @product.sell_status = "販売中" %>
-   <% else %>
-    <%= @product.sell_status = "販売停止中" %>
-   <% end %>
-  </p>
-  <p>
-    <%= link_to "編集する", edit_admin_product_path(@product.id) %>
-  </p>
-
+<div class="container">
+ <div class="row d-flex align-items-center mx-auto my-auto justify-content-center">
+  <div class="col-md-12 shadow p-3 mb-5 bg-white rounded">
+   <div class="text-success"><%= flash[:notice] %></div>
+   <div class="container">
+    <div class="d-flex align-items-center p-3 my-3 rounded shadow">
+     <h1 class="mb-0 text-dark">商品詳細</h1>
+    </div>
+   </div>
+   <div calss='container'>
+    <div class='row'>
+     <div class="col-3 ml-5 p-2 my-5 rounded">
+      <%= attachment_image_tag @product, :image, size: "200x160",  fallback: "no_image.jpg" %>
+     </div>
+     <div class="col-7 ml-2 shadow-sm p-2 mb-5 bg-white rounded">
+      <table class="table">
+  　    <tbody>
+        <tr>
+         <th><strong>商品名</strong></th>
+         <td>
+          <%= @product.title %>
+         </td>
+        </tr>
+       </tbody>
+  　   <tbody>
+       <tr>
+        <th><strong>商品説明</strong></th>
+        <td>
+         <%= @product.description %>
+        </td>
+       </tr>
+      </tbody>
+      <tbody>
+       <tr>
+        <th><strong>ジャンル</strong></th>
+        <td>
+         <%= @product.product_category.name %>
+        </td>
+       </tr>
+      </tbody>
+      <tbody>
+       <tr>
+        <th><strong>税込価格</strong><strong>(税抜価格)</strong></th>
+        <td>
+         <%= @product.add_tax_price.to_s(:delimited) %> (<%= @product.price %>)円
+        </td>
+       </tr>
+      </tbody>
+      <tbody>
+       <tr>
+        <th><strong>販売ステータス</strong></th>
+        <td>
+         <% if @product.sell_status == true %>
+   　　  　　<%= @product.sell_status = "販売停止中" %>
+   　　 　<% else %>
+  　　  　　　<%= @product.sell_status = "販売中" %>
+  　　  　<% end %>
+        </td>
+       </tr>
+      </tbody>
+      <tbody>
+       <tr>
+        <th>
+         <%= link_to "編集する", edit_admin_product_path(@product.id), class: "btn btn-success btn-lg mr-1" %>
+        </th>
+       </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
 </div>

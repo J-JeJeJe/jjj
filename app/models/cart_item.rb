@@ -2,7 +2,11 @@ class CartItem < ApplicationRecord
 
   belongs_to :product
   belongs_to :customer
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> 862cf762a8cb254edab95ff9c3a6ca23389d9e0f
   validates :customer_id, presence: true
   validates :product_id, presence: true
   validates :quantity, presence: true, numericality:{ only_integer: true },
@@ -16,9 +20,5 @@ class CartItem < ApplicationRecord
   def sub_total
     self.add_tax_price * self.quantity
   end
-  # 小計の合計
-  # def  total_price
-  #   line_items.to_a.sum { |item| self.sub_total }
-  # end
 
 end

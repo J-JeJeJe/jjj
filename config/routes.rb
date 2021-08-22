@@ -41,6 +41,7 @@ Rails.application.routes.draw do
     end
     #-order
     resources :products, only:[:index]
+    get 'search' => 'searches#search'
   end
   # public-finish-
 
@@ -58,6 +59,7 @@ Rails.application.routes.draw do
     resources :products, except:[:destroy]
     resources :customers, only:[:index, :show, :edit, :update]
     resources :product_categories, only:[:index, :create, :edit, :update]
+    resources :order_items, only: [:update]
   end
 
   #customer-edit
