@@ -52,6 +52,8 @@ Rails.application.routes.draw do
       sessions: 'admin/admins/sessions',
       passwords: 'admin/admin/passwords'
     }
+  
+  
 
  get '/admin' => 'admin/homes#top'
   namespace :admin do

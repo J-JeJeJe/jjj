@@ -15,7 +15,12 @@ class Public::CartItemsController < ApplicationController
      end
     
       @cart_item.save
+<<<<<<< HEAD
+      flash[:notice] = "カートに商品が入りました"
+      redirect_to cart_items_path
+=======
       redirect_to cart_items_path, notice: "カートに商品が入りました"
+>>>>>>> 862cf762a8cb254edab95ff9c3a6ca23389d9e0f
   end
   
   def index
