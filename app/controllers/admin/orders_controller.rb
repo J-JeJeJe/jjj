@@ -10,10 +10,13 @@ class Admin::OrdersController < ApplicationController
   def update
     @order = Order.find(params[:id])
     @order.update(order_params)
+    
     if @order.status == "入金確認"
       @order.order_items.update(work_status: 1) 
+      flash[:notice] = "更新しました"
       redirect_to  admin_order_path(@order)
     else
+      flash[:notice] = "更新しました"
       redirect_to  admin_order_path(@order)
     end
   end

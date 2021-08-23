@@ -8,11 +8,13 @@ class Admin::ProductsController < ApplicationController
     def create
         @product = Product.new(product_params)
         if @product.save
-        redirect_to admin_product_path(@product.id)
+        redirect_to admin_product_path(@product.id), notice: "商品を追加しました"
         else
+        flash.now[:alert] = "商品の追加に失敗しました"
         render :new
         end
     end
+
 
     def index
         @products = Product.page(params[:page]).per(10)
@@ -28,16 +30,19 @@ class Admin::ProductsController < ApplicationController
 
     def update
         @product = Product.find(params[:id])
-        @product.update(product_params)
-        logger.debug @product.errors.inspect
-        redirect_to admin_product_path(@product.id)
+        if @product.update(product_params)
+           redirect_to admin_product_path(@product.id), notice: "変更を保存しました"
+        else
+            flash.now[:alert] = "変更の保存に失敗しました"
+            render :edit
+        end
     end
 
 
     private
 
     def product_params
-        params.require(:product).permit(:image, :title, :description, :price, :sell_status, :product_cate, :product_category_id)
+        params.require(:product).permit(:image, :title, :description, :price, :sell_status, :product_category_id)
     end
 
 end

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   root to: 'public/homes#top'
-  get "public/home/about" => "public/homes#about"
+  get "about" => "public/homes#about"
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
@@ -23,11 +23,9 @@ Rails.application.routes.draw do
     resources :shipping_addresses, except:[:new, :show]
 
     # cart_item
-    resources :cart_items, only:[:create, :index, :update, :destroy] do
-      collection do
-        delete 'all_destroy' => 'cart_items#all_destroy'
-      end
-    end
+    resources :cart_items, only:[:create, :index, :update, :destroy]
+    delete 'cart_items' => 'cart_items#all_destroy', as: 'cart_items_all_destroy'
+
     #order-
     resources :orders, only: [:new, :create, :index ,:show] do
       collection do
