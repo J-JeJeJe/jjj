@@ -2,7 +2,7 @@
   <div class='row justify-content-center mx-auto'>
     <div class="col-md-3">
       <div class="list-group">
-          <table class="table table-bordered genre-table">
+          <table class="table table-bordered genre-table bg-white rounded shadow">
             <thead>
               <tr>
                 <th>ジャンル検索</th>
@@ -20,8 +20,13 @@
           </table>
       </div>
     </div>
-    <div class="col-md-8 mx-auto">
-    	<h1>商品一覧</h1>
+
+    <div class="col-md-8 mx-auto bg-white rounded shadow">
+     <div class="d-flex align-items-center p-3 my-3  bg-white rounded shadow">
+    <h1 class="mb-0 text-dark">商品一覧</h1>
+  </div>
+  
+ 
 			<% @products.each do |product| %>
       <div class="col-md-3" style="float:left">
         <div class="card mb-3">
@@ -39,7 +44,9 @@
         </div>
       </div>
       <% end %>
-    </div>
+   
     <%= paginate @products%>
+     </div>
   </div>
+</div>
 </div>
