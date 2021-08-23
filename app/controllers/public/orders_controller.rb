@@ -19,21 +19,28 @@ class Public::OrdersController < ApplicationController
         @order.address = current_customer.address
       #1の時登録先の住所
       elsif params[:order][:address_status] == "1"
-        @shipping_address = ShippingAddress.find(params[:order][:shipping_address_id])
-        @order.name = @shipping_address.name
-        @order.postal_code = @shipping_address.postal_code
-        @order.address = @shipping_address.address
+        if params[:order][:shipping_address_id].present?
+          @shipping_address = ShippingAddress.find(params[:order][:shipping_address_id])
+          @order.name = @shipping_address.name
+          @order.postal_code = @shipping_address.postal_code
+          @order.address = @shipping_address.address
+        #バリデーションエラーがある場合
+        else
+          flash[:alert] = "お届け先を選んで下さい"
+          redirect_to new_order_path and return
+        end
       #2の時新規配送先
-      elsif params[:order][:address_status] ==  "2"
+      elsif params[:order][:address_status] == "2"
         @order.name = params[:order][:name]
         @order.postal_code = params[:order][:postal_code]
         @order.address = params[:order][:address]
         @address_status = "2"
         #バリデーションエラーがある場合
-        if @order.valid? == false
-          @shipping_addresses = ShippingAddress.where(customer_id: current_customer)
-          render :new
-        end
+        @order.valid?
+          unless @order.valid_of_specified?(:name, :postal_code, :address)
+            flash[:alert] = "お届け先を入力して下さい"
+            redirect_to new_order_path and return
+          end
       end
   end
 

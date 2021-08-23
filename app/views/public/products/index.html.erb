@@ -1,50 +1,13 @@
-<dev calss='container'>
-  <div class='row justify-content-center mx-auto'>
-    <div class="col-md-3">
-      <div class="list-group">
-          <table class="table table-bordered genre-table bg-white rounded shadow">
-            <thead>
-              <tr>
-                <th>ジャンル検索</th>
-              </tr>
-            </thead>
-            <tbody>
-              <% @product_categories.each do |product_category| %>
-                <tr>
-                  <td>
-                    <%= link_to product_category.name, search_path('search[value]': product_category, 'search[how]': "match")%>
-                  </td>
-                </tr>
-                <% end %>
-            </tbody>
-          </table>
-      </div>
-    </div>
 
-    <div class="col-md-8 mx-auto bg-white rounded shadow">
-     <div class="d-flex align-items-center p-3 my-3  bg-white rounded shadow">
-    <h1 class="mb-0 text-dark">商品一覧</h1>
-  </div>
-  
- 
-			<% @products.each do |product| %>
-      <div class="col-md-3" style="float:left">
-        <div class="card mb-3">
-        	<%= link_to product_path(product) do %>
-          	<%= attachment_image_tag product, :image, size: "400x400", class:"img-fluid"  %>
-          <% end %>
-          <div class="card-body">
-            <h5 class="card-title"><%= product.title %></h5>
-           <% if product.sell_status == false %>
-             <p class="card-text"><%= product.price %>円</p>
-            <% else %>
-             <p class="text-danger">売り切れ中</p>
-            <% end %>
-          </div>
-        </div>
-      </div>
-      <% end %>
-   
+<div calss='container'>
+  <div class='row justify-content-center mx-auto my-auto'>
+    <%= render 'admin/product_categories/categories', product_categories: @product_categories %>
+    <div class="col-md-8 shadow rounded bg-light">
+      <div class="container mb-3 mt-2">
+    	  <h1 style="font-family: 'Kosugi Maru', sans-serif;"><strong>商品一覧</strong></strong></h1>
+    	</div>
+			<%= render 'card', products: @products %>
+    </div>
     <%= paginate @products%>
      </div>
   </div>

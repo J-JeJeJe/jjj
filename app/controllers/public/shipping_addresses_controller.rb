@@ -35,7 +35,7 @@ class Public::ShippingAddressesController < ApplicationController
             redirect_to shipping_addresses_path, notice:"変更を保存しました"
          else
 
-            flash[:alert] = "変更の保存に失敗しました"
+            flash.now[:alert] = "変更の保存に失敗しました"
             render :edit
          end
     end

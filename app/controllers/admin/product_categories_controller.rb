@@ -13,7 +13,7 @@ class Admin::ProductCategoriesController < ApplicationController
     else
       @product_category = ProductCategory.new
       @product_categories = ProductCategory.all
-      flash[:alert] = "ジャンルの追加に失敗しました"
+      flash.now[:alert] = "ジャンルの追加に失敗しました"
       render :index
     end
   end
@@ -28,7 +28,7 @@ class Admin::ProductCategoriesController < ApplicationController
     if @product_category.update(category_params)
        redirect_to admin_product_categories_path, notice: "変更を保存しました"
     else
-      flash[:alert] = "変更の保存に失敗しました"
+      flash.now[:alert] = "変更の保存に失敗しました"
       render :edit
     end
   end
