@@ -14,6 +14,7 @@ class Admin::OrdersController < ApplicationController
   def update
     @order = Order.find(params[:id])
     @order.update(order_params)
+    flash[:notice] = "更新しました"
     redirect_back(fallback_location: admin_order_path(@order))
   end
 

@@ -9,9 +9,15 @@ class Admin::ProductCategoriesController < ApplicationController
   def create
     @product_category = ProductCategory.new(category_params)
     if @product_category.save
-      redirect_to admin_product_categories_path
+         redirect_to admin_product_categories_path, notice: "ジャンルを追加しました"
+    else
+      @product_category = ProductCategory.new
+      @product_categories = ProductCategory.all
+      flash[:alert] = "ジャンルの追加に失敗しました"
+      render :index
     end
   end
+
 
   def edit
     @product_category = ProductCategory.find(params[:id])
@@ -19,8 +25,12 @@ class Admin::ProductCategoriesController < ApplicationController
 
   def update
     @product_category = ProductCategory.find(params[:id])
-    @product_category.update(category_params)
-    redirect_to admin_product_categories_path
+    if @product_category.update(category_params)
+       redirect_to admin_product_categories_path, notice: "変更を保存しました"
+    else
+      flash[:alert] = "変更の保存に失敗しました"
+      render :edit
+    end
   end
 
   private
