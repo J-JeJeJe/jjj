@@ -23,15 +23,24 @@
               </div>
 
           </div>
-
-          <% if @shipping_address.nil? %>
+          <% if @shipping_addresses.present? %>
             <div>
               <h6 class="mb-2">
                 <%= f.radio_button :address_status, 1 %>
                 <strong>登録済住所から選択</strong></br>
               </h6>
                 <div class="col mb-3">
-                  <%= f.collection_select(:shipping_address_id, @shipping_addresses, :id, :full_address, {prompt: "選んでください"}, {class: "form_control custom-select d-block"}) %>
+                  <%= f.collection_select(:shipping_address_id, @shipping_addresses, :id, :full_address, {prompt: "選んでください" }, {class: "form_control custom-select d-block"}) %>
+                </div>
+            </div>
+          <% else %>
+          <div>
+              <h6 class="mb-2">
+                <%= f.radio_button :address_status, 1 %>
+                <strong>登録済住所から選択</strong></br>
+              </h6>
+                <div class="col mb-3">
+                  登録先住所はありません
                 </div>
             </div>
           <% end %>
