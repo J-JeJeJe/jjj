@@ -9,8 +9,8 @@ class Admin::OrderItemsController < ApplicationController
 
     if  @order_item.work_status == "制作完了"
       if @order.order_items.count == @order.order_items.where(work_status: "制作完了").count
-        @order.order_items.count
-        @order.order_items.where(work_status: "制作完了").count
+        pp @order.order_items.count
+        pp @order.order_items.where(work_status: "制作完了").count
         @order_item.order.update(status:4)
       end
         redirect_to  admin_order_path(@order_item.order)
