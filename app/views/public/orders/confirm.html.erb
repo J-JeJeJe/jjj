@@ -2,10 +2,10 @@
   <div class="row d-flex align-items-center mx-auto my-auto justify-content-center">
     <div class="col-md-11 shadow p-3 my-5 bg-white rounded">
 
-      <h3 class="mb-3 shadow-sm bg-white rounded">支払方法</h3>
+      <h1 class="mb-3 border-bottom"><strong>支払方法</strong></h1>
       <div class="container">
         <div class="row">
-          <div class="col-md-8 mb-5 shadow p-3 mb-5 bg-white rounfed">
+          <div class="col-md-8 mb-5 shadow-sm p-3 mb-5 bg-white rounfed">
 
             <table class="table">
               <thead>
@@ -19,17 +19,17 @@
               <% @cart_items.each do |cart_item| %>
               <tbody>
                 <tr>
-                  <td scope="row">
-                    <%= attachment_image_tag cart_item.product, :image, :fill, 40,40, class:"img-fluid" %>
+                  <td scope="row align-middle">
+                    <%= attachment_image_tag cart_item.product, :image, class:"img-fluid", style: "object-fit: cover; width: 40px; height: 40px;" %>
                     <%= cart_item.product.title %>
                   </td>
-                  <td scope="row">
+                  <td scope="row align-middle">
                     <%= cart_item.add_tax_price.to_s(:delimited) %>
                   </td>
-                  <td scope="row">
+                  <td scope="row align-middle">
                     <%= cart_item.quantity %>
                   </td>
-                  <td scope="row">
+                  <td scope="row align-middle">
                     <%= cart_item.sub_total.to_s(:delimited) %>
                   </td>
                 </tr>
@@ -43,7 +43,7 @@
 
           </div>
 
-          <div class="col-md-3 shadow p-3 mb-5 bg-white rounded">
+          <div class="col-md-3 shadow-sm p-3 mb-5 bg-white rounded">
             <table class="table">
 
               <tbody>
@@ -76,17 +76,17 @@
       </div>
 
       <div class="container">
-        <div class="row d-flex align-items-center">
+        <div class="row d-flex align-items-center mx-auto my-auto">
           <div class="col-9 p-3 bg-white">
             <table class="table table-borderless">
               <thead>
                 <tr>
-                  <th scope="col"><h5><strong>支払方法</strong></h5></th>
-                  <th scope="col">
+                  <th scope="col align-middle"><h5><strong>支払方法</strong></h5></th>
+                  <th scope="col align-middle">
                     <% if @order.payment_method == true %>
-                      <p>クレジットカード</p>
+                      クレジットカード
                     <% elsif @order.payment_method == false %>
-                      <p>銀行支払</p>
+                      銀行支払
                     <% end %>
                   </th>
                 </tr>
@@ -94,16 +94,19 @@
 
               <tbody>
                 <tr>
-                  <td scope="row"><h5><strong>お届け先</strong></h5></td>
-                  <td scope="row">
+                  <td scope="row align-middle"><h5><strong>お届け先</strong></h5></td>
+                  <td scope="row align-middle">
                       〒<%= @order.postal_code %> <%= @order.address %></br>
                       <%= @order.name %></td>
                 </tr>
               </tbody>
             </table>
           </div>
-        </div>
-      </div>
+
+
+
+        <div class="col-2 pl-2">
+
 
       <%= form_with model: @order, url: orders_path, method: :post, local:true do |f| %>
 		    <%= f.hidden_field :customer_id, value: current_customer.id %>
@@ -115,8 +118,11 @@
 		    <%= f.hidden_field :postage, value: @order.postage %>
 		    <%= f.hidden_field :amount, value: @order.amount %>
 		    <%= f.hidden_field :address_status, value: @address_status %>
-		    <%= f.submit "注文を確定する", class: "btn btn-outline-success" %>
+		    <%= f.submit "注文を確定する", class: "btn btn-lg btn-outline-success" %>
 	    <% end %>
+	    </div>
+      </div>
+	    </div>
 
     </div>
   </div>
