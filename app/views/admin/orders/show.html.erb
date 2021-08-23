@@ -98,7 +98,9 @@
                     <td><%= order_item.quantity %></td>
                     <td><%= order_item.sub_total %></td>
                     <%= form_with model: order_item, url: admin_order_item_path(order_item), method: :patch, local:true do |f| %>
-                    <td><%= f.select :work_status, OrderItem.work_statuses.keys %></td>
+                    <td>
+                      <%= f.select :work_status, OrderItem.work_statuses.keys  %>
+                    </td>
                     <td><%= f.submit "更新" , class: "btn btn-outline-success" %></td>
                     <% end %>
                   </tr>

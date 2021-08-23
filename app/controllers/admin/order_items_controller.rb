@@ -3,9 +3,19 @@ class Admin::OrderItemsController < ApplicationController
 
   def update
     @order_item = OrderItem.find(params[:id])
-    if @order_item.update(order_item_params)
-      @order = Order.find(params[:id])
-      redirect_back(fallback_location: admin_order_path(@order))
+    @order_item.update(order_item_params)
+    @order = @order_item.order
+
+
+    if  @order_item.work_status == "制作完了"
+      if @order.order_items.count == @order.order_items.where(work_status: "制作完了").count
+        pp @order.order_items.count
+        pp @order.order_items.where(work_status: "制作完了").count
+        @order_item.order.update(status:4)
+      end
+        redirect_to  admin_order_path(@order_item.order)
+    else
+      redirect_to  admin_order_path(@order_item.order)
     end
   end
 
