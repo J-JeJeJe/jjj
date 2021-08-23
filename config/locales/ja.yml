@@ -85,6 +85,20 @@ ja:
         password: パスワード
         created_at: 管理者登録日時
         updated_at: 管理者更新日時
+  enums:
+    order_items:
+      work_status:
+        aaa: 着手不可
+        bbb: 制作待ち
+        ccc: 製作中
+        ddd: 制作完了
+    orders:
+      status:
+        eee: 入金待ち
+        fff: 入金確認
+        ggg: 製作中
+        hhh: 発送準備中
+        iii: 発送済み
   date:
     abbr_day_names:
     - 日

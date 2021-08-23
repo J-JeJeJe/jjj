@@ -26,6 +26,7 @@ class Public::OrdersController < ApplicationController
           @order.address = @shipping_address.address
         #バリデーションエラーがある場合
         else
+          flash[:alert] = "お届け先を選んで下さい"
           redirect_to new_order_path and return
         end
       #2の時新規配送先
@@ -37,6 +38,7 @@ class Public::OrdersController < ApplicationController
         #バリデーションエラーがある場合
         @order.valid?
           unless @order.valid_of_specified?(:name, :postal_code, :address)
+            flash[:alert] = "お届け先を入力して下さい"
             redirect_to new_order_path and return
           end
       end
