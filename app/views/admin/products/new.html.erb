@@ -36,7 +36,7 @@
       <tbody>
        <tr>
         <th scope="col"><strong>税抜価格</strong></th>
-        <td scope="col"> <%= f.number_field :price, min: 1, class: "form-control　size30x20" %>円</td>
+        <td scope="col"> <%= f.number_field :price, min: 1, class: "form-control size30x20" %>円</td>
        </tr>
       </tbody>
       <tbody>
@@ -44,7 +44,7 @@
         <th scope="col"><strong>販売ステータス</strong></th>
         <td scope="col">
          <%= f.radio_button :sell_status, :false, checked:true %><span>販売中</span>
-      　 <%= f.radio_button :sell_status, :true %><span>販売停止中</span>
+         <%= f.radio_button :sell_status, :true %><span>販売停止中</span>
         </td>
        </tr>
       </tbody>
