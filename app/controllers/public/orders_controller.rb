@@ -19,7 +19,6 @@ class Public::OrdersController < ApplicationController
         @order.address = current_customer.address
       #1の時登録先の住所
       elsif params[:order][:address_status] == "1"
-        byebug
         if params[:order][:shipping_address_id].present?
           @shipping_address = ShippingAddress.find(params[:order][:shipping_address_id])
           @order.name = @shipping_address.name
