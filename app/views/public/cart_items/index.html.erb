@@ -22,11 +22,7 @@
   <div class="row mx-auto">
    <div class="col-md-9 mx-auto py-auto">
     <div class="text-right mb-3">
-<<<<<<< HEAD
      <%= link_to "カートを空にする", all_destroy_cart_items_path, class: "btn btn-danger", method: :delete, data: {confirm: "カート内の商品を全て削除してよろしいですか？"} %>
-=======
-     <%= link_to "カートを空にする", all_destroy_cart_items_path, class: "btn btn-outline-danger", method: :delete %>
->>>>>>> 30ba5469e541368529e88498ee4ebc2ec2d6542d
     </div>
    </div>
   </div>
@@ -69,11 +65,7 @@
         <%= cart_item.sub_total.to_s %></td>
       <!--商品削除-->
        <td class="align-middle">
-<<<<<<< HEAD
         <%= link_to "削除", cart_item_path(cart_item.id), class: "btn btn-danger", method: :delete, data: {confirm: "商品を削除してよろしいですか？"} %>
-=======
-        <%= link_to "削除", cart_item_path(cart_item.id), class: "btn btn-outline-danger", method: :delete %>
->>>>>>> 30ba5469e541368529e88498ee4ebc2ec2d6542d
        </td>
       </tr>
     </tbody>
