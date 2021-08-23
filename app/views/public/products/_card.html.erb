@@ -8,9 +8,14 @@
       </div>
       <div class="card-body">
         <h5 class="card-title"><%= product.title %></h5>
-        <p class="card-text">¥<%= product.price %></p>
+        <% if product.sell_status == false %>
+          <p class="card-text">¥<%= product.price %></p>
+        <% else %>
+          <p class="text-danger">売り切れ中</p>
+        <% end %>
         <%= link_to "詳細", product_path(product), class: "btn btn-outline-success" %>
       </div>
     </div>
   </div>
 <% end %>
+
