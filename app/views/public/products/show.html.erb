@@ -1,24 +1,34 @@
 
+
 <div calss='container'>
   <div class='row justify-content-center mx-auto my-auto'>
     <%= render 'admin/product_categories/categories', product_categories: @product_categories %>
     <div class="col-md-8">
       <div class="card mb-5 shadow rounded" style="max-width: 1000px;">
+
         <div class="row no-gutters">
           <div class="col-md-4">
             <%= attachment_image_tag @product, :image, class: "bd-placeholder-img", style: "object-fit: cover; width: 100%; height: 250px;" %>
           </div>
           <div class=class="col-md-8">
             <div class="card-body">
+
               <h5 class="card-title" style="border-left: solid yellow;"><strong><%= @product.title %></strong></h5>
               <p class="card-text"><%= @product.description %>
-              <h5><small>¥<%= @product.price %>円（送料：一律800円）</small></h5>
+
+                <% if @product.sell_status == false %>
+                 <h5><small>¥<%= @product.price %>円（送料：一律800円）</small></h5>
+                <% else %>
+                 <p class="text-danger">売り切れ中</p>
+                <% end %>
               </p>
-              <%= form_with model: @cart_item, url: cart_items_path, local:true do |f| %>
+              <% if @product.sell_status == false %>
+                <%= form_with model: @cart_item, url: cart_items_path, local:true do |f| %>
                 <%= f.hidden_field :product_id, value: @product.id %>
                 <%= f.hidden_field :customer_id, value: current_customer.id %>
-                <%= f.select :quantity, [1,2,3,4,5,6,7,8,9], {include_blank: '選択ボックス'}, { class: "form_control custom-select d-block mb-3", required:true } %>
+                <%= f.select :quantity, [1,2,3,4,5,6,7,8,9], {include_blank: '選択ボックス'} ,  { class: "form_control custom-select d-block mb-3", required:true } %>
                 <%= f.submit "カートに入れる", class:"btn btn-outline-success" %>
+                <% end %>
               <% end %>
             </div>
           </div>

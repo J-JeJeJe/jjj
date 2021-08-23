@@ -13,6 +13,7 @@ class Public::ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @cart_item = CartItem.new
     @products = Product.all.order(created_at: :desc).limit(8)
+
   end
 
   private
