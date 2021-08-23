@@ -5,6 +5,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <%= favicon_link_tag('image.ico') %>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:wght@600&display=swap" rel="stylesheet">
@@ -18,14 +19,18 @@
     <script src="https://kit.fontawesome.com/8f0be0a856.js" crossorigin="anonymous"></script>
   </head>
 
-  <body class="d-flex flex-column j-100">
+  <body class="d-flex flex-column j-100" style="background-color: #fff799; font-family: 'Kosugi Maru', sans-serif;">
     <header class="sticky-top shadow">
-     <nav class="navbar navbar-expand-lg bg-white navbar-light">
+     <nav class="navbar navbar-expand-lg bg-white navbar-brack">
         <a class="navbar-brand" href="/">
-          <%= image_tag 'logo.jpg', style: "height: 50px;" %>
+          <%= image_tag 'image.png', style: "height: 50px;" %>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon">
+          <span></span>
+          <span></span>
+          <span></span>
+          </span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -58,12 +63,12 @@
                 <%= link_to "ジャンル一覧", admin_product_categories_path, class: "nav-link text-dark" %>
               </li>
               <li class="nav-item">
-                <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "nav-link" %>
+                <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "nav-link text-dark" %>
               </li>
             <!--adminsの定義　finish-->
             <% else %>
               <li class="nav-item">
-                  <%= link_to "About", public_home_about_path, class: "nav-link active" %>
+                  <%= link_to "About", about_path, class: "nav-link text-dark active" %>
               </li>
               <li class="nav-item">
                 <%= link_to "商品一覧", products_path, class: "nav-link text-dark" %>
@@ -89,9 +94,31 @@
         <%= yield %>
       </main>
 
-    <footer class="fixed-bottom footer mt-auto py-3 bg-white shadow">
-     <div class="container">
-       <span class="text-muted">@Nagano cake</span>
+    <footer class="bg-white shadow text-center text-lg-start">
+      <div class="container p-4 mb-3">
+        <div class="row">
+          <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+           <h5 class="text-uppercase">Nagano cake.com</h5>
+           <p>1998年に創業者もえによって開業され、2008年に2代目後継みんみんがその名を受け継いだ。
+           2010年に弟であるヤマタクがフランス修行から帰国後、現在のNagano cakeの原型となるフランスと長崎のそれぞれの伝統的な技法を取り入れた和洋ケーキが完成した。
+           2011年にテレビで放映後、長崎で話題となり、全国的にも話題となった。</p>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+            <h5 class="text-uppercase">会社概要</h5>
+            <ul class="list-unstyled">
+              <li>名誉取締役会長：もえ</li>
+              <li>代表取締役社長：みんみん</li>
+              <li>副社長：そういち</li>
+              <li>料理長：やまたく</li>
+            </ul>
+          </div>
+
+       </div>
+     </div>
+     <div class="fixed-bottom text-center p-3 bg-light">
+       @2021 08 Team JJJ
      </div>
     </footer>
   </body>

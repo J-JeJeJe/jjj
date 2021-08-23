@@ -2,7 +2,7 @@
   <div class="row d-flex align-items-center mx-auto my-auto justify-content-center">
     <div class="col-md-6 shadow p-3 my-5 bg-white rounded">
         <%= form_with model: @order, url: confirm_orders_path, method: :post, class: "new-order", local: true do |f| %>
-      <h4 class="mb-3 shadow-sm bg-white rounded">支払方法</h4>
+      <h4 class="mb-3 border-bottom">支払方法</h4>
         <div class="d-block mb-3">
           <%= f.radio_button :payment_method, :true, checked: true %>
           <strong>クレジットカード</strong></br>
@@ -10,7 +10,7 @@
           <strong>銀行支払</strong>
         </div>
 
-      <h4 class="mb-3 shadow-sm bg-white rounded">お届け先</h4>
+      <h4 class="mb-3 border-bottom">お届け先</h4>
           <div>
             <h6 class="mb-2">
               <%= f.radio_button :address_status, 0, checked: true %>
@@ -23,15 +23,24 @@
               </div>
 
           </div>
-
-          <% if @shipping_address.nil? %>
+          <% if @shipping_addresses.present? %>
             <div>
               <h6 class="mb-2">
                 <%= f.radio_button :address_status, 1 %>
                 <strong>登録済住所から選択</strong></br>
               </h6>
                 <div class="col mb-3">
-                  <%= f.collection_select(:shipping_address_id, @shipping_addresses, :id, :full_address, {prompt: "選んでください"}, {class: "form_control custom-select d-block"}) %>
+                  <%= f.collection_select(:shipping_address_id, @shipping_addresses, :id, :full_address, {prompt: "選んでください" }, {class: "form_control custom-select d-block"}) %>
+                </div>
+            </div>
+          <% else %>
+          <div>
+              <h6 class="mb-2">
+                <%= f.radio_button :address_status, 1 %>
+                <strong>登録済住所から選択</strong></br>
+              </h6>
+                <div class="col mb-3">
+                  登録先住所はありません
                 </div>
             </div>
           <% end %>
