@@ -4,14 +4,18 @@ class Admin::OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
     @order_items = OrderItem.where(order_id: params[:id])
-    @order
 
   end
 
   def update
     @order = Order.find(params[:id])
     @order.update(order_params)
-    redirect_back(fallback_location: admin_order_path(@order))
+    if @order.status == "入金確認"
+      @order.order_items.update(work_status: 1) 
+      redirect_to  admin_order_path(@order)
+    else
+      redirect_to  admin_order_path(@order)
+    end
   end
 
   private
