@@ -1,35 +1,39 @@
 <div class="container">
- <div class="row d-flex align-items-center">
-  <div class="col-md-8 mx-auto rounded shadow my-3 bg-white">
-   <h1 class="mb-0 text-center mt-3 mb-3 border-bottom"><strong>配送先編集</strong></h1>
-
- <div class="row d-flex align-items-center pb-4">
-  <div class="col-md-8 mx-auto rounded shadow-sm my-3 bg-white">
-<%= form_with model: @shipping_address, url: shipping_address_path(@shipping_address.id), local:true do |f| %>
-   <table class="table table-borderless">
-     <tbody>
-      <tr>
-       <th scope="col"><strong>郵便番号</strong></th>
-       <td scope="col"> <%= f.text_field :postal_code, placeholder: "0000000", class: "form-control" %></th>
-      </tr>
-     </tbody>
-     <tbody>
-      <tr>
-       <th scope="col"><strong>住所</strong></th>
-       <td scope="col"> <%= f.text_field :address, size: 60, placeholder: "東京都渋谷区代々木神園町0-0", class: "form-control" %></th>
-      </tr>
-     </tbody>
-     <tbody>
-      <tr>
-       <th scope="col"><strong>宛名</strong></th>
-       <td scope="col"> <%= f.text_field :name, placeholder: "令和道子", class: "form-control" %></th>
-      </tr>
-     </tbody>
-     <tbody>
-      <tr>
-       <th></th>
-       <td scope="col" class="text-right mb-3"><%= f.submit "変更内容を保存", class: "btn btn-success mr-1" %></td>
-      </tr>
-     </tbody>
-    </table>
-   <% end %>
+  <div class="row d-flex align-items-center">
+    <div class="col-md-8 mx-auto rounded shadow my-3 bg-white">
+      <h1 class="mb-0 text-center mt-3 mb-3 border-bottom"><strong>配送先編集</strong></h1>
+      <div class="row d-flex align-items-center pb-4">
+        <div class="col-md-8 mx-auto rounded shadow-sm my-3 bg-white">
+          <%= form_with model: @shipping_address, url: shipping_address_path(@shipping_address.id), local:true do |f| %>
+            <table class="table table-borderless">
+              <tbody>
+                <tr>
+                   <th scope="col"><strong>郵便番号</strong></th>
+                   <td scope="col"> <%= f.text_field :postal_code, placeholder: "0000000", class: "form-control" %></th>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <th scope="col"><strong>住所</strong></th>
+                  <td scope="col"> <%= f.text_field :address, size: 60, placeholder: "東京都渋谷区代々木神園町0-0", class: "form-control" %></th>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <th scope="col"><strong>宛名</strong></th>
+                  <td scope="col"> <%= f.text_field :name, placeholder: "令和道子", class: "form-control" %></th>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <th></th>
+                  <td scope="col" class="text-right mb-3"><%= f.submit "変更内容を保存", class: "btn btn-success mr-1" %></td>
+                </tr>
+              </tbody>
+            </table>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
