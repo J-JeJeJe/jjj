@@ -50,8 +50,10 @@ Rails.application.routes.draw do
       sessions: 'admin/sessions',
       #passwords: 'admin/passwords'
     }
+  
+  
 
-    get '/admin' => "admin/homes#top"
+  get '/admin' => 'admin/homes#top'
   namespace :admin do
     resources :orders, only:[:show, :update]
     resources :products, except:[:destroy]

@@ -1,10 +1,9 @@
 <div class="container">
   <div class="row d-flex align-items-center mx-auto my-auto justify-content-center">
-    <div class="col-md-12 shadow p-3 mb-5 bg-white rounded">
-
+    <div class="col-md-10 shadow p-3 mb-5 bg-white rounded">
       <div class="container">
-        <div class="d-flex align-items-center p-3 my-3 rounded shadow">
-          <h1 class="mb-0 text-dark">注文履歴詳細</h1>
+        <div class="text-center mt-2 mb-3 border-bottom">
+          <h1 class="mb-0"><strong>注文履歴詳細</strong></h1>
         </div>
       </div>
 
@@ -69,7 +68,7 @@
 
       <div calss='container'>
         <div class='row d-flex align-items-center'>
-          <div class="col-md-8 mx-auto">
+          <div class="col-md-9 mx-auto">
             <table class="table rounded shadow-sm p-3 bg-w">
             <thead class="thead-light">
               <tr>
@@ -98,7 +97,9 @@
                     <td><%= order_item.quantity %></td>
                     <td><%= order_item.sub_total %></td>
                     <%= form_with model: order_item, url: admin_order_item_path(order_item), method: :patch, local:true do |f| %>
-                    <td><%= f.select :work_status, OrderItem.work_statuses.keys %></td>
+                    <td>
+                      <%= f.select :work_status, OrderItem.work_statuses.keys  %>
+                    </td>
                     <td><%= f.submit "更新" , class: "btn btn-outline-success" %></td>
                     <% end %>
                   </tr>

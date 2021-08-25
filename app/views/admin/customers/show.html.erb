@@ -1,74 +1,143 @@
-<div class="container p-3 my-3 bg-white rounded shadow">
- <div class="container">
-  <div class="d-flex align-items-center p-3 my-3 bg-white rounded shadow">
-   <h1 class="mb-0 text-dark"><%= @customer.full_name %>さんの会員詳細</h1>
-  </div>
- </div>
 <div class="container">
- <div class="row d-flex align-items-center">
-  <div class="col-md-8 mx-auto rounded shadow my-3 bg-white">
-   <table class="table table-borderless">
-    <tbody>
-     <tr>
-      <th scope="col"><strong>会員ID</strong></th>
-      <td scope="col"><%= @customer.id %></th>
-     </tr>
-    </tbody>
+ <div class="row d-flex align-items-center mx-auto my-auto justify-content-center">
+  <div class="col-md-10 shadow p-3 mb-5 bg-white rounded">
+   <div class="container">
+    <div class="text-center mt-2 mb-3 border-bottom">
+     <h1 class="mb-0"><strong><%= @customer.full_name %>さんの会員詳細</strong></h1>
+     <div class="row d-flex align-items-center">
+      <div class="col-md-8 mx-auto rounded shadow my-3 bg-white">
+       <table class="table table-borderless">
+        <tbody>
+         <tr>
+          <th scope="col"><strong>会員ID</strong></th>
+          <td scope="col"><%= @customer.id %></th>
+         </tr>
+        </tbody>
 
-    <tbody>
-     <tr>
-      <th scope="col"><strong>氏名</strong></th>
-      <td scope="col"><%= @customer.full_name %></th>
-     </tr>
-    </tbody>
+        <tbody>
+         <tr>
+          <th scope="col"><strong>氏名</strong></th>
+          <td scope="col"><%= @customer.full_name %></th>
+         </tr>
+        </tbody>
 
-    <tbody>
-     <tr>
-      <th scope="col"><strong>郵便番号</strong></th>
-      <td scope="col"><%= @customer.postal_code %></th>
-     </tr>
-    </tbody>
+        <tbody>
+         <tr>
+          <th scope="col"><strong>郵便番号</strong></th>
+          <td scope="col"><%= @customer.postal_code %></th>
+         </tr>
+        </tbody>
 
-    <tbody>
-     <tr>
-      <th scope="col"><strong>住所</strong></th>
-      <td scope="col"><%= @customer.address %></th>
-     </tr>
-    </tbody>
+        <tbody>
+         <tr>
+          <th scope="col"><strong>住所</strong></th>
+          <td scope="col"><%= @customer.address %></th>
+         </tr>
+        </tbody>
 
-    <tbody>
-     <tr>
-      <th scope="col"><strong>電話番号</strong></th>
-      <td scope="col"><%= @customer.phone_number %></th>
-     </tr>
-    </tbody>
+        <tbody>
+         <tr>
+          <th scope="col"><strong>電話番号</strong></th>
+          <td scope="col"><%= @customer.phone_number %></th>
+         </tr>
+        </tbody>
 
-    <tbody>
-     <tr>
-      <th scope="col"><strong>メールアドレス</strong></th>
-      <td scope="col"><%= @customer.email %></th>
-     </tr>
-    </tbody>
+        <tbody>
+         <tr>
+          <th scope="col"><strong>メールアドレス</strong></th>
+          <td scope="col"><%= @customer.email %></th>
+         </tr>
+        </tbody>
 
-    <tbody>
-     <tr>
-      <th scope="col"><strong>会員ステータス</strong></th>
-      <td scope="col">
-       <% if @customer.is_deleted == true %>
-        <p class="text-muted">退会</p>
-       <% elsif @customer.is_deleted == false %>
-        <p class="text-success">有効</p>
-       <% end %>
-      </td>
-     </tr>
-    </tbody>
+        <tbody>
+         <tr>
+          <th scope="col"><strong>会員ステータス</strong></th>
+          <td scope="col">
+           <% if @customer.is_deleted == true %>
+            <p class="text-muted">退会</p>
+           <% elsif @customer.is_deleted == false %>
+            <p class="text-success">有効</p>
+           <% end %>
+          </td>
+         </tr>
+        </tbody>
 
-    </table>
-    <div class="text-center mb-3">
-     <%= link_to "編集",edit_admin_customer_path, class: "btn btn-success btn-lg mr-1" %>
-     <%= link_to "注文履歴一覧", admin_path, class: "btn btn-primary btn-lg mr-1"%>
+       </table>
+       <div class="text-center mb-3">
+        <%= link_to "編集",edit_admin_customer_path, class: "btn btn-success btn-lg mr-1" %>
+        <%= link_to "注文履歴一覧", admin_path, class: "btn btn-primary btn-lg mr-1"%>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="container">
+     <div class="row d-flex align-items-center">
+      <div class="col-md-8 mx-auto rounded shadow-sm my-3 bg-white">
+       <table class="table table-borderless">
+        <tbody>
+         <tr>
+          <th scope="col"><strong>会員ID</strong></th>
+          <td scope="col"><%= @customer.id %></th>
+         </tr>
+        </tbody>
+
+        <tbody>
+         <tr>
+          <th scope="col"><strong>氏名</strong></th>
+          <td scope="col"><%= @customer.full_name %></th>
+         </tr>
+        </tbody>
+
+         <tbody>
+          <tr>
+           <th scope="col"><strong>郵便番号</strong></th>
+           <td scope="col"><%= @customer.postal_code %></th>
+          </tr>
+         </tbody>
+
+         <tbody>
+          <tr>
+           <th scope="col"><strong>住所</strong></th>
+           <td scope="col"><%= @customer.address %></th>
+          </tr>
+         </tbody>
+
+         <tbody>
+          <tr>
+           <th scope="col"><strong>電話番号</strong></th>
+           <td scope="col"><%= @customer.phone_number %></th>
+          </tr>
+         </tbody>
+
+         <tbody>
+          <tr>
+           <th scope="col"><strong>メールアドレス</strong></th>
+           <td scope="col"><%= @customer.email %></th>
+          </tr>
+         </tbody>
+
+         <tbody>
+          <tr>
+           <th scope="col"><strong>会員ステータス</strong></th>
+           <td scope="col">
+            <% if @customer.is_deleted == true %>
+             <p class="text-muted">退会</p>
+            <% elsif @customer.is_deleted == false %>
+             <p class="text-success">有効</p>
+            <% end %>
+           </td>
+          </tr>
+         </tbody>
+
+        </table>
+        <div class="text-center mb-3">
+         <%= link_to "編集",edit_admin_customer_path, class: "btn btn-success btn-lg mr-1" %>
+         <%= link_to "一覧", admin_path, class: "btn btn-primary btn-lg mr-1"%>
+        </div>
+       </div>
+      </div>
+     </div>
     </div>
    </div>
   </div>
  </div>
-</div>

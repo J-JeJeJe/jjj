@@ -14,7 +14,7 @@ class Public::ShippingAddressesController < ApplicationController
         else
           @shipping_address = ShippingAddress.new
           @shipping_addresses = current_customer.shipping_addresses
-          flash[:error] = "配送先の登録に失敗しました"
+          flash[:alert] = "配送先の登録に失敗しました"
           render :index
         end
     end
@@ -30,11 +30,15 @@ class Public::ShippingAddressesController < ApplicationController
     end
     
     def update
-         shipping_address = ShippingAddress.find(params[:id])
-         shipping_address.update(shipping_address_params)
-         redirect_to shipping_addresses_path
-    end
+         @shipping_address = ShippingAddress.find(params[:id])
+         if @shipping_address.update(shipping_address_params)
+            redirect_to shipping_addresses_path, notice:"変更を保存しました"
+         else
 
+            flash.now[:alert] = "変更の保存に失敗しました"
+            render :edit
+         end
+    end
 
     private
     

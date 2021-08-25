@@ -90,7 +90,14 @@
      </nav>
     </header>
       <main class="backsize" id="home">
-        <p id="notice"><%= notice %></p>
+      <div class="my-0 py-0">
+      <% if flash[:alert] %>
+      <p class="alert"><%= flash[:alert] %></p>
+     <% elsif flash[:notice] %>
+   　  <p class="notice"><%= flash[:notice] %></p>
+   　<% else %>
+  　 <% end %>
+  　 </div>
         <%= yield %>
       </main>
 
@@ -120,6 +127,7 @@
      <div class="fixed-bottom text-center p-3 bg-light">
        @2021 08 Team JJJ
      </div>
+     
     </footer>
   </body>
 </html>
