@@ -35,8 +35,8 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
          <ul class="navbar-nav mr-auto">
-           
-            <% if customer_signed_in? %>          
+
+            <% if customer_signed_in? %>
               <li class="nav-item active">
                 <a class="nav-link text-dark" style="text-shadow: 1px 1px 2px yellow;"><%= full_name(current_customer) %>さん</a>
               </li>
@@ -73,7 +73,7 @@
               <li class="nav-item">
                 <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "nav-link text-dark" %>
               </li>
-           
+
             <!--adminsの定義　finish-->
             <% else %>
               <li class="nav-item">
