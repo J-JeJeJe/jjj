@@ -1,9 +1,9 @@
 <div class="container">
   <div class="row d-flex align-items-center mx-auto my-auto justify-content-center">
-    <div class="col shadow p-3 mb-5 bg-white rounded">
+    <div class="col-md-10 shadow p-3 mb-5 bg-white rounded">
       <div class="container">
-        <div class="d-flex align-items-center p-3 my-3 rounded shadow">
-          <h1 class="mb-0 text-dark">注文履歴詳細</h1>
+        <div class="text-center mt-2 mb-3 border-bottom">
+          <h1 class="mb-0"><strong>注文履詳細歴</strong></h1>
         </div>
       </div>
       <div class="container">
@@ -14,7 +14,7 @@
                 <tr>
                   <th scope="col">注文日</th>
                   <td scope="col">
-                      <%= @order.created_at %>
+                      <%= @order.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分") %>
                   </td>
                 </tr>
               </tbody>
@@ -52,9 +52,9 @@
             <table class="table">
               <tbody>
                 <tr>
-                  <th scope="row">請求情報</th>
+                  <th scope="row">商品合計</th>
                   <td>
-                      <%= @order.total_price %>
+                    <%= @order.total_price %>
                   </td>
                 </tr>
                 <tr>

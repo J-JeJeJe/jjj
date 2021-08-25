@@ -23,6 +23,6 @@ class ApplicationController < ActionController::Base
       new_admin_session_path
     end
   end
-  
+
 
 end

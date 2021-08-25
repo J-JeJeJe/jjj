@@ -30,7 +30,7 @@
                 <strong>登録済住所から選択</strong></br>
               </h6>
                 <div class="col mb-3">
-                  <%= f.collection_select(:shipping_address_id, @shipping_addresses, :id, :full_address, {prompt: "選んでください" }, {class: "form_control custom-select d-block"}) %>
+                  <%= f.collection_select(:shipping_address_id, @shipping_addresses, :id, :full_address, {prompt: "住所を選択してください" }, {class: "form_control custom-select d-block"}) %>
                 </div>
             </div>
           <% else %>

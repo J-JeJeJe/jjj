@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2021_08_21_150940) do
 
   create_table "admins", force: :cascade do |t|
@@ -28,7 +29,7 @@ ActiveRecord::Schema.define(version: 2021_08_21_150940) do
   create_table "cart_items", force: :cascade do |t|
     t.integer "customer_id"
     t.integer "product_id"
-    t.integer "quantity"
+    t.integer "quantity", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -56,29 +57,29 @@ ActiveRecord::Schema.define(version: 2021_08_21_150940) do
   create_table "order_items", force: :cascade do |t|
     t.integer "order_id"
     t.integer "product_id"
-    t.integer "quantity"
-    t.integer "price"
-    t.integer "work_status"
+    t.integer "quantity", null: false
+    t.integer "price", null: false
+    t.integer "work_status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "orders", force: :cascade do |t|
     t.integer "customer_id"
-    t.string "name"
-    t.string "postal_code"
-    t.string "address"
+    t.string "name", null: false
+    t.string "postal_code", null: false
+    t.string "address", null: false
     t.boolean "payment_method", default: true, null: false
-    t.integer "total_price"
-    t.integer "postage", default: 800
-    t.integer "amount"
+    t.integer "status", default: 0, null: false
+    t.integer "total_price", null: false
+    t.integer "postage", default: 800, null: false
+    t.integer "amount", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "status", default: 0, null: false
   end
 
   create_table "product_categories", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -98,16 +99,16 @@ ActiveRecord::Schema.define(version: 2021_08_21_150940) do
     t.string "title", null: false
     t.text "description", null: false
     t.integer "price", null: false
-    t.boolean "sell_status", default: true, null: false
+    t.boolean "sell_status", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "shipping_addresses", force: :cascade do |t|
     t.integer "customer_id"
-    t.string "name"
-    t.string "postal_code"
-    t.string "address"
+    t.string "name", null: false
+    t.string "postal_code", null: false
+    t.string "address", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
