@@ -5,9 +5,10 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  # public-start-
+  # public
   scope module: :public do
 
+    # customers
     get 'customers/edit' => 'customers#edit'
     patch 'customers' => 'customers#update'
 
@@ -17,6 +18,8 @@ Rails.application.routes.draw do
         patch 'withdraw'
       end
     end
+
+    #products
     resources :products, only:[:index, :show]
 
     # shipping_address
@@ -24,20 +27,21 @@ Rails.application.routes.draw do
 
     # cart_item
     resources :cart_items, only:[:create, :index, :update, :destroy]
-    delete 'cart_items' => 'cart_items#all_destroy', as: 'cart_items_all_destroy'
+      delete 'cart_items' => 'cart_items#all_destroy', as: 'cart_items_all_destroy'
 
-    #order-
+    #orders
     resources :orders, only: [:new, :create, :index ,:show] do
       collection do
         post 'confirm' => 'orders#confirm'
         get 'thanx' => 'orders#thanx'
       end
     end
-    #-order
-    resources :products, only:[:index]
+
+    #search
     get 'search' => 'searches#search'
   end
-  # public-finish-
+
+
   devise_for :customers, :controllers => {
     sessions: 'customers/sessions',
     registrations: 'customers/registrations',
@@ -45,15 +49,13 @@ Rails.application.routes.draw do
   }
 
 
-  # admin-start-
-  devise_for :admin, controllers: {
-      sessions: 'admin/sessions',
-      #passwords: 'admin/passwords'
-    }
-  
-  
+  # admin
+  devise_for :admin, :controllers => {
+    sessions: 'admin/sessions',
+    passwords: 'admin/passwords'
+  }
 
-  get '/admin' => 'admin/homes#top'
+    get '/admin' => 'admin/homes#top'
   namespace :admin do
     resources :orders, only:[:show, :update]
     resources :products, except:[:destroy]
@@ -61,12 +63,5 @@ Rails.application.routes.draw do
     resources :product_categories, only:[:index, :create, :edit, :update]
     resources :order_items, only: [:update]
   end
-
-  #customer-edit
-
-
-  # admin-finish
-
-
 
 end
