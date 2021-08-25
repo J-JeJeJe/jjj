@@ -1,65 +1,66 @@
 <div class="container">
- <div class="row d-flex align-items-center mx-auto my-auto justify-content-center">
-  <div class="col-md-10 shadow p-3 mb-5 bg-white rounded">
-   <div class="container">
-    <div class="text-center mt-2 mb-3 border-bottom">
-     <h1 class="mb-0"><strong>商品一覧</strong></h1>
+  <div class="row d-flex align-items-center mx-auto my-auto justify-content-center">
+    <div class="col-md-10 shadow p-3 mb-5 bg-white rounded">
+      <div class="container">
+        <div class="text-center mt-2 mb-3 border-bottom">
+          <h1 class="mb-0"><strong>商品一覧</strong></h1>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row d-flex align-items-center">
+          <div class="col-md-8 mx-auto rounded shadow-sm py-2 my-3 bg-white">
+            <%= form_with model: @product, url: admin_product_path, local:true do |f| %>
+              <table class="table table-borderless">
+                <tbody>
+                  <tr>
+                    <th scope="col"><strong>商品画像</strong></th>
+                    <td scope="col"> <%= f.attachment_field :image %></td>
+                  </tr>
+                </tbody>
+                <tbody>
+                  <tr>
+                    <th scope="col"><strong>商品名</strong></th>
+                    <td scope="col"> <%= f.text_field :title, class: "form-control" %></td>
+                  </tr>
+                </tbody>
+                <tbody>
+                  <tr>
+                    <th scope="col"><strong>商品説明</strong></th>
+                    <td scope="col"> <%= f.text_area :description, class: "form-control" %></td>
+                  </tr>
+                </tbody>
+                <tbody>
+                  <tr>
+                    <th scope="col"><strong>ジャンル</strong></th>
+                    <td scope="col"> <%= f.collection_select :product_category_id, ProductCategory.all, :id, :name, prompt: "--選択してください--", class: "form-control" %></td>
+                  </tr>
+                </tbody>
+                <tbody>
+                  <tr>
+                    <th scope="col"><strong>税抜価格</strong></th>
+                    <td scope="col"> <%= f.number_field :price, min: 1, class: "form-control　size30x20" %>円</td>
+                  </tr>
+                </tbody>
+                <tbody>
+                  <tr>
+                    <th scope="col"><strong>販売ステータス</strong></th>
+                    <td scope="col">
+                      <%= f.radio_button :sell_status, :false, checked:true %><span>販売中</span>
+                      <%= f.radio_button :sell_status, :true %><span>販売停止中</span>
+                    </td>
+                  </tr>
+                </tbody>
+                <tbody>
+                  <tr>
+                    <th scope="col" class="text-center mb-3"><%= f.submit "変更を保存", class: "btn btn-outline-success btn-lg mr-1" %></th>
+                    </tr>
+                </tbody>
+              </table>
+            <% end %>
+          </div>
+        </div>
+      </div>
     </div>
-   </div>
-   <div class="container">
-    <div class="row d-flex align-items-center">
-     <div class="col-md-8 mx-auto rounded shadow-sm py-2 my-3 bg-white">
-      <%= form_with model: @product, url: admin_product_path, local:true do |f| %>
-      <table class="table table-borderless">
-       <tbody>
-        <tr>
-         <th scope="col"><strong>商品画像</strong></th>
-         <td scope="col"> <%= f.attachment_field :image %></td>
-        </tr>
-       </tbody>
-      <tbody>
-       <tr>
-        <th scope="col"><strong>商品名</strong></th>
-        <td scope="col"> <%= f.text_field :title, class: "form-control" %></td>
-       </tr>
-      </tbody>
-      <tbody>
-       <tr>
-        <th scope="col"><strong>商品説明</strong></th>
-        <td scope="col"> <%= f.text_area :description, class: "form-control" %></td>
-       </tr>
-      </tbody>
-      <tbody>
-       <tr>
-        <th scope="col"><strong>ジャンル</strong></th>
-        <td scope="col"> <%= f.collection_select :product_category_id, ProductCategory.all, :id, :name, prompt: "--選択してください--", class: "form-control" %></td>
-       </tr>
-      </tbody>
-      <tbody>
-       <tr>
-        <th scope="col"><strong>税抜価格</strong></th>
-        <td scope="col"> <%= f.number_field :price, min: 1, class: "form-control　size30x20" %>円</td>
-       </tr>
-      </tbody>
-      <tbody>
-       <tr>
-        <th scope="col"><strong>販売ステータス</strong></th>
-        <td scope="col">
-         <%= f.radio_button :sell_status, :false, checked:true %><span>販売中</span>
-         <%= f.radio_button :sell_status, :true %><span>販売停止中</span>
-        </td>
-       </tr>
-      </tbody>
-      <tbody>
-       <tr>
-        <th scope="col" class="text-center mb-3"><%= f.submit "変更を保存", class: "btn btn-outline-success btn-lg mr-1" %></th>
-        </tr>
-       </tbody>
-      </table>
-      <% end %>
-     </div>
-    </div>
-   </div>
+
   </div>
- </div>
 </div>

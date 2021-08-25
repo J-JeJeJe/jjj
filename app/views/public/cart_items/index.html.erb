@@ -1,109 +1,101 @@
 <div class="container">
- <div class="row d-flex align-items-center mx-auto my-auto justify-content-center">
-  <div class="col-md-12 shadow p-3 mb-5 bg-white rounded">
-
-   <div class="container">
-    <div class="text-center mb-3 mt-2 border-bottom">
-     <h1 class="mb-0"><strong>ショッピングカート</strong></h1>
+  <div class="row d-flex align-items-center mx-auto my-auto justify-content-center">
+    <div class="col-md-12 shadow p-3 mb-5 bg-white rounded">
+      <div class="container">
+        <div class="text-center mb-3 mt-2 border-bottom">
+          <h1 class="mb-0"><strong>ショッピングカート</strong></h1>
+        </div>
+      </div>
+      <div class="container mx-auto my-auto">
+        <% if @cart_items.blank? %>
+          <div class="row">
+            <div class="col">
+              <h4 class="text-center">カートに商品はありません</h4>
+            </div>
+          </div>
+        <% else %>
+          <div class="row mx-auto">
+            <div class="col-md-9 mx-auto py-auto">
+              <div class="text-right mb-3">
+                <%= link_to "カートを空にする", cart_items_all_destroy_path, class: "btn btn-outline-danger", method: :delete, data: {confirm: "カート内の商品を全て削除してよろしいですか？"} %>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-9 mx-auto mt-1 mb-3 shadow-sm rounded">
+              <table class="table">
+                <theder>
+                  <tr>
+                    <th colspan="2">商品名</th>
+                    <th>単価（税込）</th>
+                    <th colspan="2">数量</th>
+                    <th>小計</th>
+                    <th></th>
+                  </tr>
+                </theder>
+                <% @cart_items.each do |cart_item| %>
+                  <tbody>
+                    <tr>
+                      <td class="align-middle">
+                        <%= attachment_image_tag cart_item.product, :image, class: "img-fluid", style: "object-fit: cover; width: 60px; height: 60px;" %>
+                      </td>
+                      <td class="align-middle">
+                        <%= cart_item.product.title %>
+                      </td>
+                      <!--単価（税込）-->
+                      <td class="align-middle">
+                        <%= cart_item.add_tax_price %>
+                      </td>
+                      <!--数量変更-->
+                      <%= form_with model: cart_item, url: cart_item_path(cart_item.id), method: :patch, local: true do |f| %>
+                        <td class="align-middle">
+                          <%= f.select :quantity, [1,2,3,4,5,6,7,8,9],{class: "custom-select", required:true } %>
+                        </td>
+                        <td class="align-middle">
+                          <%= f.submit "変更", class: "btn btn-outline-success" %>
+                        </td>
+                      <% end %>
+                      <!--小計-->
+                      <td class="align-middle">
+                        <%= cart_item.sub_total.to_s %>
+                      </td>
+                      <!--商品削除-->
+                      <td class="align-middle">
+                        <%= link_to "削除", cart_item_path(cart_item.id), class: "btn btn-outline-danger", method: :delete, data: {confirm: "商品を削除してよろしいですか？"} %>
+                      </td>
+                    </tr>
+                  </tbody>
+                <% end %>
+              </table>
+            </div>
+          </div>
+          <div class="row mx-auto mt-3 mb-3">
+            <div class="col-3 mx-auto">
+              <%= link_to "買い物を続ける", root_path, class: "btn btn-outline-success btn-lg" %>
+            </div>
+            <div class="col-3 mx-auto pull-right">
+            <!--カート内商品合計-->
+              <table class="table border-less shadow-sm rounded">
+                <tbody>
+                  <tr>
+                    <th class="align-middle">合計金額</th>
+                    <td class="align-middle">
+                      <%= @total.round.to_s(:delimited) %>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="container mx-auto my-auto mb-5">
+          <div class="row">
+            <div class="col text-center">
+              <%= link_to "情報入力に進む", new_order_path, class: "btn btn-outline-success btn-lg" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
     </div>
-   </div>
-
-<div class="container mx-auto my-auto">
- <% if @cart_items.blank? %>
-  <div class="row">
-   <div class="col">
-    <h4 class="text-center">カートに商品はありません</h4>
-   </div>
   </div>
- <% else %>
-  <div class="row mx-auto">
-   <div class="col-md-9 mx-auto py-auto">
-    <div class="text-right mb-3">
-     <%= link_to "カートを空にする", cart_items_all_destroy_path, class: "btn btn-outline-danger", method: :delete, data: {confirm: "カート内の商品を全て削除してよろしいですか？"} %>
-    </div>
-   </div>
-  </div>
-  <div class="row">
-   <div class="col-md-9 mx-auto mt-1 mb-3 shadow-sm rounded">
-    <table class="table">
-     <theder>
-      <tr>
-       <th colspan="2">商品名</th>
-       <th>単価（税込）</th>
-       <th colspan="2">数量</th>
-       <th>小計</th>
-       <th></th>
-      </tr>
-     </theder>
-     <% @cart_items.each do |cart_item| %>
-     <tbody>
-      <tr>
-       <td class="align-middle">
-        <%= attachment_image_tag cart_item.product, :image, class:"img-fluid", style: "object-fit: cover; width: 60px; height: 60px;" %>
-       </td>
-       <td class="align-middle">
-        <%= cart_item.product.title %>
-       </td>
-      <!--単価（税込）-->
-       <td class="align-middle">
-        <%= cart_item.add_tax_price %>
-       </td>
-      <!--数量変更-->
-       <%= form_with model: cart_item, url: cart_item_path(cart_item.id), method: :patch, local: true do |f| %>
-       <td class="align-middle">
-        <%= f.select :quantity, [1,2,3,4,5,6,7,8,9],{class: "custom-select", required:true } %>
-       </td>
-       <td class="align-middle">
-        <%= f.submit "変更", class: "btn btn-outline-success" %>
-       </td>
-       <% end %>
-      <!--小計-->
-       <td class="align-middle">
-        <%= cart_item.sub_total.to_s %></td>
-
-      <!--商品削除-->
-       <td class="align-middle">
-        <%= link_to "削除", cart_item_path(cart_item.id), class: "btn btn-outline-danger", method: :delete, data: {confirm: "商品を削除してよろしいですか？"} %>
-       </td>
-      </tr>
-    </tbody>
-   <% end %>
-   </table>
-  </div>
- </div>
-
- <div class="row mx-auto mt-3 mb-3">
-  <div class="col-3 mx-auto">
-   <%= link_to "買い物を続ける", root_path, class:"btn btn-outline-success btn-lg" %>
-  </div>
-  <div class="col-3 mx-auto pull-right">
-  <!--カート内商品合計-->
-   <table class="table border-less shadow-sm rounded">
-    <tbody>
-     <tr>
-      <th class="align-middle">合計金額</th>
-       <td class="align-middle">
-        <%= @total.round.to_s(:delimited) %>
-       </td>
-      </tr>
-     </tbody>
-    </table>
-
-   </div>
-   </div>
-  </div>
-
-
-<div class="container mx-auto my-auto mb-5">
- <div class="row">
-  <div class="col text-center">
-   <%= link_to "情報入力に進む", new_order_path, class:"btn btn-outline-success btn-lg" %>
-  </div>
- </div>
 </div>
-<% end %>
-</div>
-</div>
-</div>
-
-

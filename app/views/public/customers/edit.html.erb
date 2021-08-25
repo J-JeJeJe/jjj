@@ -3,53 +3,46 @@
     <div class="col-md-8 mx-auto rounded shadow my-3 bg-white">
       <h1 class="mb-3 mt-3 border-bottom"><%= @customer.full_name %>さんの会員詳細</h1>
       <%= form_with model: @customer, url: customers_path, local: true do |f| %>
-      <table class="table table-borderless">
-
-        <tbody>
-          <tr>
-            <th scope="col"><strong>氏名</strong></th>
-            <td scope="col"><%= f.text_field :last_name, class: "form-control" %></td>
-            <td scope="col"><%= f.text_field :first_name, class: "form-control" %></td>
-          </tr>
-        </tbody>
-
-        <tbody>
-          <tr>
-            <th scope="col"><strong>フリガナ</strong></th>
-            <td scope="col"><%= f.text_field :last_name_kana, class: "form-control" %></td>
-            <td scope="col"><%= f.text_field :first_name_kana, class: "form-control" %></td>
-          </tr>
-        </tbody>
-
-        <tbody>
-          <tr>
-            <th scope="row"><strong><%= f.label :postal_code %></strong></th>
-            <td scope="row"><%= f.text_field :postal_code, class: "form-control" %></td>
-          </tr>
-        </tbody>
-
-        <tbody>
-          <tr>
-            <th scope="row"><strong><%= f.label :address %></strong></th>
-            <td scope="row" colspan="2"><%= f.text_field :address, class: "form-control" %></td>
-          </tr>
-        </tbody>
-
-        <tbody>
-          <tr>
-            <th scope="row"><strong><%= f.label :phone_number %></strong></th>
-            <td scope="row"><%= f.text_field :phone_number, class: "form-control" %></td>
-          </tr>
-        </tbody>
-
-        <tbody>
-          <tr>
-            <th scope="row"><strong><%= f.label :email %></strong></th>
-            <td scope="row" colspan="2"><%= f.text_field :email, class: "form-control" %></td>
-          </tr>
-        </tbody>
-
-      </table>
+        <table class="table table-borderless">
+          <tbody>
+            <tr>
+              <th scope="col"><strong>氏名</strong></th>
+              <td scope="col"><%= f.text_field :last_name, class: "form-control" %></td>
+              <td scope="col"><%= f.text_field :first_name, class: "form-control" %></td>
+            </tr>
+          </tbody>
+          <tbody>
+            <tr>
+              <th scope="col"><strong>フリガナ</strong></th>
+              <td scope="col"><%= f.text_field :last_name_kana, class: "form-control" %></td>
+              <td scope="col"><%= f.text_field :first_name_kana, class: "form-control" %></td>
+            </tr>
+          </tbody>
+          <tbody>
+            <tr>
+              <th scope="row"><strong><%= f.label :postal_code %></strong></th>
+              <td scope="row"><%= f.text_field :postal_code, class: "form-control" %></td>
+            </tr>
+          </tbody>
+          <tbody>
+            <tr>
+              <th scope="row"><strong><%= f.label :address %></strong></th>
+              <td scope="row" colspan="2"><%= f.text_field :address, class: "form-control" %></td>
+            </tr>
+          </tbody>
+          <tbody>
+            <tr>
+              <th scope="row"><strong><%= f.label :phone_number %></strong></th>
+              <td scope="row"><%= f.text_field :phone_number, class: "form-control" %></td>
+            </tr>
+          </tbody>
+          <tbody>
+            <tr>
+              <th scope="row"><strong><%= f.label :email %></strong></th>
+              <td scope="row" colspan="2"><%= f.text_field :email, class: "form-control" %></td>
+            </tr>
+          </tbody>
+        </table>
         <div class="row mx-auto mt-3 mb-3">
   　       <div class="col-3 py-auto mx-auto">
             <%= f.submit "変更", class: "btn btn-outline-success btn-lg" %>
@@ -59,6 +52,6 @@
           </div>
         </div>
       <% end %>
-      </div>
     </div>
   </div>
+</div>

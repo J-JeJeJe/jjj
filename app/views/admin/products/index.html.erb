@@ -1,63 +1,63 @@
 <div class="container">
- <div class="row d-flex align-items-center mx-auto my-auto justify-content-center">
-  <div class="col-md-10 shadow p-3 mb-5 bg-white rounded">
-   <div class="container">
-    <div class="text-center mt-2 mb-3 border-bottom">
-     <h1 class="mb-0"><strong>商品一覧</strong></h1>
+  <div class="row d-flex align-items-center mx-auto my-auto justify-content-center">
+    <div class="col-md-10 shadow p-3 mb-5 bg-white rounded">
+      <div class="container">
+        <div class="text-center mt-2 mb-3 border-bottom">
+          <h1 class="mb-0"><strong>商品一覧</strong></h1>
+        </div>
+      </div>
+      <div class="container">
+        <div class="my-3">
+          <div class="icon text-right">
+            <%= link_to new_admin_product_path, class:"text-secondary" do %>
+              <i class="fas fa-plus-circle"></i>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row d-flex align-items-center">
+          <table class="table table-hover rounded shadow-sm p-3 bg-w">
+            <thead class="thead-dark">
+              <tr>
+                <th>商品ID</th>
+                <th>商品名</th>
+                <th>税抜価格</th>
+                <th>ジャンル</th>
+                <th>ステータス</th>
+              </tr>
+            </thead>
+            <% @products.each do |product| %>
+              <tbody>
+                <tr>
+                  <td>
+                    <%= product.id %>
+                  </td>
+                  <td>
+                    <%= link_to admin_product_path(product.id), class:"text-dark", style:"border-bottom: solid 1px #212529;" do %>
+                    <%= product.title %>
+                    <% end %>
+                  </td>
+                  <td><%= product.price %></td>
+                  <td><%= product.product_category.name %></td>
+                  <td>
+                    <% if product.sell_status == true %>
+                      <p class="text-secondary">
+                        <%= product.sell_status = "販売停止中" %>
+                      </p>
+                    <% elsif product.sell_status == false %>
+                      <p class="text-success">
+                        <%= product.sell_status = "販売中" %>
+                      </p>
+                    <% end %>
+                  </td>
+                </tr>
+              </tbody>
+            <% end %>
+          </table>
+        <%= paginate @products %>
+        </div>
+      </div>
     </div>
-   </div>
-   <div class="container">
-    <div class="my-3">
-     <div class="icon text-right">
-      <%= link_to new_admin_product_path, class:"text-secondary"  do %>
-　      <i class="fas fa-plus-circle"></i>
-      <% end %>
-     </div>
-    </div>
-   </div>
-   <div class="container">
-    <div class="row d-flex align-items-center">
-     <table class="table table-hover rounded shadow-sm p-3 bg-w">
-      <thead class="thead-dark">
-       <tr>
-        <th>商品ID</th>
-        <th>商品名</th>
-        <th>税抜価格</th>
-        <th>ジャンル</th>
-        <th>ステータス</th>
-       </tr>
-      </thead>
-      <% @products.each do |product| %>
-      <tbody>
-       <tr>
-        <td>
-         <%= product.id %>
-        </td>
-        <td>
-         <%= link_to admin_product_path(product.id), class:"text-dark", style:"border-bottom: solid 1px #212529;" do %>
-          <%= product.title %>
-         <% end %>
-        </td>
-        <td><%= product.price %></td>
-        <td><%= product.product_category.name %></td>
-        <td>
-        <% if product.sell_status == true %>
-          <p class="text-secondary">
-            <%= product.sell_status = "販売停止中" %>
-          </p>
-        <% elsif product.sell_status == false %>
-          <p class="text-success">
-            <%= product.sell_status = "販売中" %>
-          </p>
-         <% end %>
-        </td>
-       </tr>
-      </tbody>
-     <% end %>
-     </table>
-     <%= paginate @products %>
-     </div>
-    </div>
-   </div>
   </div>
- </div>
+</div>

@@ -14,7 +14,7 @@
                 <tr>
                   <th scope="col">注文日</th>
                   <td scope="col">
-                      <%= @order.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分") %>
+                    <%= @order.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分") %>
                   </td>
                 </tr>
               </tbody>
@@ -22,7 +22,7 @@
                 <tr>
                   <th scope="row">配送先</th>
                   <td>
-                      <%= @order.address %>
+                    <%= @order.address %>
                   </td>
                 </tr>
                 <tr>
@@ -38,16 +38,14 @@
                 <tr>
                   <th scope="row">ステータス</th>
                   <td>
-                      <%= @order.status %>
+                    <%= @order.status %>
                   </td>
                 </tr>
               </tbody>
             </table>
           </div>
           <div class="col-auto">
-
           </div>
-
           <div class="col-md-4 shadow-sm p-3 mb-5 bg-white rounded">
             <table class="table">
               <tbody>
@@ -60,13 +58,13 @@
                 <tr>
                   <th scope="row">配送料</th>
                   <td>
-                      <%= @order.postage %>
+                    <%= @order.postage %>
                   </td>
                 </tr>
                 <tr>
                   <th scope="row">請求額</th>
                   <td>
-                      <%= @order.amount %>
+                    <%= @order.amount %>
                   </td>
                 </tr>
               </tbody>
