@@ -4,7 +4,7 @@ class Public::SearchesController < ApplicationController
     @product_categories = ProductCategory.all
     @value = params["search"]["value"]
     @how = params["search"]["how"]
-    @datas = search_for(@value, @how).page(params[:page]).per(4)
+    @datas = search_for(@value, @how).page(params[:page]).per(6)
     @product_category = ProductCategory.find_by(id: @value)
   end
 
