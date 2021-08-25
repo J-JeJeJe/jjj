@@ -12,9 +12,6 @@
             <thead class="thead-dark">
               <tr>
                 <th scope="col">
-                  <strong class="text-white">注文番号</strong>
-                </th>
-                <th scope="col">
                   <strong class="text-white">注文日</strong>
                 </th>
                 <th scope="col">
@@ -34,21 +31,19 @@
             </thead>
             <% @orders.each do |order| %>
               <tbody>
-                <th scope="row"><%= order.id %></th>
                 <td><%= order.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分") %></td>
                 <td><%= order.address %></td>
                 <td>
                   <% order.order_items.each do |order_item| %>
-                    <%= order_item.product.title %>
+                    <%= order_item.product.title %><br>
                   <% end %>
                 </td>
-                <td><%= order.amount %></td>
+                <td>¥<%= order.amount.to_s(:delimited) %></td>
                 <td><%= order.status %></td>
                 <th><%= link_to "詳細", order_path(order), class: "btn btn-outline-primary mr-1" %></th>
               </tbody>
             <% end %>
           </table>
-          <%= paginate @ %>
         </div>
       </div>
     </div>

@@ -44,7 +44,7 @@
                       </td>
                       <!--単価（税込）-->
                       <td class="align-middle">
-                        <%= cart_item.add_tax_price %>
+                        ¥<%= cart_item.add_tax_price.to_s(:delimited)  %>
                       </td>
                       <!--数量変更-->
                       <%= form_with model: cart_item, url: cart_item_path(cart_item.id), method: :patch, local: true do |f| %>
@@ -57,7 +57,7 @@
                       <% end %>
                       <!--小計-->
                       <td class="align-middle">
-                        <%= cart_item.sub_total.to_s %>
+                        ¥<%= cart_item.sub_total.to_s(:delimited)  %>
                       </td>
                       <!--商品削除-->
                       <td class="align-middle">
@@ -80,7 +80,7 @@
                   <tr>
                     <th class="align-middle">合計金額</th>
                     <td class="align-middle">
-                      <%= @total.round.to_s(:delimited) %>
+                      ¥<%= @total.round.to_s(:delimited) %>
                     </td>
                   </tr>
                 </tbody>

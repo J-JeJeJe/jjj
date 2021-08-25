@@ -15,6 +15,7 @@ class Public::CustomersController < ApplicationController
     if @customer.update(customer_params)
       redirect_to customers_path, notice: '会員情報を変更しました'
     else
+      flash.now[:alert] = "会員情報を変更できませんでした"
       render :edit
     end
   end

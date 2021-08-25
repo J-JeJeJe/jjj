@@ -12,9 +12,9 @@
               <h5 class="card-title" style="border-left: solid yellow;"><strong><%= @product.title %></strong></h5>
               <p class="card-text"><%= @product.description %>
                 <% if @product.sell_status == false %>
-                  <h5><small>¥<%= @product.price %>円（送料：一律800円）</small></h5>
+                  <h5><small>¥<%= @product.add_tax_price.to_s(:delimited) %> [税込]（送料：一律800円）</small></h5>
                 <% else %>
-                  <p class="text-danger">売り切れ中</p>
+                  <p class="text-danger">売り切れ中</p> 
                 <% end %>
               </p>
               <% if @product.sell_status == false %>
