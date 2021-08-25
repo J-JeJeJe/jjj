@@ -14,7 +14,7 @@
                 <tr>
                   <th scope="col">注文日</th>
                   <td scope="col">
-                      <%= @order.created_at %>
+                      <%= @order.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分") %>
                   </td>
                 </tr>
               </tbody>
@@ -52,9 +52,9 @@
             <table class="table">
               <tbody>
                 <tr>
-                  <th scope="row">請求情報</th>
+                  <th scope="row">商品合計</th>
                   <td>
-                      <%= @order.total_price %>
+                    <%= @order.total_price %>
                   </td>
                 </tr>
                 <tr>

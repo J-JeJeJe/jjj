@@ -5,11 +5,11 @@
   </sapn>
   <% product_categories.each do |product_category| %>
   <div class="list-group-item">
-   <%= link_to product_category.name, search_path('search[value]': product_category, 'search[how]': "match")%>
+   <%= link_to product_category.name, search_path('search[value]': product_category, 'search[how]': "match")%> (<%= product_category.products.count %>）
   </div>
   <% end %>
  </div>
-  
+
  <div class="shadow-sm rounded">
   <a class="twitter-timeline" data-height="450" href="https://twitter.com/dmmwebcamp_?ref_src=twsrc%5Etfw">Tweets by dmmwebcamp_</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
  </div>
