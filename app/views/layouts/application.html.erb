@@ -102,9 +102,13 @@
       <main class="backsize" id="home">
       <div class="my-0 py-0">
       <% if flash[:alert] %>
-      <p class="alert"><%= flash[:alert] %></p>
+        <div class="alert">
+          <%= flash[:alert] %>
+        </div>
      <% elsif flash[:notice] %>
-   　  <p class="notice"><%= flash[:notice] %></p>
+     　  <div class="notice">
+     　    <%= flash[:notice] %>
+     　 </div>
    　<% else %>
   　 <% end %>
   　 </div>
