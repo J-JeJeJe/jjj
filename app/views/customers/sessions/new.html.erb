@@ -1,15 +1,15 @@
 <div class="container mx-auto">
-  <div class="row d-flex align-items-center my-auto justify-content-center" style="height: 80vh;">
-    <div class="col-auto shadow p-3 bg-white rounded">
-<div class="text-center signin d-flex" id="form-signin">
-    <%= form_with model: @customer, url: customer_session_path, class: "form-signin", local: true do |f| %>
+ <div class="row d-flex align-items-center my-auto justify-content-center" style="height: 80vh;">
+  <div class="col-auto shadow p-3 bg-white rounded">
+   <div class="text-center signin d-flex" id="form-signin">
+     <%= form_with model: @customer, url: customer_session_path, class: "form-signin", local: true do |f| %>
 
       <div class="align-items-center p-3 my-3">
-        <h1 class="h3 mb-0 font-weight-normal">ログイン</h1>
+       <h1 class="h3 mb-0 font-weight-normal">ログイン</h1>
       </div>
 
       <div class="form-group">
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", id: "inputEmail", class: "form-control", placeholder: "Email address" %>
+       <%= f.email_field :email, autofocus: true, autocomplete: "email", id: "inputEmail", class: "form-control", placeholder: "Email address" %>
       </div>
 
       <div class="form-group">
@@ -17,14 +17,14 @@
       </div>
 
       <div class="form-group">
-          <%= f.submit "Log in", class: "btn btn-lg btn-primary btn-block" %>
+        <%= f.submit "Log in", class: "btn btn-lg btn-primary btn-block" %>
       </div>
       <div>
-        <%= link_to "新しいアカウントを作成", new_customer_registration_path %>
+       <%= link_to "新しいアカウントを作成", new_customer_registration_path %>
       </div>
-    <% end %>
+     <% end %>
+     </div>
     </div>
-    </div>
-    </div>
+   </div>
   </div>
 
