@@ -11,42 +11,42 @@
                   <td scope="col"><%= @customer.id %></td>
                </tr>
               </tbody>
-    
+
               <tbody>
                 <tr>
                   <th scope="col"><strong>氏名</strong></th>
                   <td scope="col"><%= @customer.full_name %></td>
                 </tr>
               </tbody>
-    
+
               <tbody>
                 <tr>
                   <th scope="col"><strong>郵便番号</strong></th>
                   <td scope="col"><%= @customer.postal_code %></td>
                 </tr>
               </tbody>
-    
+
               <tbody>
                 <tr>
                   <th scope="col"><strong>住所</strong></th>
                   <td scope="col"><%= @customer.address %></td>
                 </tr>
               </tbody>
-    
+
               <tbody>
                 <tr>
                   <th scope="col"><strong>電話番号</strong></th>
                   <td scope="col"><%= @customer.phone_number %></td>
                 </tr>
               </tbody>
-    
+
               <tbody>
                 <tr>
                   <th scope="col"><strong>メールアドレス</strong></th>
                   <td scope="col"><%= @customer.email %></td>
                 </tr>
               </tbody>
-    
+
               <tbody>
                 <tr>
                   <th scope="col"><strong>会員ステータス</strong></th>
@@ -59,11 +59,11 @@
                   </td>
                 </tr>
               </tbody>
-  
+
             </table>
             <div class="text-center mb-3">
-              <%= link_to "編集",edit_admin_customer_path, class: "btn btn-success btn-lg mr-1" %>
-              <%= link_to "一覧", admin_path, class: "btn btn-primary btn-lg mr-1"%>
+              <%= link_to "編集",edit_admin_customer_path, class: "btn btn-outline-success btn-lg mr-1" %>
+              <%= link_to "一覧", admin_path, class: "btn btn-outline-primary btn-lg mr-1"%>
             </div>
           </div>
         </div>
