@@ -12,12 +12,16 @@ class ApplicationController < ActionController::Base
     if customer_signed_in?
       customers_path
     else
-      admin_orders_path
+      admin_path
     end
   end
 
   def after_sign_out_path_for(resource)
-    root_path
+    if resource == :admin
+      new_admin_session_path
+    else
+      root_path
+    end
   end
 
 end
