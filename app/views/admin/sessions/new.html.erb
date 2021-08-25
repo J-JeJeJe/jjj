@@ -1,8 +1,12 @@
-<div class="text-center">
+<div class="container mx-auto">
+  <div class="row d-flex align-items-center my-auto justify-content-center" style="height: 80vh;">
+    <div class="col-auto shadow p-3 bg-white rounded">
+<div class="text-center signin d-flex pt-5 pb-5" id="form-signin">
+
 
   <%= form_with model:@admin, url: session_path(resource_name),class: "form-signin", local:true do |f| %>
 
-    <h1 class="h3 mb-3 font-weight-normal">ログイン</h1>
+    <h1 class="h3 mb-4 font-weight-normal">ログイン</h1>
 
     <div class="form-group">
       <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "Email address" %>
@@ -17,4 +21,7 @@
     </div>
   <% end %>
 
+</div>
+</div>
+</div>
 </div>
