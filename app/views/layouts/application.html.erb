@@ -34,9 +34,13 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <% if customer_signed_in? %>
+         <ul class="navbar-nav mr-auto">
+           
+            <% if customer_signed_in? %>          
               <li class="nav-item active">
+                <h6 class="nav-link"><%= full_name(current_customer) %>さん</h6>
+              </li>
+              <li class="nav-item">
                 <%= link_to "マイページ", customers_path, class: "nav-link text-dark" %>
               </li>
               <li class="nav-item">
@@ -48,8 +52,12 @@
               <li class="nav-item">
                 <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "nav-link text-dark" %>
               </li>
+
             <!--adminsの定義 start-->
             <% elsif admin_signed_in? %>
+              <li class="nav-item active">
+                <h6 class="nav-link">管理者</h6>
+              </li>
               <li class="nav-item">
                 <%= link_to "商品一覧", admin_products_path, class:"nav-link text-dark" %>
               </li>
@@ -65,6 +73,7 @@
               <li class="nav-item">
                 <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "nav-link text-dark" %>
               </li>
+           
             <!--adminsの定義　finish-->
             <% else %>
               <li class="nav-item">
@@ -81,6 +90,7 @@
               </li>
             <% end %>
           </ul>
+
             <%= form_with url: search_path, method: :get, class: "form-inline my-2 my-lg-0", local:true do |f| %>
               <%= f.text_field 'search[value]', placeholder: "検索", class: "form-control mr-sm-2"%>
               <%= f.hidden_field 'search[how]', value: "partical" %>
@@ -102,32 +112,10 @@
       </main>
 
     <footer class="bg-white shadow text-center text-lg-start">
-      <div class="container p-4 mb-3">
-        <div class="row">
-          <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-           <h5 class="text-uppercase">Nagano cake.com</h5>
-           <p>1998年に創業者もえによって開業され、2008年に2代目後継みんみんがその名を受け継いだ。
-           2010年に弟であるヤマタクがフランス修行から帰国後、現在のNagano cakeの原型となるフランスと長崎のそれぞれの伝統的な技法を取り入れた和洋ケーキが完成した。
-           2011年にテレビで放映後、長崎で話題となり、全国的にも話題となった。</p>
-          </div>
-          <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-          </div>
-          <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-            <h5 class="text-uppercase">会社概要</h5>
-            <ul class="list-unstyled">
-              <li>名誉取締役会長：もえ</li>
-              <li>代表取締役社長：みんみん</li>
-              <li>副社長：そういち</li>
-              <li>料理長：やまたく</li>
-            </ul>
-          </div>
-
-       </div>
-     </div>
      <div class="fixed-bottom text-center p-3 bg-light">
        @2021 08 Team JJJ
      </div>
-     
+
     </footer>
   </body>
 </html>
