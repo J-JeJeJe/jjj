@@ -1,12 +1,10 @@
 <div class="container">
   <div class="row d-flex align-items-center mx-auto my-auto justify-content-center">
     <div class="col-md-11 shadow p-3 my-5 bg-white rounded">
-
       <h1 class="mb-3 border-bottom"><strong>支払方法</strong></h1>
       <div class="container">
         <div class="row">
           <div class="col-md-8 mb-5 shadow-sm p-3 mb-5 bg-white rounfed">
-
             <table class="table">
               <thead>
                 <tr>
@@ -17,42 +15,36 @@
                 </tr>
               </thead>
               <% @cart_items.each do |cart_item| %>
-              <tbody>
-                <tr>
-                  <td scope="row align-middle">
-                    <%= attachment_image_tag cart_item.product, :image, class:"img-fluid", style: "object-fit: cover; width: 40px; height: 40px;" %>
-                    <%= cart_item.product.title %>
-                  </td>
-                  <td scope="row align-middle">
+                <tbody>
+                  <tr>
+                    <td scope="row align-middle">
+                      <%= attachment_image_tag cart_item.product, :image, class:"img-fluid", style: "object-fit: cover; width: 40px; height: 40px;" %>
+                      <%= cart_item.product.title %>
+                    </td>
+                    <td scope="row align-middle">
                     <%= cart_item.add_tax_price.to_s(:delimited) %>
-                  </td>
-                  <td scope="row align-middle">
-                    <%= cart_item.quantity %>
-                  </td>
-                  <td scope="row align-middle">
-                    <%= cart_item.sub_total.to_s(:delimited) %>
-                  </td>
-                </tr>
-              </tbody>
+                    </td>
+                    <td scope="row align-middle">
+                      <%= cart_item.quantity %>
+                    </td>
+                    <td scope="row align-middle">
+                      <%= cart_item.sub_total.to_s(:delimited) %>
+                    </td>
+                  </tr>
+                </tbody>
               <% end %>
-
             </table>
           </div>
-
           <div class="col-auto">
-
           </div>
-
           <div class="col-md-3 shadow-sm p-3 mb-5 bg-white rounded">
             <table class="table">
-
               <tbody>
                 <tr>
                   <th scope="col">送料</th>
                   <td scope="col"><%= @order.postage %></td>
                 </tr>
               </tbody>
-
               <tbody>
                 <tr>
                   <th scope="row">商品合計</th>
@@ -69,12 +61,10 @@
                   </td>
                 </tr>
               </tbody>
-
             </table>
           </div>
         </div>
       </div>
-
       <div class="container">
         <div class="row d-flex align-items-center mx-auto my-auto">
           <div class="col-9 p-3 bg-white">
@@ -91,39 +81,33 @@
                   </th>
                 </tr>
               </thead>
-
               <tbody>
                 <tr>
                   <td scope="row align-middle"><h5><strong>お届け先</strong></h5></td>
                   <td scope="row align-middle">
-                      〒<%= @order.postal_code %> <%= @order.address %></br>
-                      <%= @order.name %></td>
+                    〒<%= @order.postal_code %> <%= @order.address %></br>
+                    <%= @order.name %>
+                  </td>
                 </tr>
               </tbody>
             </table>
           </div>
-
-
-
-        <div class="col-2 pl-2">
-
-
-      <%= form_with model: @order, url: orders_path, method: :post, local:true do |f| %>
-		    <%= f.hidden_field :customer_id, value: current_customer.id %>
-		    <%= f.hidden_field :name, value: @order.name %>
-		    <%= f.hidden_field :postal_code, value: @order.postal_code %>
-		    <%= f.hidden_field :address, value: @order.address %>
-		    <%= f.hidden_field :payment_method, value: @order.payment_method %>
-		    <%= f.hidden_field :total_price, value: @total %>
-		    <%= f.hidden_field :postage, value: @order.postage %>
-		    <%= f.hidden_field :amount, value: @order.amount %>
-		    <%= f.hidden_field :address_status, value: @address_status %>
-		    <%= f.submit "注文を確定する", class: "btn btn-lg btn-outline-success" %>
-	    <% end %>
-	    </div>
+          <div class="col-2 pl-2">
+            <%= form_with model: @order, url: orders_path, method: :post, local:true do |f| %>
+              <%= f.hidden_field :customer_id, value: current_customer.id %>
+              <%= f.hidden_field :name, value: @order.name %>
+              <%= f.hidden_field :postal_code, value: @order.postal_code %>
+              <%= f.hidden_field :address, value: @order.address %>
+              <%= f.hidden_field :payment_method, value: @order.payment_method %>
+              <%= f.hidden_field :total_price, value: @total %>
+              <%= f.hidden_field :postage, value: @order.postage %>
+              <%= f.hidden_field :amount, value: @order.amount %>
+              <%= f.hidden_field :address_status, value: @address_status %>
+              <%= f.submit "注文を確定する", class: "btn btn-lg btn-outline-success" %>
+            <% end %>
+          </div>
+        </div>
       </div>
-	    </div>
-
     </div>
   </div>
 </div

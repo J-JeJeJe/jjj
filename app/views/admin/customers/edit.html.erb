@@ -3,7 +3,7 @@
     <div class="col-md-10 shadow p-3 mb-5 bg-white rounded">
       <div class="container">
         <div class="text-center mt-2 mb-3 border-bottom">
-          <h1 class="mb-0"><strong><%= @customer.full_name %>さんの会員詳細</strong></h1>
+          <h1 class="mb-0"><strong><%= @customer.full_name %>さんの会員情報編集</strong></h1>
         </div>
       </div>
       <div class="container">
@@ -17,7 +17,7 @@
                   <td scope="col"><%= @customer.id %></th>
                 </tr>
               </tbody>
-      
+  
               <tbody>
                 <tr>
                   <th scope="col"><strong>氏名</strong></th>
@@ -25,7 +25,7 @@
                   <td scope="col"><%= f.text_field :first_name, class: "form-control" %></th>
                 </tr>
               </tbody>
-      
+  
               <tbody>
                 <tr>
                   <th scope="col"><strong>フリガナ</strong></th>
@@ -33,35 +33,35 @@
                   <td scope="col"><%= f.text_field :first_name_kana, class: "form-control" %></th>
                 </tr>
               </tbody>
-      
+  
               <tbody>
                 <tr>
                   <th scope="col"><strong>郵便番号</strong></th>
                   <td scope="col"><%= f.text_field :postal_code, class: "form-control" %></th>
                 </tr>
               </tbody>
-      
+  
               <tbody>
                 <tr>
                   <th scope="col"><strong>住所</strong></th>
                   <td scope="col"><%= f.text_field :address, class: "form-control" %></th>
                 </tr>
               </tbody>
-      
+  
               <tbody>
                 <tr>
                   <th scope="col"><strong>電話番号</strong></th>
                   <td scope="col"><%= f.text_field :phone_number, class: "form-control" %></th>
                 </tr>
               </tbody>
-      
+  
               <tbody>
                 <tr>
                   <th scope="col"><strong>メールアドレス</strong></th>
                   <td scope="col"><%= f.text_field :email, class: "form-control" %></th>
                 </tr>
               </tbody>
-      
+  
               <tbody>
                 <tr>
                   <th scope="col"><strong>会員ステータス</strong></th>
@@ -80,7 +80,7 @@
                   </td>
                 </tr>
               </tbody>
-      
+  
               <tbody>
                 <tr>
                   <th scope="col" class="text-center mb-3">
@@ -88,12 +88,13 @@
                   </th>
                 </tr>
               </tbody>
-      
+  
             </table>
             <% end %>
-            </div>
           </div>
         </div>
       </div>
     </div>
+    <div class="container p-5"></div>
   </div>
+

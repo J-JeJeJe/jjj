@@ -9,9 +9,9 @@
     <div calss='container'>
      <div class='row'>
       <div class="col-3 mx-4 p-2 my-5 pt-7 rounded">
-       <%= attachment_image_tag @product, :image, size: "200x160",  fallback: "no_image.jpg" %>
+       <%= attachment_image_tag @product, :image, class: "shadow-sm rounded", style: "object-fit: cover; width: 100%; height: 160px;",  fallback: "no_image.jpg" %>
       </div>
-      <div class="col-7 ml-5 shadow-sm p-2 mb-5 bg-white rounded">
+      <div class="col-7 ml-3 shadow-sm p-2 mb-5 bg-white rounded">
        <table class="table">
    　    <tbody>
          <tr>
