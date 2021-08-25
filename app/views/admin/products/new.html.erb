@@ -1,13 +1,15 @@
 <div class="container">
-  <div class="d-flex align-items-center p-3 my-3  bg-white rounded shadow">
-    <h1 class="mb-0 text-dark">商品新規登録</h1>
-  </div>
-</div>
-
-<div class="container">
-  <div class="row d-flex align-items-center">
-    <div class="col-md-8 mx-auto rounded shadow py-2 my-3 bg-white">
-     <%= form_with model: @product, url: admin_products_path, local:true do |f| %>
+ <div class="row d-flex align-items-center mx-auto my-auto justify-content-center">
+  <div class="col-md-10 shadow p-3 mb-5 bg-white rounded">
+   <div class="container">
+    <div class="text-center mt-2 mb-3 border-bottom">
+     <h1 class="mb-0"><strong>商品新規登録</strong></h1>
+    </div>
+   </div>
+   <div class="container">
+    <div class="row d-flex align-items-center">
+     <div class="col-md-8 mx-auto rounded shadow-sm py-2 my-3 bg-white">
+      <%= form_with model: @product, url: admin_products_path, local:true do |f| %>
       <table class="table table-borderless">
        <tbody>
         <tr>
@@ -55,6 +57,9 @@
       </tbody>
      </table>
      <% end %>
+     </div>
     </div>
+   </div>
   </div>
  </div>
+</div>
