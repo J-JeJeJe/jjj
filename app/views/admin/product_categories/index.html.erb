@@ -1,51 +1,50 @@
 <div class="container">
-  <div class="row d-flex align-items-center mx-auto my-auto justify-content-center">
-    <div class="col-md-10 shadow p-3 mb-5 bg-white rounded">
-      <div class="container">
-        <div class="text-center mt-2 mb-3 border-bottom">
-          <h1 class="mb-0"><strong>ジャンル一覧/追加</strong></h1>
-        </div>
-      </div>
-	 <div class="container">
-	  <div class="row d-flex align-items-center">
-	   <div class="col-md-8 mx-auto rounded shadow-sm my-4 py-5 bg-white">
-	    <%= form_with model: @product_category, url: admin_product_categories_path, method: :post, local:true do |f| %>
-     	<table class="table table-borderless">
-	     <tbody>
-	      <tr>
-	       <th scope="col"><strong>ジャンル名</strong></th>
-	       <td scope="col"><%= f.text_field :name, placeholder: "ジャンル名" %></td>
-	       <td scope="col"><%= f.submit "新規登録", class: "btn btn-outline-success" %></td>
-	      </tr>
-	     </tbody>
-	    </table>
-	
-   	    <% end %>
-	     <div class="col-7 mx-auto">
-	  	  <table class="table rounded shadow-sm p-3 bg-w my-4">
-	       <thead class="thead-light">
-			<tr>
-			 <th scope="col">ジャンル</th>
-			 <th></th>
-			</tr>
-	       </thead>
-		  <tbody>
-		  <% @product_categories.each do |product_category| %>
-		  <tr>
-		   <td>
-		    <%= product_category.name %>
-		   </td>
-		   <td>
-		    <%= link_to 'Edit' , edit_admin_product_category_path(product_category.id), class: "btn btn-sm btn-success" %>
-		   </td>
-		  </tr>
-		  <% end %>
-		 </tbody>
-	    </table>
-	   </div>
-	  </div>
-	 </div>
+	<div class="row d-flex align-items-center mx-auto my-auto justify-content-center">
+		<div class="col-md-10 shadow p-3 mb-5 bg-white rounded">
+			<div class="container">
+				<div class="text-center mt-2 mb-3 border-bottom">
+					<h1 class="mb-0"><strong>ジャンル一覧/追加</strong></h1>
+				</div>
+			</div>
+			<div class="container">
+				<div class="row d-flex align-items-center">
+					<div class="col-md-8 mx-auto rounded shadow-sm my-4 py-5 bg-white">
+						<%= form_with model: @product_category, url: admin_product_categories_path, method: :post, local:true do |f| %>
+							<table class="table table-borderless">
+								<tbody>
+									<tr>
+										<th scope="col"><strong>ジャンル名</strong></th>
+										<td scope="col"><%= f.text_field :name, placeholder: "ジャンル名" %></td>
+										<td scope="col"><%= f.submit "新規登録", class: "btn btn-outline-success" %></td>
+									</tr>
+								</tbody>
+							</table>
+						<% end %>
+						<div class="col-7 mx-auto">
+							<table class="table rounded shadow-sm p-3 bg-w my-4">
+								<thead class="thead-light">
+									<tr>
+										<th scope="col">ジャンル</th>
+										<th></th>
+									</tr>
+								</thead>
+								<tbody>
+									<% @product_categories.each do |product_category| %>
+										<tr>
+											<td>
+												<%= product_category.name %>
+											</td>
+											<td>
+												<%= link_to 'Edit' , edit_admin_product_category_path(product_category.id), class: "btn btn-sm btn-success" %>
+											</td>
+										</tr>
+									<% end %>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
-  </div>
- </div>
 </div>
