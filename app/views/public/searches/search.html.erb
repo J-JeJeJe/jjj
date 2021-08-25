@@ -5,12 +5,18 @@
         <!--カテゴリー検索-->
         <%= render 'admin/product_categories/categories', product_categories: @product_categories %>
         <!--検索結果一覧-->
-        <div class="col-md-8 shadow rounded bg-light">
+        <div class="col-md-8">
+          <div class="container mb-3 mt-2">
+            <h2 style="text-shadow: 1px 1px 2px yellow;">ジャンル『<%= @product_category.name %>』で商品を検索</h2>
+          </div>
+          <div class="container shadow rounded bg-light">
+            <div class="row shadow rounded bg-light" style="height: 80vh;">
           <div class="container mb-3 mt-2">
             <h1 style="font-family: 'Kosugi Maru', sans-serif;"><strong>商品一覧</strong></strong></h1>
           </div>
-          <h2>ジャンル『<%= @product_category.name %>』で商品を検索</h2>
-          <h2>該当する商品はありません</h2>
+        <div class="container mb-3 mt-2">
+          <h2 class="text-center" style="text-shadow: 1px 1px 2px yellow;">該当する商品はありません</h2>
+        </div>
         </div>
       </div>
     </div>
